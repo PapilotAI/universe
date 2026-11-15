@@ -1,0 +1,28 @@
+id = "cvpr"
+version = "2027"
+name = "CVPR 2027"
+description = "Official CVPR 2027 author kit, with the rebuttal template."
+category = "conference"
+tags = ["computer vision", "cvpr"]
+languages = ["en"]
+license = "LicenseRef-CVPR"
+license_note = "cvpr.sty and the author kit state no license; ieeenat_fullname.bst is LPPL. Distributed by the CVF for author use; papers with altered margins or fonts are rejected."
+main = "main.tex"
+engine = "pdflatex"
+
+[venue]
+name = "CVPR"
+year = 2027
+url = "https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines"
+
+[upstream]
+url = "https://media.eventhosts.cc/Conferences/CVPR2027/author-kit-CVPR2027-v1-latex.zip"
+homepage = "https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines"
+version = "2027"
+sha256 = "da1ec5db9b73531ea82a87723e4aedb631083331fe655d1972279b48a7bdb2fe"
+
+[zh-CN]
+description = "CVPR 2027 官方作者模板，含 rebuttal 模板。"
+
+[setup]
+notes = "main.tex uses \\usepackage[review]{cvpr}; set \\paperID and switch to [final] for the camera-ready. Sections live in sec/. rebuttal.tex is a separate one-page document."

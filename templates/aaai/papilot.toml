@@ -1,0 +1,28 @@
+id = "aaai"
+version = "2027"
+name = "AAAI 2027"
+description = "Official AAAI-27 author kit for anonymous submissions and camera-ready papers."
+category = "conference"
+tags = ["artificial intelligence", "aaai"]
+languages = ["en"]
+license = "LicenseRef-AAAI"
+license_note = "No license grant. aaai2027.sty: \"If you are using this style sheet for an AAAI publication, you may not modify it for any reason.\" aaai2027.bst is LPPL."
+main = "AnonymousSubmission2027.tex"
+engine = "pdflatex"
+
+[venue]
+name = "AAAI"
+year = 2027
+url = "https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/"
+
+[upstream]
+url = "https://aaai.org/authorkit27/"
+homepage = "https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/"
+version = "2027"
+sha256 = "9406a545d5d213757245eb37118fe652b2fccf64f555aff28b49ebe2a780c960"
+
+[zh-CN]
+description = "AAAI-27 官方作者模板，含匿名投稿与终稿版本。"
+
+[setup]
+notes = "AnonymousSubmission2027.tex is the submission; CameraReady2027.tex is the final version. Do not modify aaai2027.sty, and avoid the packages the template forbids (hyperref, geometry and others listed in it)."

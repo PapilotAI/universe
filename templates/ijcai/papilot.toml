@@ -1,0 +1,28 @@
+id = "ijcai"
+version = "2027"
+name = "IJCAI 2027"
+description = "Official IJCAI 2027 formatting kit."
+category = "conference"
+tags = ["artificial intelligence", "ijcai"]
+languages = ["en"]
+license = "LicenseRef-IJCAI"
+license_note = "ijcai27.sty: \"These instructions can be modified and used in other conferences as long as credit to the authors and supporting agencies is retained, this notice is not changed, and further modification or reuse is not restricted.\" named.bst may be changed only if renamed."
+main = "ijcai27.tex"
+engine = "pdflatex"
+
+[venue]
+name = "IJCAI"
+year = 2027
+url = "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/"
+
+[upstream]
+url = "https://www.ijcai.org/sites/default/files/Guidelines/FormattingGuidelines-IJCAI-27.zip"
+homepage = "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/"
+version = "2027"
+sha256 = "1f829e86070353eb72220864632c4e6c5a6dd160c35380e68de14a242078b663"
+
+[zh-CN]
+description = "IJCAI 2027 官方排版模板。"
+
+[setup]
+notes = "Replace the example text; anonymize for submission as the instructions in ijcai27.tex describe."

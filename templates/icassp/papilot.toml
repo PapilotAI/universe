@@ -1,0 +1,28 @@
+id = "icassp"
+version = "2027"
+name = "ICASSP 2027"
+description = "Official ICASSP 2027 paper kit."
+category = "conference"
+tags = ["signal processing", "ieee", "icassp"]
+languages = ["en"]
+license = "LicenseRef-ICASSP"
+license_note = "No license stated. Distributed by the IEEE Signal Processing Society for ICASSP authors."
+main = "Template.tex"
+engine = "pdflatex"
+
+[venue]
+name = "ICASSP"
+year = 2027
+url = "https://2027.ieeeicassp.org/paper-submission-instructions/"
+
+[upstream]
+url = "https://cmsworkshops.com/ICASSP2027/papers/PaperFormat/ICASSP2027_Paper_Templates.zip"
+homepage = "https://2027.ieeeicassp.org/paper-submission-instructions/"
+version = "2027"
+sha256 = "fd1cc4102c4ad9a3e85eba96ee5ed261a45fab9c2630875eb2566812230c91a8"
+
+[zh-CN]
+description = "ICASSP 2027 官方论文模板。"
+
+[setup]
+notes = "Replace the example text; references use IEEEbib.bst with strings.bib and refs.bib."

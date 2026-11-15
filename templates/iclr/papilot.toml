@@ -1,0 +1,28 @@
+id = "iclr"
+version = "2027"
+name = "ICLR 2027"
+description = "Official LaTeX style for ICLR 2027 submissions."
+category = "conference"
+tags = ["machine learning", "iclr"]
+languages = ["en"]
+license = "LicenseRef-ICLR"
+license_note = "iclr2027_conference.sty states no license and the official repository has none; the bundled .bst is LPPL. Distributed by ICLR for author use."
+main = "iclr2027_conference.tex"
+engine = "pdflatex"
+
+[venue]
+name = "ICLR"
+year = 2027
+url = "https://iclr.cc/Conferences/2027/AuthorGuidelines"
+
+[upstream]
+url = "https://media.iclr.cc/Conferences/ICLR2027/iclr-2027-style-files.zip"
+homepage = "https://iclr.cc/Conferences/2027/AuthorGuidelines"
+version = "2027"
+sha256 = "0d940dfa9398ae99a18f24a85a8a683f367204b6af6d17d2899e60a67102529e"
+
+[zh-CN]
+description = "ICLR 2027 官方 LaTeX 投稿模板。"
+
+[setup]
+notes = "Uncomment \\iclrfinalcopy for the camera-ready version. math_commands.tex holds optional notation macros."
