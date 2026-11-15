@@ -1,0 +1,21 @@
+id = "ctex-article"
+version = "1.0.0"
+name = "Chinese Article"
+description = "A minimal Chinese article using ctex, with fonts chosen for each operating system."
+category = "article"
+tags = ["ctex", "chinese", "minimal", "中文"]
+languages = ["zh"]
+license = "MIT"
+main = "main.tex"
+engine = "xelatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+
+[zh-CN]
+name = "中文文章"
+description = "基于 ctex 的最简中文文章，字体随操作系统自动选择。"
+
+[setup]
+notes = "Replace the title, author and abstract in main.tex. Section text and refs.bib are placeholders the author will replace."

@@ -1,0 +1,65 @@
+name: Templates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: templates-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    name: Validate, compile and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    # Full TeX Live, including the free Fandol CJK fonts CI compiles Chinese templates with.
+    container: texlive/texlive:latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Install pdftoppm
+        run: apt-get update && apt-get install -y --no-install-recommends poppler-utils
+      # Unchanged templates keep their previous PDF and thumbnail; only edits recompile.
+      - uses: actions/cache@v4
+        with:
+          path: build
+          key: build-${{ hashFiles('templates/**') }}
+          restore-keys: build-
+      - run: npm ci
+      - run: npm test
+      - run: npm run validate
+      - run: npm run compile
+      - run: npm run build -- --published=https://papilot.ai/universe/v1/index.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: universe-site
+          path: dist
+          include-hidden-files: true
+          retention-days: 14
+
+  deploy:
+    name: Deploy to papilot.ai/universe
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          name: universe-site
+          path: dist
+      - name: Deploy the Worker
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        run: npx --yes wrangler@4 deploy
+      - name: Explain the missing secret
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: echo "::notice::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to deploy; the built site is in the universe-site artifact."

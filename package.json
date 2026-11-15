@@ -1,0 +1,19 @@
+{
+  "name": "papilot-universe",
+  "private": true,
+  "description": "LaTeX templates for starting a new paper in Papilot.",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "compile": "node scripts/compile.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "fflate": "0.8.3",
+    "smol-toml": "1.9.1"
+  }
+}

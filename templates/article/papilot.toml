@@ -1,0 +1,21 @@
+id = "article"
+version = "1.0.0"
+name = "Article"
+description = "A minimal LaTeX article with a bibliography, for any paper without a required template."
+category = "article"
+tags = ["article", "minimal", "blank"]
+languages = ["en"]
+license = "MIT"
+main = "main.tex"
+engine = "pdflatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+
+[zh-CN]
+name = "英文文章"
+description = "带参考文献的最简 LaTeX 文章，适合没有指定模板的论文。"
+
+[setup]
+notes = "Replace the title, author and abstract in main.tex. Section text and refs.bib are placeholders the author will replace."
