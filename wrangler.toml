@@ -1,12 +1,11 @@
 # Serves dist/ at papilot.ai/universe*. The rest of papilot.ai is untouched.
+# Static assets only: /universe redirects to /universe/, unknown paths get universe/404.html.
 name = "papilot-universe"
-main = "cloudflare/worker.js"
 compatibility_date = "2026-11-01"
 workers_dev = false
 routes = [{ pattern = "papilot.ai/universe*", zone_name = "papilot.ai" }]
 
 [assets]
 directory = "./dist"
-binding = "ASSETS"
 html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
