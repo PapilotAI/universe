@@ -49,7 +49,7 @@ for (const template of templates) {
     // latexmk's own summary names the failing step (BibTeX, Biber, makeindex) the TeX log does not show.
     const summary = `${run.stdout || ''}\n${run.stderr || ''}`.split('\n').filter(line => /^Latexmk: |error|Error|^\s+\S+: /.test(line)).slice(-25);
     if (summary.length) console.error('--- latexmk ---\n' + summary.join('\n'));
-    for (const blg of fs.readdirSync(path.join(folder, 'build')).filter(file => file.endsWith('.blg'))) console.error(`--- ${blg} ---\n` + fs.readFileSync(path.join(folder, 'build', blg), 'latin1').split('\n').filter(line => /error|ERROR|WARN|I couldn't|I found no/.test(line)).slice(0, 15).join('\n'));
+    for (const blg of (fs.existsSync(path.join(folder, 'build')) ? fs.readdirSync(path.join(folder, 'build')) : []).filter(file => file.endsWith('.blg'))) console.error(`--- ${blg} ---\n` + fs.readFileSync(path.join(folder, 'build', blg), 'latin1').split('\n').filter(line => /error|ERROR|WARN|I couldn't|I found no/.test(line)).slice(0, 15).join('\n'));
     continue;
   }
   fs.copyFileSync(pdf, path.join(out, 'preview.pdf'));
