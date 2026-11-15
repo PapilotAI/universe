@@ -26,12 +26,14 @@ for (const template of templates) {
   fs.cpSync(path.join(template.dir, 'files'), work, { recursive: true });
   const { main, engine } = template.manifest, folder = path.join(work, path.dirname(main)), started = Date.now();
   process.stdout.write(`tex  ${template.id} (${engine}) … `);
-  const run = spawnSync('latexmk', [flags[engine], '-interaction=nonstopmode', '-halt-on-error', '-file-line-error', '-no-shell-escape', path.basename(main)], { cwd: folder, encoding: 'utf8', timeout: 15 * 60_000, maxBuffer: 64 * 1024 * 1024, env: { ...process.env, TEXMFOUTPUT: folder } });
-  const pdf = path.join(folder, path.basename(main).replace(/\.tex$/, '.pdf'));
+  // The same latexmk options Papilot builds papers with, including TeX's default
+  // restricted shell escape (which converts EPS figures), and a build/ output folder.
+  const run = spawnSync('latexmk', ['-norc', flags[engine], '-outdir=build', '-interaction=nonstopmode', '-halt-on-error', '-file-line-error', path.basename(main)], { cwd: folder, encoding: 'utf8', timeout: 15 * 60_000, maxBuffer: 64 * 1024 * 1024 });
+  const pdf = path.join(folder, 'build', path.basename(main).replace(/\.tex$/, '.pdf'));
   if (run.status !== 0 || !fs.existsSync(pdf)) {
     failed++;
     console.log('failed');
-    const log = path.join(folder, path.basename(main).replace(/\.tex$/, '.log'));
+    const log = path.join(folder, 'build', path.basename(main).replace(/\.tex$/, '.log'));
     const lines = (fs.existsSync(log) ? fs.readFileSync(log, 'latin1') : (run.stdout || '') + (run.stderr || '') + (run.error?.message || '')).split('\n');
     const first = lines.findIndex(line => /^!|:\d+: /.test(line));
     console.error(lines.slice(first >= 0 ? Math.max(0, first - 2) : -40, first >= 0 ? first + 12 : undefined).join('\n'));

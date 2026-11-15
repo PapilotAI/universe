@@ -69,13 +69,14 @@ const L = {
   all: ['All', '全部'], thesis: ['Theses', '学位论文'], conference: ['Conferences', '会议'], journal: ['Journals', '期刊'], other: ['Other', '其他'],
   search: ['Search templates', '搜索模板'], open: ['Open in Papilot', '在 Papilot 中打开'], download: ['Download ZIP', '下载 ZIP'],
   preview: ['Preview PDF', '预览 PDF'], version: ['Version', '版本'], license: ['License', '许可'], engine: ['Engine', '编译'],
-  main: ['Main file', '主文件'], source: ['Source', '来源'], get: ['Get Papilot', '下载 Papilot'], back: ['All templates', '全部模板'],
+  main: ['Main file', '主文件'], source: ['Source', '来源'], custom: ['Custom', '自定义'], get: ['Get Papilot', '下载 Papilot'], back: ['All templates', '全部模板'],
   empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Template not found.', '找不到这个模板。'], submit: ['Add a template', '提交模板'],
 };
 const label = key => both(...L[key]);
 const ENGINE = { pdflatex: 'pdfLaTeX', xelatex: 'XeLaTeX', lualatex: 'LuaLaTeX' };
 const zh = (entry, key) => entry.i18n?.['zh-CN']?.[key];
-const meta = entry => entry.venue ? `${entry.venue.name} ${entry.venue.year}` : entry.organization ?? '';
+// Where the template comes from, unless the name already says it; then its engine.
+const meta = entry => { const from = entry.venue ? `${entry.venue.name} ${entry.venue.year}` : entry.organization ?? ''; return from && !entry.name.includes(from) ? from : ENGINE[entry.engine]; };
 const group = entry => ['thesis', 'conference', 'journal'].includes(entry.category) ? entry.category : 'other';
 const search = entry => [entry.id, entry.name, zh(entry, 'name'), entry.organization, entry.venue?.name, ...entry.tags].filter(Boolean).join(' ').toLowerCase();
 
@@ -133,7 +134,7 @@ for (const entry of entries) {
   const root = '../../', deep = `papilot://new?template=${encodeURIComponent(entry.id)}&version=${encodeURIComponent(entry.version)}`;
   const facts = [
     ['version', esc(entry.version)],
-    ['license', entry.license_note ? `<span title="${esc(entry.license_note)}">${esc(entry.license.replace(/^LicenseRef-/, ''))}</span>` : esc(entry.license)],
+    ['license', entry.license_note ? `<span class="note" title="${esc(entry.license_note)}">${label('custom')}</span>` : esc(entry.license)],
     ['engine', ENGINE[entry.engine]],
     ['main', `<code>${esc(entry.main)}</code>`],
     ['source', `<a href="${esc(entry.upstream.homepage ?? entry.venue?.url ?? entry.upstream.url)}" rel="noopener">${esc(new URL(entry.upstream.homepage ?? entry.venue?.url ?? entry.upstream.url).hostname)}</a>`],
