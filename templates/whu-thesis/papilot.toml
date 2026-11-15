@@ -1,0 +1,25 @@
+id = "whu-thesis"
+version = "2.4.0"
+name = "Wuhan University Thesis"
+description = "whu-thesis, the LaTeX thesis template for Wuhan University: bachelor, master and doctoral, academic or professional degrees."
+category = "thesis"
+tags = ["thesis", "wuhan university", "ctex", "中文", "武大"]
+languages = ["zh"]
+license = "LPPL-1.3c"
+license_note = "The release has no LICENSE file; the LPPL 1.3c-or-later grant is in the header of whu-thesis.cls and the repository's LICENSE. logo/whu-*.pdf are the Wuhan University emblem and name, which belong to the university. Upstream states the template is not reviewed or authorized by the university."
+main = "demo.tex"
+engine = "xelatex"
+organization = "Wuhan University"
+
+[upstream]
+url = "https://github.com/whutug/whu-thesis/releases/download/v2.4.0/whuthesis.zip"
+homepage = "https://github.com/whutug/whu-thesis"
+version = "v2.4.0"
+sha256 = "1e5a50877bab7a8fae2807fb26a7e2df01664d72bc1a2c15e813a0818ce7e91d"
+
+[zh-CN]
+name = "武汉大学学位论文"
+description = "武汉大学学位论文模板 whu-thesis，支持本科、硕士和博士，学术型或专业型学位。"
+
+[setup]
+notes = "Choose the degree in \\documentclass[type = ..., class = ...]{whu-thesis} of demo.tex (type = bachelor|master|doctor, class = academic|professional). Title, author, student ID, department, supervisor and dates go in info = {...} of \\whusetup in demo.tex, the bibliography file in style = {bib-resource = ...}; chapters and abstracts are in pages/. Upstream's demo sets cjk-font = mac; that line is commented out here so the class uses its default free Fandol fonts on every system (set cjk-font = windows or mac for system fonts)."

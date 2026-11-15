@@ -1,0 +1,25 @@
+id = "ucasthesis"
+version = "2021.10"
+name = "University of Chinese Academy of Sciences Thesis"
+description = "ucasthesis, the most widely used LaTeX thesis template at UCAS, for bachelor, master, doctoral and postdoctoral theses."
+category = "thesis"
+tags = ["thesis", "ucas", "chinese academy of sciences", "ctex", "中文", "国科大"]
+languages = ["zh", "en"]
+license = "GPL-3.0-or-later AND LPPL-1.3c"
+license_note = "There is no LICENSE file: the GPL 3.0-or-later grant is in the headers of Thesis.tex and Style/*. Biblio/ bundles the LPPL gbt7714 and biblatex-gb7714-2015 styles. Img/ucas_logo.pdf belongs to UCAS. Unofficial, and unmaintained since October 2021; UCAS also publishes its own template."
+main = "Thesis.tex"
+engine = "xelatex"
+organization = "University of Chinese Academy of Sciences"
+
+[upstream]
+url = "https://github.com/mohuangrui/ucasthesis/archive/aec46ba1f621c537404cb631f54f6289b25a97af.zip"
+homepage = "https://github.com/mohuangrui/ucasthesis"
+version = "master 2021-10-29"
+commit = "aec46ba1f621c537404cb631f54f6289b25a97af"
+
+[zh-CN]
+name = "中国科学院大学学位论文"
+description = "国科大使用最广的学位论文模板 ucasthesis，支持本科、硕士、博士及博士后。"
+
+[setup]
+notes = "Title, author, advisor, degree (学士, 硕士 or 博士), degree type and institute go in Tex/Frontinfo.tex; chapters are listed in Tex/Mainmatter.tex, the abstract in Tex/Frontmatter.tex, references in Biblio/ref.bib (BibTeX by default). The citation style is set by the options of \\usepackage[...]{Style/artratex} in Thesis.tex (authoryear here, or numbers); international students can add scheme=plain to the class options for an English thesis."

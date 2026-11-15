@@ -1,0 +1,25 @@
+id = "thuthesis"
+version = "7.7.1"
+name = "Tsinghua University Thesis"
+description = "ThuThesis, the widely used thesis template for Tsinghua University: bachelor, master, doctoral and postdoctoral theses."
+category = "thesis"
+tags = ["thesis", "tsinghua", "ctex", "中文", "清华"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c"
+license_note = "thu-fig-logo.pdf and thu-text-logo.pdf are the Tsinghua emblem and name, trademarks of Tsinghua University; upstream allows them only for this template."
+main = "thuthesis-example.tex"
+engine = "xelatex"
+organization = "Tsinghua University"
+
+[upstream]
+url = "https://github.com/tuna/thuthesis/releases/download/v7.7.1/thuthesis-v7.7.1.zip"
+homepage = "https://github.com/tuna/thuthesis"
+version = "v7.7.1"
+sha256 = "ca8b0de4f7e770d8ab8d50870f7d3a800b5f8c0c5d049c83cf9cafc70142a26d"
+
+[zh-CN]
+name = "清华大学学位论文"
+description = "清华大学学位论文模板 ThuThesis，支持本科、硕士、博士及博士后。"
+
+[setup]
+notes = "Choose the degree in \\documentclass[degree=...] of thuthesis-example.tex (doctor, master, bachelor or postdoc; add degree-type=professional or language=english as needed). The title, author, department, supervisor and dates go in thusetup.tex; chapters, abstract, committee and resume are in data/, references in ref/refs.bib (BibTeX)."

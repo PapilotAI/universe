@@ -1,0 +1,25 @@
+id = "hustthesis"
+version = "2.1.0"
+name = "Huazhong University of Science and Technology Thesis"
+description = "hustthesis, the unofficial LaTeX template for HUST master's and doctoral theses, with biblatex references."
+category = "thesis"
+tags = ["thesis", "hust", "ctex", "biblatex", "中文", "华科"]
+languages = ["zh"]
+license = "LPPL-1.3c"
+license_note = "hustvisual.sty and hustvisual-vi-*.def are bundled unchanged from hustvisual v1.0.0 (LPPL 1.3c; hustvisual.tds.zip, sha256 5cdaae007c466d71f8ab7a223fa0d29e242d6000a1996e3fb75cd2f35ec635da), which TeX Live 2025 lacks. The emblem and name they draw are (c) HUST, for use under vi.hust.edu.cn. ref.bib is a one-entry placeholder written for this template; the release has none."
+main = "main.tex"
+engine = "xelatex"
+organization = "Huazhong University of Science and Technology"
+
+[upstream]
+url = "https://github.com/hust-latex/hustthesis/releases/download/v2.1.0/hustthesis-user.zip"
+homepage = "https://github.com/hust-latex/hustthesis"
+version = "v2.1.0"
+sha256 = "2c9fda1b5e2053988bde240adb7cdaf9d6ddec08cc51d6bc13df6818154df2a8"
+
+[zh-CN]
+name = "华中科技大学学位论文"
+description = "华中科技大学硕士、博士学位论文的非官方 LaTeX 模板 hustthesis，使用 biblatex 排版参考文献。"
+
+[setup]
+notes = "Choose the degree in \\documentclass[type=...]{hustthesis} of main.tex (doctor or master; graduate theses only). Title, degree (academic or professional), author, student ID, major, supervisor, date and committee go in info = {...} of \\hustsetup; references are in ref.bib (biblatex with biber), which holds only the example's one entry. main.tex is a skeleton with one chapter, written directly in the file."
