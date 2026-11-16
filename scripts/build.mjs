@@ -2,6 +2,7 @@
 // immutable ZIP + preview per template version. Run compile first.
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { zipSync } from 'fflate';
 import { BUILD, DIST, ROOT, loadTemplates, sha256 } from './lib.mjs';
 
@@ -32,6 +33,14 @@ for (const template of templates) {
   fs.mkdirSync(path.join(out, base), { recursive: true });
   fs.writeFileSync(path.join(out, base + '.zip'), zip);
   if (compiled) for (const file of ['preview.pdf', 'thumbnail.png']) fs.copyFileSync(path.join(build, file), path.join(out, base, file));
+  // A sharper first page for the template's own page, rendered once per compile.
+  const cover = path.join(build, 'cover.png');
+  if (compiled && (!fs.existsSync(cover) || fs.statSync(cover).mtimeMs < fs.statSync(path.join(build, 'preview.pdf')).mtimeMs)) {
+    const render = spawnSync('pdftoppm', ['-png', '-singlefile', '-f', '1', '-l', '1', '-scale-to', '1600', path.join(build, 'preview.pdf'), path.join(build, 'cover')], { encoding: 'utf8' });
+    if (render.status !== 0) console.warn(`${id}: no cover (${(render.stderr || render.error?.message || '').trim()}); the thumbnail is used instead.`);
+  }
+  const hasCover = compiled && fs.existsSync(cover);
+  if (hasCover) fs.copyFileSync(cover, path.join(out, base, 'cover.png'));
   entries.push({
     id, version: m.version, name: m.name, description: m.description,
     ...(m['zh-CN'] ? { i18n: { 'zh-CN': m['zh-CN'] } } : {}),
@@ -43,6 +52,7 @@ for (const template of templates) {
     upstream: m.upstream,
     archive: { url: base + '.zip', sha256: sha256(zip), size: zip.length, files: template.files.length },
     ...(compiled ? { thumbnail: base + '/thumbnail.png', preview: base + '/preview.pdf', pages: stamp.pages } : {}),
+    ...(hasCover ? { cover: base + '/cover.png' } : {}),
     ...(m.setup?.notes ? { setup: m.setup.notes.trim() } : {}),
     page: `t/${id}/`,
   });
@@ -63,27 +73,52 @@ entries.sort((a, b) => (order[a.category] ?? 9) - (order[b.category] ?? 9) || a.
 fs.writeFileSync(path.join(out, 'v1', 'index.json'), JSON.stringify({ schema: 1, generated: new Date().toISOString(), templates: entries }, null, 2) + '\n');
 
 // ---- Static pages ---------------------------------------------------------
+// Pages use absolute /universe/ paths: the site only ever lives there (locally too).
+const U = '/universe/', MAIN = 'https://papilot.ai/';
 const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const both = (en, zh) => zh && zh !== en ? `<span lang="en">${esc(en)}</span><span lang="zh-CN">${esc(zh)}</span>` : esc(en);
+// Main-site links go to its Chinese pages for Chinese readers (the privacy notice is bilingual).
+const link = (href, en, zh, zhHref = href.replace(MAIN, MAIN + 'zh-CN/')) => `<a href="${href}" lang="en">${esc(en)}</a><a href="${zhHref}" lang="zh-CN">${esc(zh)}</a>`;
 const L = {
   all: ['All', '全部'], thesis: ['Theses', '学位论文'], conference: ['Conferences', '会议'], journal: ['Journals', '期刊'], other: ['Other', '其他'],
+  thesisOne: ['Thesis', '学位论文'], conferenceOne: ['Conference', '会议论文'], journalOne: ['Journal', '期刊论文'], otherOne: ['Template', '模板'],
+  tagline: ['LaTeX templates for theses and conference papers.', '学位论文与会议论文的 LaTeX 模板。'],
   search: ['Search templates', '搜索模板'], open: ['Open in Papilot', '在 Papilot 中打开'], download: ['Download ZIP', '下载 ZIP'],
-  preview: ['Preview PDF', '预览 PDF'], version: ['Version', '版本'], license: ['License', '许可'], engine: ['Engine', '编译'],
-  main: ['Main file', '主文件'], source: ['Source', '来源'], custom: ['Custom', '自定义'], get: ['Get Papilot', '下载 Papilot'], back: ['All templates', '全部模板'],
-  empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Template not found.', '找不到这个模板。'], submit: ['Add a template', '提交模板'],
+  preview: ['Preview PDF', '预览 PDF'], version: ['Version', '版本'], license: ['License', '许可'], engine: ['Engine', '编译引擎'],
+  main: ['Main file', '主文件'], source: ['Source', '来源'], sample: ['Sample', '示例'], languages: ['Languages', '语言'], archive: ['Archive', '压缩包'],
+  notStated: ['Not stated', '未声明'], publicDomain: ['Public domain', '公有领域'], note: ['Read the note', '查看说明'],
+  noApp: ['No Papilot yet?', '还没有 Papilot？'], getApp: ['Download it free', '免费下载'],
+  empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Page not found', '找不到页面'], back: ['All templates', '全部模板'],
+  licenses: ['Templates keep their own licenses', '模板遵循各自的许可'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
 };
 const label = key => both(...L[key]);
 const ENGINE = { pdflatex: 'pdfLaTeX', xelatex: 'XeLaTeX', lualatex: 'LuaLaTeX' };
+const LANGUAGE = { zh: ['Chinese', '中文'], en: ['English', '英文'] };
 const zh = (entry, key) => entry.i18n?.['zh-CN']?.[key];
-// Where the template comes from, unless the name already says it; then its engine.
-const meta = entry => { const from = entry.venue ? `${entry.venue.name} ${entry.venue.year}` : entry.organization ?? ''; return from && !entry.name.includes(from) ? from : ENGINE[entry.engine]; };
 const group = entry => ['thesis', 'conference', 'journal'].includes(entry.category) ? entry.category : 'other';
-const search = entry => [entry.id, entry.name, zh(entry, 'name'), entry.organization, entry.venue?.name, ...entry.tags].filter(Boolean).join(' ').toLowerCase();
+// The publisher when the name does not already say it (ACM, IEEE, ...), else the kind of template.
+const source = entry => entry.organization && !entry.name.includes(entry.organization) ? esc(entry.organization) : label(group(entry) + 'One');
+const meta = entry => `${source(entry)} · ${ENGINE[entry.engine]}`;
+const search = entry => [entry.id, entry.name, zh(entry, 'name'), entry.organization, entry.venue?.name, ENGINE[entry.engine], ...L[group(entry)], ...L[group(entry) + 'One'], ...entry.tags].filter(Boolean).join(' ').toLowerCase();
+const licenseText = entry => entry.license.split(/\s+(AND|OR)\s+/).filter((part, index) => index % 2 === 0).map(part =>
+  part === 'LicenseRef-PublicDomain' ? label('publicDomain') : part.startsWith('LicenseRef-') ? label('notStated') : esc(part)).join(' + ');
+const sourceUrl = entry => entry.upstream.homepage ?? entry.venue?.url ?? entry.upstream.url;
+const shortUrl = url => { const parsed = new URL(url); return (parsed.hostname.replace(/^www\./, '') + parsed.pathname).replace(/\/$/, ''); };
+const megabytes = bytes => bytes < 1e6 ? `${Math.max(1, Math.round(bytes / 1e3))} KB` : `${(bytes / 1e6).toFixed(1)} MB`;
+const pngSize = file => { const head = fs.readFileSync(file).subarray(16, 24); return [head.readUInt32BE(0), head.readUInt32BE(4)]; };
+const ICON = {
+  search: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  download: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>',
+  pdf: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+  moon: '<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>',
+  sun: '<svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  globe: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  check: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
+};
 
-function page({ title, description, canonical, body, depth }) {
-  const up = '../'.repeat(depth);
+function page({ title, titleZh = title, description, canonical, body, image, current = 'page' }) {
   return `<!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en" data-lang="en" data-title-en="${esc(title)}" data-title-zh="${esc(titleZh)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,71 +127,97 @@ function page({ title, description, canonical, body, depth }) {
 <link rel="canonical" href="${SITE}${canonical}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
-<link rel="icon" type="image/png" href="${up}assets/favicon.png">
-<link rel="stylesheet" href="${up}assets/universe.css">
-<script>try{var l=localStorage.getItem('papilot-universe-lang')||(/^zh/i.test(navigator.language)?'zh-CN':'en');document.documentElement.dataset.lang=l;document.documentElement.lang=l}catch(e){}</script>
+<meta property="og:image" content="${image ?? MAIN + 'assets/social-preview.png'}">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="${U}assets/favicon.png">
+<link rel="stylesheet" href="${U}assets/universe.css">
+<script>try{var r=document.documentElement,s=localStorage.getItem('papilot-lang'),t=localStorage.getItem('papilot-theme');r.dataset.lang=s?(/^zh/.test(s)?'zh-CN':'en'):(/^zh/i.test(navigator.language)?'zh-CN':'en');r.lang=r.dataset.lang;if(t==='dark'||t==='light')r.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-<header class="bar"><div class="wrap bar-inner">
-  <a class="brand" href="${up}"><img src="${up}assets/logo.svg" alt="" width="24" height="24"><span>Papilot</span><span class="brand-sub">Universe</span></a>
-  <nav class="bar-actions"><button type="button" class="lang" data-lang-toggle aria-label="Language"><span lang="en">中文</span><span lang="zh-CN">EN</span></button><a class="pill" href="https://papilot.ai/#download">${label('get')}</a></nav>
+<header class="topbar"><div class="wrap topbar-inner">
+  <a class="brand" href="${MAIN}" aria-label="Papilot"><img class="brand-mark" src="${U}assets/logo.svg" alt="" width="26" height="26"><span>Papilot</span></a>
+  <nav class="nav" aria-label="Sections"><a href="${U}" aria-current="${current}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}${link(MAIN + '#download', ...L.downloads)}</nav>
+  <div class="topbar-actions">
+    <button class="icon-button theme-button" type="button" id="theme-button" aria-pressed="false" aria-label="Dark mode" title="Dark mode" hidden>${ICON.moon}${ICON.sun}</button>
+    <div class="lang-menu" hidden>
+      <button class="icon-button" type="button" id="lang-button" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-list" aria-label="Language" title="Language">${ICON.globe}</button>
+      <div class="lang-list" id="lang-list" role="menu" aria-labelledby="lang-button" hidden><button type="button" role="menuitemradio" data-set-lang="en" aria-checked="false">English${ICON.check}</button><button type="button" role="menuitemradio" data-set-lang="zh-CN" aria-checked="false">简体中文${ICON.check}</button></div>
+    </div>
+  </div>
 </div></header>
-<main class="wrap">${body}</main>
-<script src="${up}assets/universe.js" defer></script>
+<main>${body}</main>
+<footer class="footer"><div class="wrap footer-inner">
+  <a class="brand" href="${MAIN}"><img class="brand-mark" src="${U}assets/logo.svg" alt="" width="22" height="22">Papilot</a>
+  <nav aria-label="Links"><a href="${U}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}<a href="https://github.com/PapilotAI/papilot">GitHub</a>${link(MAIN + 'privacy/', ...L.privacy, MAIN + 'privacy/')}</nav>
+  <p>${label('licenses')} · © 2026 PapilotAI</p>
+</div></footer>
+<script src="${U}assets/universe.js" defer></script>
 </body>
 </html>
 `;
 }
 
 const categories = ['thesis', 'conference', 'journal', 'other'].filter(key => entries.some(entry => group(entry) === key));
-const card = entry => `<a class="card" href="${entry.page}" data-group="${group(entry)}" data-search="${esc(search(entry))}">
-  <div class="thumb">${entry.thumbnail ? `<img src="${entry.thumbnail}" alt="" loading="lazy">` : ''}</div>
-  <div class="card-body"><strong>${both(entry.name, zh(entry, 'name'))}</strong><span>${esc(meta(entry))}</span></div>
+const count = key => key === 'all' ? entries.length : entries.filter(entry => group(entry) === key).length;
+const card = entry => `<a class="card" href="${U}${entry.page}" data-group="${group(entry)}" data-search="${esc(search(entry))}">
+  <div class="sheet">${entry.thumbnail ? `<img src="${U}${entry.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}</div>
+  <div class="card-text"><span class="card-title">${both(entry.name, zh(entry, 'name'))}</span><span class="card-meta">${meta(entry)}</span></div>
 </a>`;
 fs.writeFileSync(path.join(out, 'index.html'), page({
-  title: 'Papilot Universe', canonical: '', depth: 0,
+  title: 'Papilot Universe', canonical: '',
   description: 'LaTeX templates for theses and conference papers. Start a new paper from any of them in Papilot.',
   body: `
-<section class="hero"><h1>Universe</h1>
-  <div class="tools">
-    <div class="segmented" role="tablist">${['all', ...categories].map((key, index) => `<button type="button" role="tab" data-filter="${key}" aria-selected="${index === 0}">${label(key)}</button>`).join('')}</div>
-    <input class="search" type="search" data-search-input autocomplete="off" spellcheck="false" aria-label="${esc(L.search[0])}" placeholder="${esc(L.search[0])}" data-placeholder-zh="${esc(L.search[1])}">
-  </div>
-</section>
-<section class="grid" data-grid>${entries.map(card).join('\n')}</section>
-<p class="empty" data-empty hidden>${label('empty')}</p>
-<footer class="foot"><a href="https://github.com/PapilotAI/universe">${label('submit')}</a></footer>`,
+<section class="hero"><div class="wrap hero-inner">
+  <h1>Universe</h1>
+  <p class="hero-sub">${label('tagline')}</p>
+  <label class="search">${ICON.search}<input type="search" data-search-input autocomplete="off" spellcheck="false" aria-label="${esc(L.search[0])}" placeholder="${esc(L.search[0])}" data-placeholder-en="${esc(L.search[0])}" data-placeholder-zh="${esc(L.search[1])}"><kbd>/</kbd></label>
+  <div class="segmented" role="tablist" aria-label="Category">${['all', ...categories].map((key, index) => `<button type="button" role="tab" data-filter="${key}" aria-selected="${index === 0}">${label(key)}<span class="count">${count(key)}</span></button>`).join('')}</div>
+</div></section>
+<div class="wrap">
+  <section class="grid" data-grid>${entries.map(card).join('\n')}</section>
+  <p class="empty" data-empty hidden>${label('empty')}</p>
+</div>`,
 }));
 
 for (const entry of entries) {
   const dir = path.join(out, 't', entry.id);
   fs.mkdirSync(dir, { recursive: true });
-  const root = '../../', deep = `papilot://new?template=${encodeURIComponent(entry.id)}&version=${encodeURIComponent(entry.version)}`;
+  const deep = `papilot://new?template=${encodeURIComponent(entry.id)}&version=${encodeURIComponent(entry.version)}`;
+  const cover = entry.cover ?? entry.thumbnail, [width, height] = cover ? pngSize(path.join(out, cover)) : [];
   const facts = [
     ['version', esc(entry.version)],
-    ['license', entry.license_note ? `<span class="note" title="${esc(entry.license_note)}">${label('custom')}</span>` : esc(entry.license)],
     ['engine', ENGINE[entry.engine]],
+    ['license', licenseText(entry) + (entry.license_note ? `<details class="license-note"><summary>${label('note')}</summary>${esc(entry.license_note)}</details>` : ''), 'wide'],
     ['main', `<code>${esc(entry.main)}</code>`],
-    ['source', `<a href="${esc(entry.upstream.homepage ?? entry.venue?.url ?? entry.upstream.url)}" rel="noopener">${esc(new URL(entry.upstream.homepage ?? entry.venue?.url ?? entry.upstream.url).hostname)}</a>`],
+    ['languages', `<span class="chips">${entry.languages.map(code => `<span class="chip">${LANGUAGE[code] ? both(...LANGUAGE[code]) : esc(code)}</span>`).join('')}</span>`],
+    ...(entry.pages ? [['sample', both(`${entry.pages} ${entry.pages === 1 ? 'page' : 'pages'}`, `${entry.pages} 页`)]] : []),
+    ['archive', both(`${entry.archive.files} files · ${megabytes(entry.archive.size)}`, `${entry.archive.files} 个文件 · ${megabytes(entry.archive.size)}`)],
+    ['source', `<a href="${esc(sourceUrl(entry))}" rel="noopener">${esc(shortUrl(sourceUrl(entry)))}</a>`, 'wide'],
   ];
+  const name = zh(entry, 'name') ?? entry.name;
   fs.writeFileSync(path.join(dir, 'index.html'), page({
-    title: `${entry.name} · Papilot Universe`, canonical: entry.page, depth: 2, description: entry.description,
+    title: `${entry.name} · Papilot Universe`, titleZh: `${name} · Papilot Universe`, canonical: entry.page, description: entry.description,
+    image: entry.thumbnail ? SITE + entry.thumbnail : undefined, current: 'true',
     body: `
-<a class="back" href="${root}">← ${label('back')}</a>
+<div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="${U}">Universe</a><span aria-hidden="true">/</span><span>${both(entry.name, zh(entry, 'name'))}</span></nav>
 <article class="detail">
-  <a class="detail-thumb" ${entry.preview ? `href="${root}${entry.preview}"` : ''}>${entry.thumbnail ? `<img src="${root}${entry.thumbnail}" alt="">` : ''}</a>
+  <div class="stage">${cover ? `<a ${entry.preview ? `href="${U}${entry.preview}"` : ''} aria-label="${esc(L.preview[0])}"><div class="sheet"><img src="${U}${cover}" alt="" width="${width}" height="${height}"></div></a>` : ''}</div>
   <div class="detail-body">
-    <p class="detail-meta">${esc(meta(entry))}</p>
+    <p class="eyebrow"><span>${label(group(entry) + 'One')}</span>${entry.organization && entry.organization !== 'Papilot' ? `<span>${esc(entry.organization)}</span>` : ''}${entry.venue && !entry.name.includes(entry.venue.name) ? `<span>${esc(entry.venue.name)} ${esc(entry.venue.year)}</span>` : ''}</p>
     <h1>${both(entry.name, zh(entry, 'name'))}</h1>
-    <p class="detail-description">${both(entry.description, zh(entry, 'description'))}</p>
-    <div class="actions"><a class="pill primary" href="${deep}">${label('open')}</a><a class="pill" href="${root}${entry.archive.url}" download>${label('download')}</a>${entry.preview ? `<a class="pill ghost" href="${root}${entry.preview}">${label('preview')}</a>` : ''}</div>
-    <dl class="facts">${facts.map(([key, value]) => `<div><dt>${label(key)}</dt><dd>${value}</dd></div>`).join('')}</dl>
+    <p class="lead">${both(entry.description, zh(entry, 'description'))}</p>
+    <div class="actions"><a class="button primary" href="${deep}">${label('open')}</a><a class="button" href="${U}${entry.archive.url}" download>${ICON.download}${label('download')}</a>${entry.preview ? `<a class="button" href="${U}${entry.preview}">${ICON.pdf}${label('preview')}</a>` : ''}</div>
+    <p class="get-app">${label('noApp')} ${link(MAIN + '#download', ...L.getApp)}</p>
+    <dl class="facts">${facts.map(([key, value, wide]) => `<div${wide ? ' class="wide"' : ''}><dt>${label(key)}</dt><dd>${value}</dd></div>`).join('')}</dl>
   </div>
-</article>`,
+</article>
+</div>`,
   }));
 }
 
-fs.writeFileSync(path.join(out, '404.html'), page({ title: 'Not found · Papilot Universe', canonical: '', depth: 0, description: '', body: `<p class="empty">${label('notFound')}</p><p class="empty"><a href="/universe/">← ${label('back')}</a></p>` }).replaceAll('href="assets/', 'href="/universe/assets/').replaceAll('src="assets/', 'src="/universe/assets/').replace('<a class="brand" href="">', '<a class="brand" href="/universe/">'));
+fs.writeFileSync(path.join(out, '404.html'), page({ title: 'Not found · Papilot Universe', canonical: '', description: '', body: `<div class="wrap missing"><h1>${label('notFound')}</h1><a class="button" href="${U}">${label('back')}</a></div>` }));
 for (const file of ['universe.css', 'universe.js', 'logo.svg', 'favicon.png']) fs.copyFileSync(path.join(ROOT, 'site', file), path.join(out, 'assets', file));
 fs.writeFileSync(path.join(DIST, '_headers'), `/universe/v1/index.json
   Cache-Control: public, max-age=300
