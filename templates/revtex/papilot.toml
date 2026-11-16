@@ -1,0 +1,24 @@
+id = "revtex"
+version = "4.2-f"
+name = "APS / AIP (REVTeX 4.2)"
+description = "REVTeX 4.2, the class of the American Physical Society and AIP Publishing journals (Physical Review, Applied Physics Letters, …)."
+category = "journal"
+tags = ["revtex", "aps", "aip", "physical review", "physics", "journal"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "apssamp.tex"
+engine = "pdflatex"
+organization = "American Physical Society"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/revtex.zip"
+homepage = "https://ctan.org/pkg/revtex"
+version = "4.2f (APS sample)"
+sha256 = "5a5ebc9831ae219b2bcf2f8b408dc07a55a9e244af1317f1f25ca187daa40d82"
+
+[zh-CN]
+name = "APS / AIP 期刊（REVTeX 4.2）"
+description = "REVTeX 4.2，美国物理学会（Physical Review 系列）与 AIP 出版期刊使用的模板。"
+
+[setup]
+notes = "Choose the journal in the class options of apssamp.tex (for example prl, pra, prb, or aip,apl). The revtex4-2 class comes with TeX Live."

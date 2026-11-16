@@ -1,0 +1,53 @@
+\documentclass[aspectratio=169]{beamer}
+% A starting talk with the Moloch theme, the maintained successor of Metropolis (Papilot Universe, MIT).
+\usetheme{moloch}
+\usepackage{booktabs}
+
+\title{A Talk Title}
+\subtitle{A short subtitle}
+\author{Speaker Name}
+\institute{Institution}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Motivation}
+\begin{frame}{Why this matters}
+  \begin{itemize}
+    \item State the problem in one sentence.
+    \item Explain why existing approaches fall short.
+    \item Give the key idea.
+  \end{itemize}
+\end{frame}
+
+\section{Results}
+\begin{frame}{Main result}
+  \begin{theorem}
+    For all $n \ge 1$, $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$.
+  \end{theorem}
+  \begin{alertblock}{Takeaway}
+    One message the audience should remember.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Numbers}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    Method & Accuracy & Time (s) \\
+    \midrule
+    Baseline & 81.2 & 12 \\
+    Ours & \textbf{88.5} & 9 \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+\end{document}

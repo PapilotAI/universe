@@ -1,6 +1,6 @@
 # Papilot Universe
 
-LaTeX templates for starting a new paper in [Papilot](https://papilot.ai): official conference author kits, the template of every CCF-recommended conference and major programming-language venue, and university thesis templates, each compiled in CI and published with a preview.
+LaTeX templates for starting a new document in [Papilot](https://papilot.ai): official conference and journal author kits, the right template for more than 400 conferences, university theses, slides, posters, CVs, books and letters, each compiled in CI and published with a preview.
 
 Browse them at **[papilot.ai/universe](https://papilot.ai/universe/)**, or pick one in Papilot under **New paper…**. Papilot downloads the template, checks its SHA-256, creates the folder with Git history, and opens it with the template's main file and engine already set.
 
@@ -60,7 +60,7 @@ notes = "Fill in the title and authors in …"
 
 ## Conferences (`venues/*.toml`)
 
-Many conferences share one template: hundreds of ACM venues use `acm-sigconf`, theory venues use `lipics`, and so on. `venues/` lists every conference of the CCF 2026 (7th edition) recommended list plus programming-language venues outside it (`pl.toml`), each pointing at the template its latest call for papers asks for:
+Many conferences share one template: hundreds of ACM venues use `acm-sigconf`, theory venues use `lipics`, and so on. `venues/` lists conferences, each pointing at the template its latest call for papers asks for. The first set covers the CCF 2026 (7th edition) list, which spans computer science, plus programming-language venues outside it (`pl.toml`); venues from other fields go in their own files. The gallery lists venues alphabetically; CCF data is metadata, not an ordering.
 
 ```toml
 [[venues]]

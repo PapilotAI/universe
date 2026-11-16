@@ -1,0 +1,51 @@
+\documentclass{amsart}
+% A short starting point for an AMS-style mathematics article (Papilot Universe, MIT).
+\usepackage{amssymb}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A Title for Your Article}
+\author{First Author}
+\address{Department of Mathematics, University}
+\email{author@example.org}
+\subjclass[2020]{Primary 00A05}
+\keywords{first keyword, second keyword}
+
+\begin{document}
+\begin{abstract}
+State the main result in a few sentences.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+Let $f\colon \mathbb{R}\to\mathbb{R}$ be continuous. We show that every such $f$ on $[a,b]$ attains a maximum.
+
+\begin{definition}
+A function $f$ is \emph{bounded} on $S$ if there is $M$ with $|f(x)|\le M$ for all $x\in S$.
+\end{definition}
+
+\begin{lemma}\label{lem:bounded}
+A continuous function on $[a,b]$ is bounded.
+\end{lemma}
+
+\begin{theorem}
+A continuous function on $[a,b]$ attains its maximum.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:bounded}, $s=\sup_{[a,b]} f$ is finite; compactness gives a point where $f=s$.
+\end{proof}
+
+\begin{remark}
+The same argument works on any compact space.
+\end{remark}
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{1}
+\bibitem{rudin} W.~Rudin, \emph{Principles of Mathematical Analysis}, 3rd ed., McGraw-Hill, 1976.
+\end{thebibliography}
+\end{document}

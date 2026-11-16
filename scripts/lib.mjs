@@ -9,7 +9,7 @@ export const TEMPLATES = path.join(ROOT, 'templates');
 export const BUILD = path.join(ROOT, 'build');
 export const DIST = path.join(ROOT, 'dist');
 
-export const CATEGORIES = ['thesis', 'conference', 'journal', 'article', 'report', 'cv', 'slides', 'letter'];
+export const CATEGORIES = ['thesis', 'conference', 'journal', 'article', 'report', 'cv', 'slides', 'poster', 'book', 'letter'];
 export const ENGINES = ['pdflatex', 'xelatex', 'lualatex'];
 export const LOCALES = ['zh-CN'];
 const LIMITS = { files: 600, total: 30 * 1024 * 1024, file: 12 * 1024 * 1024 };

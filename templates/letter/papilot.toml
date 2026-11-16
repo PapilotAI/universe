@@ -1,0 +1,20 @@
+id = "letter"
+version = "1.0"
+name = "Formal Letter (KOMA-Script)"
+description = "A formal letter with KOMA-Script's scrlttr2, set up for a recommendation or cover letter."
+category = "letter"
+tags = ["letter", "cover letter", "recommendation", "koma-script", "scrlttr2", "推荐信"]
+languages = ["en"]
+license = "MIT"
+main = "letter.tex"
+engine = "pdflatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+homepage = "https://ctan.org/pkg/koma-script"
+version = "Written for Papilot Universe; uses scrlttr2 from TeX Live"
+
+[zh-CN]
+name = "正式信函（KOMA-Script）"
+description = "基于 KOMA-Script scrlttr2 的正式信函，已设为推荐信或求职信格式。"

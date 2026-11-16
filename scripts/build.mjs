@@ -96,9 +96,9 @@ const both = (en, zh) => zh && zh !== en ? `<span lang="en">${esc(en)}</span><sp
 // Main-site links go to its Chinese pages for Chinese readers (the privacy notice is bilingual).
 const link = (href, en, zh, zhHref = href.replace(MAIN, MAIN + 'zh-CN/')) => `<a href="${href}" lang="en">${esc(en)}</a><a href="${zhHref}" lang="zh-CN">${esc(zh)}</a>`;
 const L = {
-  all: ['All', '全部'], thesis: ['Theses', '学位论文'], conference: ['Conferences', '会议'], journal: ['Journals', '期刊'], other: ['Other', '其他'],
-  thesisOne: ['Thesis', '学位论文'], conferenceOne: ['Conference', '会议论文'], journalOne: ['Journal', '期刊论文'], otherOne: ['Template', '模板'],
-  tagline: ['LaTeX templates for theses and conference papers.', '学位论文与会议论文的 LaTeX 模板。'],
+  all: ['All', '全部'], thesis: ['Theses', '学位论文'], conference: ['Conferences', '会议'], journal: ['Journals', '期刊'], slides: ['Slides', '演示文稿'], poster: ['Posters', '海报'], cv: ['CVs', '简历'], book: ['Books', '书籍'], other: ['Other', '其他'],
+  thesisOne: ['Thesis', '学位论文'], conferenceOne: ['Conference', '会议论文'], journalOne: ['Journal', '期刊论文'], slidesOne: ['Slides', '演示文稿'], posterOne: ['Poster', '海报'], cvOne: ['CV', '简历'], bookOne: ['Book', '书籍'], otherOne: ['Template', '模板'],
+  tagline: ['LaTeX templates for papers, theses, slides, posters and CVs.', '论文、学位论文、演示文稿、海报与简历的 LaTeX 模板。'],
   search: ['Search templates', '搜索模板'], open: ['Open in Papilot', '在 Papilot 中打开'], download: ['Download ZIP', '下载 ZIP'],
   preview: ['Preview PDF', '预览 PDF'], version: ['Version', '版本'], license: ['License', '许可'], engine: ['Engine', '编译引擎'],
   main: ['Main file', '主文件'], source: ['Source', '来源'], sample: ['Sample', '示例'], languages: ['Languages', '语言'], archive: ['Archive', '压缩包'],
@@ -106,15 +106,16 @@ const L = {
   noApp: ['No Papilot yet?', '还没有 Papilot？'], getApp: ['Download it free', '免费下载'],
   empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Page not found', '找不到页面'], back: ['All templates', '全部模板'],
   licenses: ['Templates keep their own licenses', '模板遵循各自的许可'],
-  conferencesTitle: ['Conferences', '会议'], allRanks: ['All ranks', '全部等级'], allAreas: ['All areas', '全部领域'], notCcf: ['Not in CCF', '非 CCF'],
+  conferencesTitle: ['Conferences', '会议'],
   basis: ['Format source', '格式依据'], basis_high: ['The call for papers', '征稿通知原文'], basis_medium: ['A past edition or the publisher', '往届或出版方说明'], basis_low: ['Inferred from the publisher; check the call before submitting', '按出版方惯例推断，投稿前请核对征稿通知'],
-  template: ['Template', '模板'], ccf: ['CCF rank', 'CCF 等级'], area: ['Area', '领域'], publisher: ['Publisher', '出版方'], cfp: ['Call for papers', '征稿通知'], usedBy: ['Used by', '使用此模板的会议'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
+  template: ['Template', '模板'], ccf: ['CCF recommended', 'CCF 推荐'], publisher: ['Publisher', '出版方'], cfp: ['Call for papers', '征稿通知'], usedBy: ['Used by', '使用此模板的会议'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
 };
 const label = key => both(...L[key]);
 const ENGINE = { pdflatex: 'pdfLaTeX', xelatex: 'XeLaTeX', lualatex: 'LuaLaTeX' };
 const LANGUAGE = { zh: ['Chinese', '中文'], en: ['English', '英文'] };
 const zh = (entry, key) => entry.i18n?.['zh-CN']?.[key];
-const group = entry => ['thesis', 'conference', 'journal'].includes(entry.category) ? entry.category : 'other';
+const GROUPS = ['thesis', 'conference', 'journal', 'slides', 'poster', 'cv', 'book'];
+const group = entry => GROUPS.includes(entry.category) ? entry.category : 'other';
 // The publisher when the name does not already say it (ACM, IEEE, ...), else the kind of template.
 const source = entry => entry.organization && !entry.name.includes(entry.organization) ? esc(entry.organization) : label(group(entry) + 'One');
 const meta = entry => `${source(entry)} · ${ENGINE[entry.engine]}`;
@@ -181,25 +182,21 @@ function page({ title, titleZh = title, description, canonical, body, image, cur
 // Templates show as sheets; conferences as a list, since hundreds share a few templates.
 const kits = entries.filter(entry => !entry.template);
 const isVenue = entry => !!(entry.template || entry.venue?.area);
-const RANKS = ['A', 'B', 'C'];
-const rankOrder = entry => entry.venue?.ccf ? RANKS.indexOf(entry.venue.ccf) : 3;
-const venueRows = entries.filter(isVenue).sort((a, b) => rankOrder(a) - rankOrder(b) || a.venue.name.localeCompare(b.venue.name, 'en', { sensitivity: 'base' }));
+// Alphabetical: the gallery serves every field, so no ranking list orders it.
+const venueRows = entries.filter(isVenue).sort((a, b) => a.venue.name.localeCompare(b.venue.name, 'en', { sensitivity: 'base' }));
 const familyName = id => byId.get(id)?.name ?? id;
 const usedBy = new Map();
 for (const row of venueRows) { const family = row.template ?? row.id; usedBy.set(family, [...(usedBy.get(family) ?? []), row]); }
-const areaIds = Object.keys(AREAS).filter(key => venueRows.some(row => row.venue.area === key || row.venue.topics?.includes(key)));
-const categories = ['thesis', 'conference', 'journal', 'other'].filter(key => kits.some(entry => group(entry) === key) || (key === 'conference' && venueRows.length));
+const categories = [...GROUPS, 'other'].filter(key => kits.some(entry => group(entry) === key) || (key === 'conference' && venueRows.length));
 const count = key => key === 'all' ? kits.length + venueRows.filter(row => row.template).length : key === 'conference' ? kits.filter(entry => group(entry) === key && !isVenue(entry)).length + venueRows.length : kits.filter(entry => group(entry) === key).length;
 const card = entry => `<a class="card" href="${U}${entry.page}" data-group="${group(entry)}" data-search="${esc(search(entry))}"${isVenue(entry) ? ' data-venue-kit' : ''}>
   <div class="sheet">${entry.thumbnail ? `<img src="${U}${entry.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}</div>
   <div class="card-text"><span class="card-title">${both(entry.name, zh(entry, 'name'))}</span><span class="card-meta">${meta(entry)}</span></div>
 </a>`;
-const rank = entry => entry.venue?.ccf ? `<span class="rank rank-${entry.venue.ccf.toLowerCase()}" title="CCF ${entry.venue.ccf}">${entry.venue.ccf}</span>` : `<span class="rank rank-none" title="${esc(L.notCcf[0])}">·</span>`;
 const venueSearch = entry => [entry.venue.name, entry.venue.full, entry.description, entry.venue.publisher, entry.template ?? entry.id, `ccf ${entry.venue.ccf ?? ''}`, ...AREAS[entry.venue.area], ...(entry.venue.topics ?? []).flatMap(topic => AREAS[topic])].filter(Boolean).join(' ').toLowerCase();
-const row = entry => `<a class="venue" href="${U}${entry.page}"${entry.template ? ' data-alias' : ''} data-ccf="${entry.venue.ccf ?? 'none'}" data-areas="${[entry.venue.area, ...(entry.venue.topics ?? [])].join(' ')}" data-search="${esc(venueSearch(entry))}">
-  ${rank(entry)}<span class="venue-abbr">${esc(entry.venue.name)}</span><span class="venue-name">${esc(entry.venue.full ?? entry.description)}</span><span class="venue-template">${esc(familyName(entry.template ?? entry.id))}</span>
+const row = entry => `<a class="venue" href="${U}${entry.page}"${entry.template ? ' data-alias' : ''} data-search="${esc(venueSearch(entry))}">
+  <span class="venue-abbr">${esc(entry.venue.name)}</span><span class="venue-name">${esc(entry.venue.full ?? entry.description)}</span><span class="venue-template">${esc(familyName(entry.template ?? entry.id))}</span>
 </a>`;
-const chip = (attr, value, text, selected) => `<button type="button" class="filter-chip" ${attr}="${value}" aria-pressed="${selected}">${text}</button>`;
 fs.writeFileSync(path.join(out, 'index.html'), page({
   title: 'Papilot Universe', canonical: '',
   description: 'LaTeX templates for theses and conference papers. Start a new paper from any of them in Papilot.',
@@ -214,10 +211,6 @@ fs.writeFileSync(path.join(out, 'index.html'), page({
   <section class="grid" data-grid>${kits.map(card).join('\n')}</section>
   ${venueRows.length ? `<section class="venues" data-venues>
     <div class="venues-head"><h2>${label('conferencesTitle')}</h2><span class="count" data-venue-count>${venueRows.length}</span></div>
-    <div class="filters">
-      <div class="filter-row" role="group" aria-label="CCF">${chip('data-ccf-filter', 'all', label('allRanks'), true)}${RANKS.map(r => chip('data-ccf-filter', r, `CCF ${r}`, false)).join('')}${chip('data-ccf-filter', 'none', label('notCcf'), false)}</div>
-      <div class="filter-row" role="group" aria-label="Area">${chip('data-area-filter', 'all', label('allAreas'), true)}${areaIds.map(key => chip('data-area-filter', key, both(...AREAS[key]), false)).join('')}</div>
-    </div>
     <div class="venue-list" data-venue-list>${venueRows.map(row).join('\n')}</div>
   </section>` : ''}
   <p class="empty" data-empty hidden>${label('empty')}</p>
@@ -233,7 +226,7 @@ for (const entry of entries) {
   const users = usedBy.get(entry.id)?.filter(user => user.id !== entry.id) ?? [];
   const facts = [
     ...(family ? [['template', `<a href="${U}${family.page}">${both(family.name, zh(family, 'name'))}</a>`, 'wide']] : []),
-    ...(v?.area ? [['ccf', v.ccf ? `CCF ${v.ccf}` : label('notCcf')], ['area', both(...AREAS[v.area])]] : []),
+    ...(v?.ccf ? [['ccf', both(`Class ${v.ccf}`, `${v.ccf} 类`)]] : []),
     ...(v?.publisher ? [['publisher', esc(v.publisher)]] : []),
     ...(v?.url && family ? [['cfp', `<a href="${esc(v.url)}" rel="noopener">${esc(shortUrl(v.url))}</a>${v.year ? ` · ${v.year}` : ''}`, 'wide']] : []),
     ...(family || v?.basis ? [['basis', label('basis_' + (v.basis ?? 'low')) + (v.note ? `<p class="license-note">${esc(v.note)}</p>` : ''), 'wide']] : []),
@@ -249,7 +242,7 @@ for (const entry of entries) {
   ];
   const name = zh(entry, 'name') ?? entry.name;
   const eyebrow = family || v?.area
-    ? `${v?.ccf ? `<span>CCF ${v.ccf}</span>` : ''}${v?.area ? `<span>${both(...AREAS[v.area])}</span>` : ''}`
+    ? `<span>${label('conferenceOne')}</span>${v?.publisher ? `<span>${esc(v.publisher)}</span>` : ''}`
     : `<span>${label(group(entry) + 'One')}</span>${entry.organization && entry.organization !== 'Papilot' ? `<span>${esc(entry.organization)}</span>` : ''}${entry.venue && !entry.name.includes(entry.venue.name) ? `<span>${esc(entry.venue.name)} ${esc(entry.venue.year)}</span>` : ''}`;
   const heading = family ? esc(entry.name) : both(entry.name, zh(entry, 'name'));
   const lead = family ? esc(v.full ?? entry.description) : both(entry.description, zh(entry, 'description'));

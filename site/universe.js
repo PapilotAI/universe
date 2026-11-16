@@ -46,21 +46,17 @@
   var bar = document.querySelector('.topbar');
   if (bar) { var edge = function () { bar.classList.toggle('scrolled', scrollY > 4); }; addEventListener('scroll', edge, { passive: true }); edge(); }
 
-  // Gallery: category tabs, search and conference filters, kept in the address for sharing.
+  // Gallery: category tabs and search, kept in the address for sharing.
   var grid = document.querySelector('[data-grid]');
   if (!grid) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
   var rows = Array.prototype.slice.call(document.querySelectorAll('[data-venue-list] .venue'));
   var venues = document.querySelector('[data-venues]'), venueCount = document.querySelector('[data-venue-count]');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
-  var rankChips = Array.prototype.slice.call(document.querySelectorAll('[data-ccf-filter]'));
-  var areaChips = Array.prototype.slice.call(document.querySelectorAll('[data-area-filter]'));
   var input = document.querySelector('[data-search-input]'), empty = document.querySelector('[data-empty]');
   var params = new URLSearchParams(location.search);
   var pick = function (list, attr, value) { return list.some(function (el) { return el.getAttribute(attr) === value; }) ? value : 'all'; };
   var filter = pick(tabs, 'data-filter', params.get('category'));
-  var rank = pick(rankChips, 'data-ccf-filter', params.get('ccf'));
-  var area = pick(areaChips, 'data-area-filter', params.get('area'));
   input.value = params.get('q') || '';
   function matches(el, words) { return words.every(function (word) { return el.dataset.search.indexOf(word) >= 0; }); }
   function apply() {
@@ -73,29 +69,23 @@
     });
     var listed = filter === 'all' || filter === 'conference', rowsShown = 0;
     rows.forEach(function (row) {
-      var hit = matches(row, words) && (rank === 'all' || row.dataset.ccf === rank) && (area === 'all' || row.dataset.areas.split(' ').indexOf(area) >= 0);
+      var hit = matches(row, words);
       if (matches(row, words)) { counts.conference++; if (row.hasAttribute('data-alias')) counts.all++; }
       row.hidden = !(hit && listed); if (hit && listed) rowsShown++;
     });
-    if (venues) { venues.hidden = !listed || (!rowsShown && words.length > 0 && rank === 'all' && area === 'all'); venueCount.textContent = rowsShown; }
+    if (venues) { venues.hidden = !listed || !rowsShown; venueCount.textContent = rowsShown; }
     tabs.forEach(function (tab) {
       tab.setAttribute('aria-selected', String(tab.dataset.filter === filter));
       tab.querySelector('.count').textContent = counts[tab.dataset.filter] || 0;
     });
-    rankChips.forEach(function (chip) { chip.setAttribute('aria-pressed', String(chip.dataset.ccfFilter === rank)); });
-    areaChips.forEach(function (chip) { chip.setAttribute('aria-pressed', String(chip.dataset.areaFilter === area)); });
     empty.hidden = shown + rowsShown > 0;
     var next = new URLSearchParams();
     if (filter !== 'all') next.set('category', filter);
-    if (rank !== 'all') next.set('ccf', rank);
-    if (area !== 'all') next.set('area', area);
     if (input.value.trim()) next.set('q', input.value.trim());
     var query = next.toString();
     history.replaceState(null, '', location.pathname + (query ? '?' + query : ''));
   }
   tabs.forEach(function (tab) { tab.addEventListener('click', function () { filter = tab.dataset.filter; apply(); }); });
-  rankChips.forEach(function (chip) { chip.addEventListener('click', function () { rank = chip.dataset.ccfFilter; apply(); }); });
-  areaChips.forEach(function (chip) { chip.addEventListener('click', function () { area = chip.dataset.areaFilter; apply(); }); });
   input.addEventListener('input', apply);
   input.addEventListener('keydown', function (event) { if (event.key === 'Escape' && input.value) { input.value = ''; apply(); } });
   document.addEventListener('keydown', function (event) {

@@ -1,0 +1,24 @@
+id = "tufte-handout"
+version = "3.5.2"
+name = "Tufte Handout"
+description = "The Tufte-style handout with wide margins for side notes and margin figures, popular for lecture notes and short reports."
+category = "report"
+tags = ["tufte", "handout", "notes", "report", "sidenotes"]
+languages = ["en"]
+license = "Apache-2.0"
+main = "sample-handout.tex"
+engine = "pdflatex"
+organization = "Tufte-LaTeX"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/tufte-latex.zip"
+homepage = "https://ctan.org/pkg/tufte-latex"
+version = "3.5.2"
+sha256 = "15d398ca1b1063ca40b1f577bc558dd3395f11c1ad6a000b77a3a70b524e04c2"
+
+[zh-CN]
+name = "Tufte 讲义"
+description = "Tufte 风格讲义，宽页边放旁注和边注图，常用于课程讲义和短报告。"
+
+[setup]
+notes = "Side notes use \\sidenote, margin figures use the marginfigure environment. The tufte-latex classes come with TeX Live."

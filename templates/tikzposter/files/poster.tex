@@ -1,0 +1,37 @@
+\documentclass[25pt, a0paper, portrait]{tikzposter}
+% A starting A0 poster with tikzposter (Papilot Universe, MIT).
+\usetheme{Simple}
+\title{A Poster Title That Fits on Two Lines}
+\author{First Author, Second Author}
+\institute{Institution}
+
+\begin{document}
+\maketitle
+\begin{columns}
+  \column{0.5}
+  \block{Motivation}{
+    State the problem and why it matters in two or three sentences.
+    \begin{itemize}
+      \item First point.
+      \item Second point.
+    \end{itemize}
+  }
+  \block{Method}{
+    Describe the key idea. A display equation:
+    \[ \mathcal{L}(\theta) = \sum_{i=1}^{n} \ell\big(f_\theta(x_i), y_i\big) + \lambda \|\theta\|^2 \]
+  }
+  \column{0.5}
+  \block{Results}{
+    \begin{tikzfigure}[A placeholder figure]
+      \begin{tikzpicture}
+        \draw[thick,->] (0,0) -- (10,0) node[right] {$x$};
+        \draw[thick,->] (0,0) -- (0,6) node[above] {$y$};
+        \draw[very thick, blue] plot[smooth, domain=0:9.5] (\x, {5*(1-exp(-\x/2))});
+      \end{tikzpicture}
+    \end{tikzfigure}
+  }
+  \block{Conclusion}{
+    One sentence the reader should remember, and where to find the paper and code.
+  }
+\end{columns}
+\end{document}

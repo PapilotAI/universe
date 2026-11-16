@@ -1,0 +1,24 @@
+id = "gemini"
+version = "2026.11"
+name = "Gemini Poster"
+description = "Gemini, a clean and popular Beamer poster theme for conference posters, with several color themes."
+category = "poster"
+tags = ["poster", "beamer", "beamerposter", "gemini", "conference poster"]
+languages = ["en"]
+license = "MIT"
+main = "poster.tex"
+engine = "lualatex"
+organization = "Anish Athalye"
+
+[upstream]
+url = "https://github.com/anishathalye/gemini/archive/8a8d4d40765d60ff2f2a9b98c7d9211b8ac8b46b.tar.gz"
+homepage = "https://github.com/anishathalye/gemini"
+version = "master (2026-11-04)"
+commit = "8a8d4d40765d60ff2f2a9b98c7d9211b8ac8b46b"
+
+[zh-CN]
+name = "Gemini 学术海报"
+description = "Gemini，简洁流行的 Beamer 海报主题，适合会议海报，带多种配色。"
+
+[setup]
+notes = "Three color themes are included (gemini, mit, labsix); switch with \\usecolortheme. The others live in the upstream colorthemes folder. Add your logos with \\logoleft and \\logoright."

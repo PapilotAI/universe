@@ -1,0 +1,20 @@
+id = "beamer-moloch"
+version = "2.3.1"
+name = "Beamer Slides (Moloch)"
+description = "A 16:9 Beamer talk with the clean Moloch theme, the maintained successor of the popular Metropolis theme."
+category = "slides"
+tags = ["beamer", "slides", "presentation", "moloch", "metropolis"]
+languages = ["en"]
+license = "MIT"
+main = "slides.tex"
+engine = "pdflatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+homepage = "https://ctan.org/pkg/moloch"
+version = "Written for Papilot Universe; uses the moloch theme (CC BY-SA 4.0) from TeX Live"
+
+[zh-CN]
+name = "Beamer 演示文稿（Moloch）"
+description = "16:9 Beamer 演示文稿，使用 Moloch 主题（流行的 Metropolis 主题的后继维护版）。"

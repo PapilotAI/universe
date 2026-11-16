@@ -1,0 +1,20 @@
+id = "exam"
+version = "2.704"
+name = "Homework and Exam (exam class)"
+description = "A homework or exam sheet with the exam class: points, a grade table, parts, multiple choice and solutions you can show or hide."
+category = "report"
+tags = ["homework", "exam", "assignment", "teaching", "作业", "试卷"]
+languages = ["en"]
+license = "MIT"
+main = "homework.tex"
+engine = "pdflatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+homepage = "https://ctan.org/pkg/exam"
+version = "Written for Papilot Universe; uses the exam class (LPPL 1.3) from TeX Live"
+
+[zh-CN]
+name = "作业与试卷（exam）"
+description = "用 exam 宏包写作业或试卷：分值、评分表、小题、选择题，答案可显示或隐藏。"
