@@ -91,6 +91,8 @@ fs.writeFileSync(path.join(out, 'v1', 'index.json'), JSON.stringify({ schema: 1,
 // ---- Static pages ---------------------------------------------------------
 // Pages use absolute /universe/ paths: the site only ever lives there (locally too).
 const U = '/universe/', MAIN = 'https://papilot.ai/';
+const REPO = 'https://github.com/PapilotAI/universe';
+
 const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const both = (en, zh) => zh && zh !== en ? `<span lang="en">${esc(en)}</span><span lang="zh-CN">${esc(zh)}</span>` : esc(en);
 // Main-site links go to its Chinese pages for Chinese readers (the privacy notice is bilingual).
@@ -106,6 +108,7 @@ const L = {
   noApp: ['No Papilot yet?', '还没有 Papilot？'], getApp: ['Download it free', '免费下载'],
   empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Page not found', '找不到页面'], back: ['All templates', '全部模板'],
   licenses: ['Templates keep their own licenses', '模板遵循各自的许可'],
+  missing: ['Missing a template or a conference?', '没找到需要的模板或会议？'], contribute: ['Add it on GitHub', '在 GitHub 上提交'], contributeShort: ['Contribute', '贡献模板'],
   conferencesTitle: ['Conferences', '会议'],
   basis: ['Format source', '格式依据'], basis_high: ['The call for papers', '征稿通知原文'], basis_medium: ['A past edition or the publisher', '往届或出版方说明'], basis_low: ['Inferred from the publisher; check the call before submitting', '按出版方惯例推断，投稿前请核对征稿通知'],
   template: ['Template', '模板'], ccf: ['CCF recommended', 'CCF 推荐'], publisher: ['Publisher', '出版方'], cfp: ['Call for papers', '征稿通知'], usedBy: ['Used by', '使用此模板的会议'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
@@ -170,7 +173,7 @@ function page({ title, titleZh = title, description, canonical, body, image, cur
 <main>${body}</main>
 <footer class="footer"><div class="wrap footer-inner">
   <a class="brand" href="${MAIN}"><img class="brand-mark" src="${U}assets/logo.svg" alt="" width="22" height="22">Papilot</a>
-  <nav aria-label="Links"><a href="${U}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}<a href="https://github.com/PapilotAI/papilot">GitHub</a>${link(MAIN + 'privacy/', ...L.privacy, MAIN + 'privacy/')}</nav>
+  <nav aria-label="Links"><a href="${U}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}<a href="https://github.com/PapilotAI/papilot">GitHub</a><a href="${REPO}/blob/main/CONTRIBUTING.md" rel="noopener">${label('contributeShort')}</a>${link(MAIN + 'privacy/', ...L.privacy, MAIN + 'privacy/')}</nav>
   <p>${label('licenses')} · © 2026 PapilotAI</p>
 </div></footer>
 <script src="${U}assets/universe.js" defer></script>
@@ -214,6 +217,7 @@ fs.writeFileSync(path.join(out, 'index.html'), page({
     <div class="venue-list" data-venue-list>${venueRows.map(row).join('\n')}</div>
   </section>` : ''}
   <p class="empty" data-empty hidden>${label('empty')}</p>
+  <p class="contribute">${label('missing')} <a href="${REPO}/blob/main/CONTRIBUTING.md" rel="noopener">${label('contribute')} →</a></p>
 </div>`,
 }));
 

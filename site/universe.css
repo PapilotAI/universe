@@ -108,10 +108,13 @@ button{font:inherit;color:inherit}
 .card-title{font-size:14.5px;font-weight:500;line-height:1.38;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{font-size:13px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card:hover .card-title{color:var(--accent)}
-.empty{color:var(--text-3);text-align:center;padding:24px 0 96px;margin:0}
+.empty{color:var(--text-3);text-align:center;padding:24px 0 48px;margin:0}
+.contribute{margin:0;padding:0 0 72px;text-align:center;font-size:14.5px;color:var(--text-2)}
+.contribute a{color:var(--accent);margin-left:6px}
+.contribute a:hover{text-decoration:underline}
 
 /* Conference list */
-.venues{padding:8px 0 72px}
+.venues{padding:8px 0 40px}
 .venues-head{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
 .venues-head h2{font:400 30px/1.2 var(--serif);margin:0}
 .venues-head .count{font-size:14px}
