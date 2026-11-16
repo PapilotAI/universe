@@ -134,7 +134,7 @@ cfp = "https://percom.org/"
 confidence = "medium"
 
 [[venues]]
-id = "assets"
+id = "acm-assets"
 abbr = "ASSETS"
 name = "International ACM SIGACCESS Conference on Computers and Accessibility"
 template = "acm-sigconf"

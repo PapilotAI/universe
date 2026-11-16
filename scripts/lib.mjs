@@ -16,6 +16,8 @@ const LIMITS = { files: 600, total: 30 * 1024 * 1024, file: 12 * 1024 * 1024 };
 // Build output and editor/OS litter never belong in a starting project.
 const JUNK = /(^|\/)(\.DS_Store|Thumbs\.db|__MACOSX|\.git|\.github|\.gitignore|\.gitattributes|\.latexmkrc|latexmkrc|Makefile|makefile|.*\.(aux|log|out|fls|fdb_latexmk|synctex\.gz|synctex|bbl|blg|bcf|run\.xml|toc|lof|lot|xdv|idx|ind|ilg|nav|snm|vrb|zip|exe|sh|bat|ps1|py))$/;
 const ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+// Pages live at /universe/<id>/, next to these.
+const RESERVED = new Set(['v1', 'assets', 't']);
 const VERSION = /^\d+(?:\.\d+){0,2}(?:-[0-9A-Za-z.]+)?$/;
 const SPDX = /^(?:[A-Za-z0-9.+-]+|LicenseRef-[A-Za-z0-9.-]+)(?:\s+(?:OR|AND|WITH)\s+[A-Za-z0-9.+-]+)*$/;
 
@@ -36,6 +38,7 @@ export function validateManifest(manifest, id) {
   const m = manifest ?? {};
   if (m.id !== id) errors.push(`id must be "${id}" (the directory name)`);
   if (typeof m.id !== 'string' || !ID.test(m.id)) errors.push('id must be lowercase kebab-case');
+  if (RESERVED.has(m.id)) errors.push(`id "${m.id}" is reserved`);
   if (typeof m.version !== 'string' || !VERSION.test(m.version)) errors.push('version must look like 2026, 7.6 or 1.2.3');
   text(errors, 'name', m.name, { max: 80 });
   text(errors, 'description', m.description, { max: 200 });
@@ -153,6 +156,7 @@ const CONFIDENCE = ['high', 'medium', 'low'];
 export function validateVenue(venue, templates) {
   const errors = [], v = venue ?? {}, where = `venue ${v.id ?? '?'}`;
   if (typeof v.id !== 'string' || !ID.test(v.id)) errors.push(`${where}: id must be lowercase kebab-case`);
+  if (RESERVED.has(v.id)) errors.push(`${where}: id "${v.id}" is reserved`);
   text(errors, `${where}: abbr`, v.abbr, { max: 40 });
   text(errors, `${where}: name`, v.name, { max: 200 });
   if (!templates.has(v.template)) errors.push(`${where}: template "${v.template}" does not exist`);
