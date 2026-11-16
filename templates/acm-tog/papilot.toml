@@ -1,0 +1,23 @@
+id = "acm-tog"
+version = "2.21"
+name = "ACM TOG (SIGGRAPH)"
+description = "acmart in the acmtog format of ACM Transactions on Graphics, used by SIGGRAPH and SIGGRAPH Asia technical papers."
+category = "conference"
+tags = ["acm", "tog", "siggraph", "graphics"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "acmtog.tex"
+engine = "pdflatex"
+organization = "ACM"
+
+[upstream]
+url = "https://portalparts.acm.org/hippo/latex_templates/acmart-primary.zip"
+homepage = "https://www.acm.org/publications/proceedings-template"
+version = "acmart v2.21 (2026-11-01; ACM page 'last update November 3, 2026')"
+sha256 = "a1e52cce16394ac8517225b7ebc008a7188f765b4c25aa902d24cea397dc687f"
+
+[zh-CN]
+description = "ACM TOG 双栏模板，适用于 SIGGRAPH、SIGGRAPH Asia 技术论文。"
+
+[setup]
+notes = "For anonymous submission use \\documentclass[acmtog,review,anonymous]{acmart}; SIGGRAPH conference-track papers use sigconf instead. The \\DocumentMetadata tagging block of ACM's sample was removed so it compiles with TeX Live 2025; add it back for tagged PDFs on newer TeX."

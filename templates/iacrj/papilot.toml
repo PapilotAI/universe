@@ -1,0 +1,24 @@
+id = "iacrj"
+version = "0.9.4"
+name = "IACR Journals (ToSC, TCHES)"
+description = "The iacrj class for IACR Transactions on Symmetric Cryptology and TCHES, where FSE and CHES papers are published; it replaces iacrtrans."
+category = "conference"
+tags = ["iacr", "iacrj", "tosc", "tches", "fse", "ches", "cryptography"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "iacrj-template.tex"
+engine = "pdflatex"
+organization = "IACR"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/iacrj.zip"
+homepage = "https://ctan.org/pkg/iacrj"
+version = "0.9.4 (2026-07-15)"
+sha256 = "03ab5f69f5db0547051edace35d057c2c89c48f840ce2b1ff4ced662ec0073f8"
+
+[zh-CN]
+name = "IACR 期刊（ToSC、TCHES）"
+description = "IACR 的 iacrj 模板，FSE（ToSC）与 CHES（TCHES）论文使用，取代了 iacrtrans。"
+
+[setup]
+notes = "metacapture.sty (CTAN 0.9.2, LPPL 1.3c) is bundled because TeX Live 2025 does not ship it. Pick the journal with \\documentclass[journal=tosc,version=submission]{iacrj} (or journal=tches); use version=final for the camera-ready."

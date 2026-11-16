@@ -1,0 +1,24 @@
+id = "pmlr"
+version = "1.30"
+name = "PMLR (Proceedings of Machine Learning Research)"
+description = "The jmlr class in pmlr mode, the format of PMLR proceedings such as COLT, UAI, ALT, ACML and CoRL."
+category = "conference"
+tags = ["pmlr", "jmlr", "colt", "uai", "alt", "acml", "machine learning"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "pmlr-sample.tex"
+engine = "pdflatex"
+organization = "PMLR"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/jmlr.zip"
+homepage = "https://ctan.org/pkg/jmlr"
+version = "1.30 (2022-02-09); jmlr.cls and jmlrutils.sty generated from jmlr.ins"
+sha256 = "1d9de012981cf7ca2f5e6458bf6eda293e57a21c87cdbf511caa042d22a3aa0f"
+
+[zh-CN]
+name = "PMLR（机器学习会议论文集）"
+description = "jmlr 宏包的 pmlr 模式，COLT、UAI、ALT、ACML、CoRL 等 PMLR 论文集使用。"
+
+[setup]
+notes = "Some PMLR venues add their own style file on top (COLT and UAI publish one each year); check the call for papers and add it next to pmlr-sample.tex."

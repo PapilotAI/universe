@@ -110,6 +110,32 @@ button{font:inherit;color:inherit}
 .card:hover .card-title{color:var(--accent)}
 .empty{color:var(--text-3);text-align:center;padding:24px 0 96px;margin:0}
 
+/* Conference list */
+.venues{padding:8px 0 72px}
+.venues-head{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+.venues-head h2{font:400 30px/1.2 var(--serif);margin:0}
+.venues-head .count{font-size:14px}
+.filters{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.filter-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:1px}
+.filter-chip{flex-shrink:0;border:1px solid var(--line);background:var(--bg);color:var(--text-2);font-size:13.5px;padding:5px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background-color .15s,color .15s,border-color .15s}
+.filter-chip:hover{color:var(--text);border-color:var(--line-strong)}
+.filter-chip[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--bg)}
+.venue-list{border-top:1px solid var(--line)}
+.venue{display:grid;grid-template-columns:28px minmax(92px,auto) minmax(0,1fr) auto;align-items:center;gap:14px;padding:11px 8px;border-bottom:1px solid var(--line);border-radius:0;transition:background-color .12s}
+.venue[hidden]{display:none}
+.venue:hover{background:var(--bg-subtle)}
+.venue:hover .venue-abbr{color:var(--accent)}
+.rank{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:7px;font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.rank-a{background:color-mix(in srgb,#dc2626 13%,transparent);color:#c2410c}
+.rank-b{background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent)}
+.rank-c{background:var(--bg-muted);color:var(--text-2)}
+.rank-none{background:none;color:var(--text-3)}
+.venue-abbr{font-weight:600;font-size:14.5px;white-space:nowrap}
+.venue-name{font-size:14px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.venue-template{font-size:12.5px;color:var(--text-3);white-space:nowrap;padding:2px 9px;border-radius:999px;background:var(--bg-muted)}
+.facts a.chip{color:var(--text-2)}
+.facts a.chip:hover{color:var(--accent);text-decoration:none}
+
 /* Template page */
 .crumbs{display:flex;align-items:center;gap:8px;margin:28px 0 24px;font-size:14px;color:var(--text-3);min-width:0}
 .crumbs a{color:var(--text-2)}
@@ -169,6 +195,10 @@ button{font:inherit;color:inherit}
   .search kbd{display:none}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px;padding:32px 0 56px}
   .facts{grid-template-columns:1fr}
+  .venue{grid-template-columns:24px minmax(0,1fr);row-gap:2px;column-gap:12px}
+  .venue .rank{grid-row:span 2}
+  .venue-name{grid-column:2}
+  .venue-template{display:none}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:16px}
 }
 :root[data-theme="dark"] .sheet img{filter:brightness(.95)}

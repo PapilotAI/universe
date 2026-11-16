@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { zipSync } from 'fflate';
-import { BUILD, DIST, ROOT, loadTemplates, sha256 } from './lib.mjs';
+import { AREAS, BUILD, DIST, ROOT, loadTemplates, loadVenues, sha256 } from './lib.mjs';
 
 const args = process.argv.slice(2), allowMissing = args.includes('--allow-missing');
 const published = args.find(arg => arg.startsWith('--published='))?.slice('--published='.length);
@@ -68,6 +68,22 @@ if (published) {
   } else console.log(`Published index not reachable (${response?.status ?? 'offline'}); skipping the version check.`);
 }
 
+// Venues reuse their template's files; a venue that is its own kit only gains CCF data.
+const { venues, errors: venueErrors } = loadVenues(templates.map(template => template.id));
+if (venueErrors.length) { console.error(venueErrors.join('\n')); process.exit(1); }
+const byId = new Map(entries.map(entry => [entry.id, entry]));
+for (const v of venues) {
+  const family = byId.get(v.template);
+  const venue = { name: v.abbr, ...(v.year ? { year: v.year } : {}), ...(v.cfp ? { url: v.cfp } : {}), ...(v.ccf ? { ccf: v.ccf } : {}), area: v.area, ...(v.topics ? { topics: v.topics } : {}), ...(v.publisher ? { publisher: v.publisher } : {}), full: v.name, basis: v.confidence, ...(v.note ? { note: v.note } : {}) };
+  if (v.template === v.id) { family.venue = { ...family.venue, ...venue, name: family.venue?.name ?? v.abbr, year: family.venue?.year ?? v.year }; continue; }
+  const { id, name, description, i18n, tags, organization, setup, page, venue: _, ...shared } = family;
+  entries.push({
+    id: v.id, version: family.version, name: v.year ? `${v.abbr} ${v.year}` : v.abbr, description: v.name, category: 'conference',
+    tags: [v.abbr, ...(v.ccf ? [`CCF-${v.ccf}`] : []), v.area, ...(v.topics ?? [])].slice(0, 12),
+    ...shared, venue, template: family.id, ...(setup ? { setup } : {}), page: `t/${v.id}/`,
+  });
+}
+
 const order = { thesis: 0, conference: 1, journal: 2 };
 entries.sort((a, b) => (order[a.category] ?? 9) - (order[b.category] ?? 9) || a.name.localeCompare(b.name));
 fs.writeFileSync(path.join(out, 'v1', 'index.json'), JSON.stringify({ schema: 1, generated: new Date().toISOString(), templates: entries }, null, 2) + '\n');
@@ -89,7 +105,10 @@ const L = {
   notStated: ['Not stated', '未声明'], publicDomain: ['Public domain', '公有领域'], note: ['Read the note', '查看说明'],
   noApp: ['No Papilot yet?', '还没有 Papilot？'], getApp: ['Download it free', '免费下载'],
   empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Page not found', '找不到页面'], back: ['All templates', '全部模板'],
-  licenses: ['Templates keep their own licenses', '模板遵循各自的许可'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
+  licenses: ['Templates keep their own licenses', '模板遵循各自的许可'],
+  conferencesTitle: ['Conferences', '会议'], allRanks: ['All ranks', '全部等级'], allAreas: ['All areas', '全部领域'], notCcf: ['Not in CCF', '非 CCF'],
+  basis: ['Format source', '格式依据'], basis_high: ['The call for papers', '征稿通知原文'], basis_medium: ['A past edition or the publisher', '往届或出版方说明'], basis_low: ['Inferred from the publisher; check the call before submitting', '按出版方惯例推断，投稿前请核对征稿通知'],
+  template: ['Template', '模板'], ccf: ['CCF rank', 'CCF 等级'], area: ['Area', '领域'], publisher: ['Publisher', '出版方'], cfp: ['Call for papers', '征稿通知'], usedBy: ['Used by', '使用此模板的会议'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
 };
 const label = key => both(...L[key]);
 const ENGINE = { pdflatex: 'pdfLaTeX', xelatex: 'XeLaTeX', lualatex: 'LuaLaTeX' };
@@ -113,6 +132,7 @@ const ICON = {
   moon: '<svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>',
   sun: '<svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
   globe: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  external: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
   check: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
 };
 
@@ -158,12 +178,28 @@ function page({ title, titleZh = title, description, canonical, body, image, cur
 `;
 }
 
-const categories = ['thesis', 'conference', 'journal', 'other'].filter(key => entries.some(entry => group(entry) === key));
-const count = key => key === 'all' ? entries.length : entries.filter(entry => group(entry) === key).length;
-const card = entry => `<a class="card" href="${U}${entry.page}" data-group="${group(entry)}" data-search="${esc(search(entry))}">
+// Templates show as sheets; conferences as a list, since hundreds share a few templates.
+const kits = entries.filter(entry => !entry.template);
+const isVenue = entry => !!(entry.template || entry.venue?.area);
+const RANKS = ['A', 'B', 'C'];
+const rankOrder = entry => entry.venue?.ccf ? RANKS.indexOf(entry.venue.ccf) : 3;
+const venueRows = entries.filter(isVenue).sort((a, b) => rankOrder(a) - rankOrder(b) || a.venue.name.localeCompare(b.venue.name, 'en', { sensitivity: 'base' }));
+const familyName = id => byId.get(id)?.name ?? id;
+const usedBy = new Map();
+for (const row of venueRows) { const family = row.template ?? row.id; usedBy.set(family, [...(usedBy.get(family) ?? []), row]); }
+const areaIds = Object.keys(AREAS).filter(key => venueRows.some(row => row.venue.area === key || row.venue.topics?.includes(key)));
+const categories = ['thesis', 'conference', 'journal', 'other'].filter(key => kits.some(entry => group(entry) === key) || (key === 'conference' && venueRows.length));
+const count = key => key === 'all' ? kits.length + venueRows.filter(row => row.template).length : key === 'conference' ? kits.filter(entry => group(entry) === key && !isVenue(entry)).length + venueRows.length : kits.filter(entry => group(entry) === key).length;
+const card = entry => `<a class="card" href="${U}${entry.page}" data-group="${group(entry)}" data-search="${esc(search(entry))}"${isVenue(entry) ? ' data-venue-kit' : ''}>
   <div class="sheet">${entry.thumbnail ? `<img src="${U}${entry.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}</div>
   <div class="card-text"><span class="card-title">${both(entry.name, zh(entry, 'name'))}</span><span class="card-meta">${meta(entry)}</span></div>
 </a>`;
+const rank = entry => entry.venue?.ccf ? `<span class="rank rank-${entry.venue.ccf.toLowerCase()}" title="CCF ${entry.venue.ccf}">${entry.venue.ccf}</span>` : `<span class="rank rank-none" title="${esc(L.notCcf[0])}">·</span>`;
+const venueSearch = entry => [entry.venue.name, entry.venue.full, entry.description, entry.venue.publisher, familyName(entry.template ?? entry.id), `ccf ${entry.venue.ccf ?? ''}`, ...AREAS[entry.venue.area], ...(entry.venue.topics ?? []).flatMap(topic => AREAS[topic])].filter(Boolean).join(' ').toLowerCase();
+const row = entry => `<a class="venue" href="${U}${entry.page}"${entry.template ? ' data-alias' : ''} data-ccf="${entry.venue.ccf ?? 'none'}" data-areas="${[entry.venue.area, ...(entry.venue.topics ?? [])].join(' ')}" data-search="${esc(venueSearch(entry))}">
+  ${rank(entry)}<span class="venue-abbr">${esc(entry.venue.name)}</span><span class="venue-name">${esc(entry.venue.full ?? entry.description)}</span><span class="venue-template">${esc(familyName(entry.template ?? entry.id))}</span>
+</a>`;
+const chip = (attr, value, text, selected) => `<button type="button" class="filter-chip" ${attr}="${value}" aria-pressed="${selected}">${text}</button>`;
 fs.writeFileSync(path.join(out, 'index.html'), page({
   title: 'Papilot Universe', canonical: '',
   description: 'LaTeX templates for theses and conference papers. Start a new paper from any of them in Papilot.',
@@ -175,7 +211,15 @@ fs.writeFileSync(path.join(out, 'index.html'), page({
   <div class="segmented" role="tablist" aria-label="Category">${['all', ...categories].map((key, index) => `<button type="button" role="tab" data-filter="${key}" aria-selected="${index === 0}">${label(key)}<span class="count">${count(key)}</span></button>`).join('')}</div>
 </div></section>
 <div class="wrap">
-  <section class="grid" data-grid>${entries.map(card).join('\n')}</section>
+  <section class="grid" data-grid>${kits.map(card).join('\n')}</section>
+  ${venueRows.length ? `<section class="venues" data-venues>
+    <div class="venues-head"><h2>${label('conferencesTitle')}</h2><span class="count" data-venue-count>${venueRows.length}</span></div>
+    <div class="filters">
+      <div class="filter-row" role="group" aria-label="CCF">${chip('data-ccf-filter', 'all', label('allRanks'), true)}${RANKS.map(r => chip('data-ccf-filter', r, `CCF ${r}`, false)).join('')}${chip('data-ccf-filter', 'none', label('notCcf'), false)}</div>
+      <div class="filter-row" role="group" aria-label="Area">${chip('data-area-filter', 'all', label('allAreas'), true)}${areaIds.map(key => chip('data-area-filter', key, both(...AREAS[key]), false)).join('')}</div>
+    </div>
+    <div class="venue-list" data-venue-list>${venueRows.map(row).join('\n')}</div>
+  </section>` : ''}
   <p class="empty" data-empty hidden>${label('empty')}</p>
 </div>`,
 }));
@@ -185,7 +229,14 @@ for (const entry of entries) {
   fs.mkdirSync(dir, { recursive: true });
   const deep = `papilot://new?template=${encodeURIComponent(entry.id)}&version=${encodeURIComponent(entry.version)}`;
   const cover = entry.cover ?? entry.thumbnail, [width, height] = cover ? pngSize(path.join(out, cover)) : [];
+  const family = entry.template ? byId.get(entry.template) : null, v = entry.venue;
+  const users = usedBy.get(entry.id)?.filter(user => user.id !== entry.id) ?? [];
   const facts = [
+    ...(family ? [['template', `<a href="${U}${family.page}">${both(family.name, zh(family, 'name'))}</a>`, 'wide']] : []),
+    ...(v?.area ? [['ccf', v.ccf ? `CCF ${v.ccf}` : label('notCcf')], ['area', both(...AREAS[v.area])]] : []),
+    ...(v?.publisher ? [['publisher', esc(v.publisher)]] : []),
+    ...(v?.url && family ? [['cfp', `<a href="${esc(v.url)}" rel="noopener">${esc(shortUrl(v.url))}</a>${v.year ? ` · ${v.year}` : ''}`, 'wide']] : []),
+    ...(family || v?.basis ? [['basis', label('basis_' + (v.basis ?? 'low')) + (v.note ? `<p class="license-note">${esc(v.note)}</p>` : ''), 'wide']] : []),
     ['version', esc(entry.version)],
     ['engine', ENGINE[entry.engine]],
     ['license', licenseText(entry) + (entry.license_note ? `<details class="license-note"><summary>${label('note')}</summary>${esc(entry.license_note)}</details>` : ''), 'wide'],
@@ -193,21 +244,27 @@ for (const entry of entries) {
     ['languages', `<span class="chips">${entry.languages.map(code => `<span class="chip">${LANGUAGE[code] ? both(...LANGUAGE[code]) : esc(code)}</span>`).join('')}</span>`],
     ...(entry.pages ? [['sample', both(`${entry.pages} ${entry.pages === 1 ? 'page' : 'pages'}`, `${entry.pages} 页`)]] : []),
     ['archive', both(`${entry.archive.files} files · ${megabytes(entry.archive.size)}`, `${entry.archive.files} 个文件 · ${megabytes(entry.archive.size)}`)],
-    ['source', `<a href="${esc(sourceUrl(entry))}" rel="noopener">${esc(shortUrl(sourceUrl(entry)))}</a>`, 'wide'],
+    ...(family ? [] : [['source', `<a href="${esc(sourceUrl(entry))}" rel="noopener">${esc(shortUrl(sourceUrl(entry)))}</a>`, 'wide']]),
+    ...(users.length ? [['usedBy', `<span class="chips">${users.map(user => `<a class="chip" href="${U}${user.page}">${esc(user.venue.name)}</a>`).join('')}</span>`, 'wide']] : []),
   ];
   const name = zh(entry, 'name') ?? entry.name;
+  const eyebrow = family || v?.area
+    ? `${v?.ccf ? `<span>CCF ${v.ccf}</span>` : ''}${v?.area ? `<span>${both(...AREAS[v.area])}</span>` : ''}`
+    : `<span>${label(group(entry) + 'One')}</span>${entry.organization && entry.organization !== 'Papilot' ? `<span>${esc(entry.organization)}</span>` : ''}${entry.venue && !entry.name.includes(entry.venue.name) ? `<span>${esc(entry.venue.name)} ${esc(entry.venue.year)}</span>` : ''}`;
+  const heading = family ? esc(entry.name) : both(entry.name, zh(entry, 'name'));
+  const lead = family ? esc(v.full ?? entry.description) : both(entry.description, zh(entry, 'description'));
   fs.writeFileSync(path.join(dir, 'index.html'), page({
-    title: `${entry.name} · Papilot Universe`, titleZh: `${name} · Papilot Universe`, canonical: entry.page, description: entry.description,
+    title: `${entry.name} · Papilot Universe`, titleZh: `${name} · Papilot Universe`, canonical: entry.page, description: family ? `${v.full}: LaTeX template (${family.name}).` : entry.description,
     image: entry.thumbnail ? SITE + entry.thumbnail : undefined, current: 'true',
     body: `
 <div class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><a href="${U}">Universe</a><span aria-hidden="true">/</span><span>${both(entry.name, zh(entry, 'name'))}</span></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="${U}">Universe</a><span aria-hidden="true">/</span><span>${heading}</span></nav>
 <article class="detail">
   <div class="stage">${cover ? `<a ${entry.preview ? `href="${U}${entry.preview}"` : ''} aria-label="${esc(L.preview[0])}"><div class="sheet"><img src="${U}${cover}" alt="" width="${width}" height="${height}"></div></a>` : ''}</div>
   <div class="detail-body">
-    <p class="eyebrow"><span>${label(group(entry) + 'One')}</span>${entry.organization && entry.organization !== 'Papilot' ? `<span>${esc(entry.organization)}</span>` : ''}${entry.venue && !entry.name.includes(entry.venue.name) ? `<span>${esc(entry.venue.name)} ${esc(entry.venue.year)}</span>` : ''}</p>
-    <h1>${both(entry.name, zh(entry, 'name'))}</h1>
-    <p class="lead">${both(entry.description, zh(entry, 'description'))}</p>
+    <p class="eyebrow">${eyebrow}</p>
+    <h1>${heading}</h1>
+    <p class="lead">${lead}</p>
     <div class="actions"><a class="button primary" href="${deep}">${label('open')}</a><a class="button" href="${U}${entry.archive.url}" download>${ICON.download}${label('download')}</a>${entry.preview ? `<a class="button" href="${U}${entry.preview}">${ICON.pdf}${label('preview')}</a>` : ''}</div>
     <p class="get-app">${label('noApp')} ${link(MAIN + '#download', ...L.getApp)}</p>
     <dl class="facts">${facts.map(([key, value, wide]) => `<div${wide ? ' class="wide"' : ''}><dt>${label(key)}</dt><dd>${value}</dd></div>`).join('')}</dl>

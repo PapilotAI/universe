@@ -1,0 +1,416 @@
+# CCF 2026 (7th edition) recommended conferences: cg.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "acm-mm"
+abbr = "ACM MM"
+name = "ACM International Conference on Multimedia"
+template = "acm-sigconf"
+ccf = "A"
+area = "cg"
+publisher = "ACM"
+year = 2026
+cfp = "https://2026.acmmm.org/"
+confidence = "medium"
+
+[[venues]]
+id = "ieee-vis"
+abbr = "IEEE VIS"
+name = "IEEE Visualization Conference"
+template = "ieee-vgtc"
+ccf = "A"
+area = "cg"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ieeevis.org/year/2026/welcome"
+confidence = "high"
+
+[[venues]]
+id = "siggraph"
+abbr = "SIGGRAPH"
+name = "ACM Special Interest Group on Computer Graphics"
+template = "acm-tog"
+ccf = "A"
+area = "cg"
+publisher = "ACM"
+year = 2027
+cfp = "https://s2027.siggraph.org/"
+confidence = "medium"
+
+[[venues]]
+id = "vr"
+abbr = "VR"
+name = "IEEE Conference on Virtual Reality and 3D User Interfaces"
+template = "ieee-vgtc"
+ccf = "A"
+area = "cg"
+publisher = "IEEE"
+year = 2027
+cfp = "https://ieeevr.org/2027/"
+confidence = "high"
+
+[[venues]]
+id = "dcc"
+abbr = "DCC"
+name = "Data Compression Conference"
+template = "ieee-conference"
+ccf = "B"
+area = "cg"
+publisher = "IEEE"
+year = 2027
+cfp = "https://datacompressionconference.org/"
+confidence = "medium"
+
+[[venues]]
+id = "egsr"
+abbr = "EGSR"
+name = "Eurographics Symposium on Rendering"
+template = "article"
+ccf = "B"
+area = "cg"
+publisher = "Wiley/Blackwell"
+year = 2027
+cfp = "https://www.egsr2027.usi.ch/"
+confidence = "low"
+note = "Eurographics venues use the EG / Computer Graphics Forum template (egpubl)."
+
+[[venues]]
+id = "eurographics"
+abbr = "Eurographics"
+name = "Annual Conference of the European Association for Computer Graphics"
+template = "article"
+ccf = "B"
+area = "cg"
+publisher = "Wiley/Blackwell"
+year = 2027
+cfp = "https://eg2027.isti.cnr.it/"
+confidence = "low"
+note = "Eurographics venues use the EG / Computer Graphics Forum template (egpubl)."
+
+[[venues]]
+id = "eurovis"
+abbr = "EuroVis"
+name = "Eurographics Conference on Visualization"
+template = "article"
+ccf = "B"
+area = "cg"
+publisher = "ACM"
+year = 2027
+cfp = "https://eurovis27.github.io/web/"
+confidence = "low"
+note = "Eurographics venues use the EG / Computer Graphics Forum template (egpubl)."
+
+[[venues]]
+id = "i3d"
+abbr = "I3D"
+name = "ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games"
+template = "acm-pacmcgit"
+ccf = "B"
+area = "cg"
+publisher = "ACM"
+year = 2026
+confidence = "medium"
+
+[[venues]]
+id = "icassp"
+abbr = "ICASSP"
+name = "IEEE International Conference on Acoustics, Speech and Signal Processing"
+template = "icassp"
+ccf = "B"
+area = "cg"
+publisher = "IEEE"
+year = 2028
+cfp = "https://2028.ieeeicassp.org/"
+confidence = "medium"
+
+[[venues]]
+id = "icme"
+abbr = "ICME"
+name = "IEEE International Conference on Multimedia & Expo"
+template = "ieee-conference"
+ccf = "B"
+area = "cg"
+publisher = "IEEE"
+year = 2026
+confidence = "medium"
+
+[[venues]]
+id = "icmr"
+abbr = "ICMR"
+name = "ACM SIGMM International Conference on Multimedia Retrieval"
+template = "acm-sigconf"
+ccf = "B"
+area = "cg"
+publisher = "ACM"
+year = 2027
+cfp = "https://www.icmr2027.org/"
+confidence = "high"
+
+[[venues]]
+id = "interspeech"
+abbr = "INTERSPEECH"
+name = "Conference of the International Speech Communication Association"
+template = "ieee-conference"
+ccf = "B"
+area = "cg"
+publisher = "ISCA"
+year = 2027
+cfp = "https://interspeech2027.org/"
+confidence = "low"
+note = "Interspeech ships its own ISCA author kit."
+
+[[venues]]
+id = "ismar"
+abbr = "ISMAR"
+name = "International Symposium on Mixed and Augmented Reality"
+template = "ieee-vgtc"
+ccf = "B"
+area = "cg"
+publisher = "IEEE/ACM"
+year = 2026
+cfp = "https://www.ieeeismar.net/2026/"
+confidence = "high"
+
+[[venues]]
+id = "pg"
+abbr = "PG"
+name = "Pacific Conference on Computer Graphics and Applications"
+template = "article"
+ccf = "B"
+area = "cg"
+publisher = "Wiley/Blackwell"
+year = 2026
+cfp = "https://pacificgraphics2026.github.io/"
+confidence = "low"
+note = "Eurographics venues use the EG / Computer Graphics Forum template (egpubl)."
+
+[[venues]]
+id = "sca"
+abbr = "SCA"
+name = "ACM SIGGRAPH/Eurographics Symposium on Computer Animation"
+template = "article"
+ccf = "B"
+area = "cg"
+publisher = "ACM"
+year = 2026
+cfp = "https://computeranimation.org/"
+confidence = "low"
+note = "Eurographics venues use the EG / Computer Graphics Forum template (egpubl)."
+
+[[venues]]
+id = "sgp"
+abbr = "SGP"
+name = "Eurographics Symposium on Geometry Processing"
+template = "article"
+ccf = "B"
+area = "cg"
+publisher = "Wiley/Blackwell"
+year = 2027
+cfp = "https://igs2027singapore.github.io/"
+confidence = "low"
+note = "Eurographics venues use the EG / Computer Graphics Forum template (egpubl)."
+
+[[venues]]
+id = "spm"
+abbr = "SPM"
+name = "Symposium on Solid and Physical Modeling"
+template = "elsevier"
+ccf = "B"
+area = "cg"
+publisher = "Elsevier"
+year = 2027
+cfp = "https://igs2027singapore.github.io/"
+confidence = "medium"
+
+[[venues]]
+id = "3dv"
+abbr = "3DV"
+name = "International Conference on 3D Vision"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE"
+year = 2027
+cfp = "https://3dvconf.github.io/2027/"
+confidence = "low"
+
+[[venues]]
+id = "asru"
+abbr = "ASRU"
+name = "Automatic Speech Recognition and Understanding Workshop"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE SLTC"
+year = 2026
+confidence = "medium"
+
+[[venues]]
+id = "cad-graphics"
+abbr = "CAD/Graphics"
+name = "International Conference on Computer-Aided Design and Computer Graphics"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "casaxr"
+abbr = "CASAXR"
+name = "Extended Reality"
+template = "article"
+ccf = "C"
+area = "cg"
+publisher = "Wiley"
+year = 2027
+cfp = "https://www.cgs-network.org/casaxr27/"
+confidence = "medium"
+
+[[venues]]
+id = "cgi"
+abbr = "CGI"
+name = "Computer Graphics International"
+template = "springer-lncs"
+ccf = "C"
+area = "cg"
+publisher = "Springer"
+year = 2027
+cfp = "https://cgs-network.org/cgi27/"
+confidence = "low"
+
+[[venues]]
+id = "cvm"
+abbr = "CVM"
+name = "Computational Visual Media"
+template = "article"
+ccf = "C"
+area = "cg"
+publisher = "Tsinghua University"
+year = 2027
+confidence = "medium"
+
+[[venues]]
+id = "gmp"
+abbr = "GMP"
+name = "Geometric Modeling and Processing"
+template = "elsevier"
+ccf = "C"
+area = "cg"
+publisher = "Elsevier"
+year = 2027
+cfp = "https://gmp-conference-2027.github.io/gmp2027/"
+confidence = "medium"
+
+[[venues]]
+id = "icig"
+abbr = "ICIG"
+name = "International Conference on Image and Graphics"
+template = "springer-lncs"
+ccf = "C"
+area = "cg"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "icip"
+abbr = "ICIP"
+name = "IEEE International Conference on Image Processing"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE"
+year = 2027
+cfp = "https://2027.ieeeicip.org/"
+confidence = "low"
+
+[[venues]]
+id = "mmasia"
+abbr = "MMAsia"
+name = "ACM Multimedia Asia"
+template = "acm-sigconf"
+ccf = "C"
+area = "cg"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.mmasia2026.org/"
+confidence = "medium"
+
+[[venues]]
+id = "mmm"
+abbr = "MMM"
+name = "International Conference on Multimedia Modeling"
+template = "springer-lncs"
+ccf = "C"
+area = "cg"
+publisher = "Springer"
+year = 2027
+cfp = "https://www.mmm2027.net/"
+confidence = "low"
+
+[[venues]]
+id = "ncmmsc"
+abbr = "NCMMSC"
+name = "National Conference on Man-Machine Speech Communication"
+template = "article"
+ccf = "C"
+area = "cg"
+publisher = "CCF/中国中文信息学会"
+year = 2026
+confidence = "medium"
+
+[[venues]]
+id = "pacificvis"
+abbr = "PacificVis"
+name = "IEEE Pacific Visualization Symposium"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "prcv"
+abbr = "PRCV"
+name = "Chinese Conference on Pattern Recognition and Computer Vision"
+template = "springer-lncs"
+ccf = "C"
+area = "cg"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.prcv.cn/web/#/home"
+confidence = "low"
+
+[[venues]]
+id = "slt"
+abbr = "SLT"
+name = "Spoken Language Technology"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE SLTC"
+year = 2026
+cfp = "https://attend.ieee.org/slt-2026/"
+confidence = "medium"
+
+[[venues]]
+id = "smi"
+abbr = "SMI"
+name = "Shape Modeling International"
+template = "ieee-conference"
+ccf = "C"
+area = "cg"
+publisher = "IEEE"
+year = 2027
+cfp = "https://smiconf.github.io/2027/"
+confidence = "low"
+
+[[venues]]
+id = "vrst"
+abbr = "VRST"
+name = "ACM Symposium on Virtual Reality Software and Technology International Conference on Computer Animation, Social Agents, and"
+template = "acm-sigconf"
+ccf = "C"
+area = "cg"
+publisher = "ACM"
+confidence = "low"

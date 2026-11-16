@@ -1,0 +1,299 @@
+# CCF 2026 (7th edition) recommended conferences: tcs.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "cav"
+abbr = "CAV"
+name = "International Conference on Computer Aided Verification"
+template = "springer-lncs"
+ccf = "A"
+area = "tcs"
+topics = ["pl"]
+publisher = "Springer"
+year = 2027
+cfp = "https://conferences.i-cav.org/2027/cfp/"
+confidence = "high"
+
+[[venues]]
+id = "focs"
+abbr = "FOCS"
+name = "IEEE Annual Symposium on Foundations of Computer Science"
+template = "article"
+ccf = "A"
+area = "tcs"
+publisher = "IEEE"
+year = 2026
+cfp = "https://focs.computer.org/2026/call-for-papers/"
+confidence = "high"
+note = "No template is required: single column, 11pt or larger, 1-inch margins."
+
+[[venues]]
+id = "lics"
+abbr = "LICS"
+name = "ACM/IEEE Symposium on Logic in Computer Science"
+template = "acm-sigconf"
+ccf = "A"
+area = "tcs"
+topics = ["pl"]
+publisher = "IEEE"
+year = 2026
+cfp = "https://lics.siglog.org/lics26/cfp.php"
+confidence = "medium"
+
+[[venues]]
+id = "soda"
+abbr = "SODA"
+name = "ACM-SIAM Symposium on Discrete Algorithms"
+template = "article"
+ccf = "A"
+area = "tcs"
+publisher = "SIAM"
+year = 2027
+cfp = "https://www.siam.org/conferences-events/siam-conferences/soda27/"
+confidence = "medium"
+note = "Submissions use a free single-column format; SIAM macros are used for the camera-ready."
+
+[[venues]]
+id = "stoc"
+abbr = "STOC"
+name = "ACM Symposium on the Theory of Computing"
+template = "article"
+ccf = "A"
+area = "tcs"
+publisher = "ACM"
+year = 2027
+cfp = "https://acm-stoc.org/stoc2027/stoc2027-cfp.html"
+confidence = "high"
+note = "Submissions are single column, 11pt or larger, with 1-inch margins; the proceedings version uses ACM sigconf."
+
+[[venues]]
+id = "cade"
+abbr = "CADE"
+name = "Conference on Automated Deduction"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+topics = ["pl"]
+publisher = "Springer"
+year = 2027
+cfp = "https://fscd-cade.science.ru.nl/"
+confidence = "high"
+
+[[venues]]
+id = "ccc"
+abbr = "CCC"
+name = "Conference on Computational Complexity"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+publisher = "IEEE"
+year = 2026
+cfp = "https://computationalcomplexity.org/Archive/2026/cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "cocoon"
+abbr = "COCOON"
+name = "International Computing and Combinatorics Conference"
+template = "springer-lncs"
+ccf = "B"
+area = "tcs"
+publisher = "Springer"
+year = 2026
+cfp = "https://event.ntu.edu.sg/cocoon2026/pages/call-for-papers"
+confidence = "high"
+
+[[venues]]
+id = "concur"
+abbr = "CONCUR"
+name = "International Conference on Concurrency Theory"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+publisher = "Springer"
+year = 2026
+cfp = "https://confest-2026.github.io/concur/call-for-papers"
+confidence = "high"
+
+[[venues]]
+id = "esa"
+abbr = "ESA"
+name = "European Symposium on Algorithms"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+publisher = "Springer"
+year = 2026
+cfp = "https://algo-conference.org/2026/esa/"
+confidence = "high"
+
+[[venues]]
+id = "fmcad"
+abbr = "FMCAD"
+name = "Formal Methods in Computer-Aided Design"
+template = "ieee-journal"
+ccf = "B"
+area = "tcs"
+publisher = "ACM"
+year = 2026
+cfp = "https://fmcad.forsyte.at/FMCAD26/cfp"
+confidence = "high"
+note = "FMCAD prefers its own IEEE Transactions-style template; IEEEtran journal mode gives the same layout."
+
+[[venues]]
+id = "hscc"
+abbr = "HSCC"
+name = "International Conference on Hybrid Systems: Computation and Control"
+template = "acm-sigconf"
+ccf = "B"
+area = "tcs"
+publisher = "Springer and ACM"
+year = 2026
+cfp = "https://hscc.acm.org/2026/call-for-papers/"
+confidence = "medium"
+
+[[venues]]
+id = "icalp"
+abbr = "ICALP"
+name = "International Colloquium on Automata, Languages and Programming"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+publisher = "Springer"
+year = 2027
+cfp = "https://icalp.uj.edu.pl/track-b/"
+confidence = "high"
+
+[[venues]]
+id = "sat"
+abbr = "SAT"
+name = "International Conference on Theory and Applications of Satisfiability Testing"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+publisher = "Springer"
+year = 2026
+cfp = "https://satisfiability.org/SAT26/pages/cfp"
+confidence = "high"
+
+[[venues]]
+id = "socg"
+abbr = "SoCG"
+name = "International Symposium on Computational Geometry"
+template = "lipics"
+ccf = "B"
+area = "tcs"
+publisher = "ACM"
+year = 2026
+cfp = "https://cgweek26.computational-geometry.org/downloads/SoCG2026_CFP.pdf"
+confidence = "medium"
+
+[[venues]]
+id = "csl"
+abbr = "CSL"
+name = "Computer Science Logic"
+template = "lipics"
+ccf = "C"
+area = "tcs"
+topics = ["pl"]
+publisher = "Springer"
+confidence = "medium"
+
+[[venues]]
+id = "dsaa"
+abbr = "DSAA"
+name = "IEEE International Conference on Data Science and Advanced Analytics"
+template = "ieee-conference"
+ccf = "C"
+area = "tcs"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "fscd"
+abbr = "FSCD"
+name = "International Conference on Formal Structures for Computation and Deduction"
+template = "lipics"
+ccf = "C"
+area = "tcs"
+topics = ["pl"]
+publisher = "Dagstuhl LIPIcs"
+year = 2026
+cfp = "https://fscd2026.github.io/CFP"
+confidence = "high"
+
+[[venues]]
+id = "fsttcs"
+abbr = "FSTTCS"
+name = "Foundations of Software Technology and Theoretical Computer Science"
+template = "lipics"
+ccf = "C"
+area = "tcs"
+publisher = "Dagstuhl LIPIcs"
+year = 2026
+cfp = "https://easychair.org/cfp/FSTTCS2026"
+confidence = "high"
+
+[[venues]]
+id = "ictac"
+abbr = "ICTAC"
+name = "International Colloquium on Theoretical Aspects of Computing"
+template = "springer-lncs"
+ccf = "C"
+area = "tcs"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "ipco"
+abbr = "IPCO"
+name = "International Conference on Integer Programming and Combinatorial Optimization"
+template = "springer-lncs"
+ccf = "C"
+area = "tcs"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "isaac"
+abbr = "ISAAC"
+name = "International Symposium on Algorithms and Computation"
+template = "lipics"
+ccf = "C"
+area = "tcs"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.algo-door.com/isaac2026/index.html"
+confidence = "high"
+
+[[venues]]
+id = "mfcs"
+abbr = "MFCS"
+name = "International Conference on Mathematical Foundations of Computer Science"
+template = "lipics"
+ccf = "C"
+area = "tcs"
+publisher = "Springer"
+confidence = "medium"
+
+[[venues]]
+id = "setta"
+abbr = "SETTA"
+name = "International Symposium on Software Engineering: Theories, Tools, and Applications"
+template = "springer-lncs"
+ccf = "C"
+area = "tcs"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.setta2026.sg/"
+confidence = "medium"
+
+[[venues]]
+id = "stacs"
+abbr = "STACS"
+name = "Symposium on Theoretical Aspects of Computer Science"
+template = "lipics"
+ccf = "C"
+area = "tcs"
+publisher = "Springer"
+confidence = "medium"

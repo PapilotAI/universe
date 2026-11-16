@@ -1,0 +1,23 @@
+id = "acm-pacmhci"
+version = "2.21"
+name = "PACMHCI (CSCW and others)"
+description = "acmart in the acmsmall format for Proceedings of the ACM on Human-Computer Interaction, used by CSCW and other HCI venues."
+category = "conference"
+tags = ["acm", "pacmhci", "cscw", "hci"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "pacmhci.tex"
+engine = "pdflatex"
+organization = "ACM"
+
+[upstream]
+url = "https://portalparts.acm.org/hippo/latex_templates/acmart-primary.zip"
+homepage = "https://www.acm.org/publications/proceedings-template"
+version = "acmart v2.21 (2026-11-01; ACM page 'last update November 3, 2026')"
+sha256 = "a1e52cce16394ac8517225b7ebc008a7188f765b4c25aa902d24cea397dc687f"
+
+[zh-CN]
+description = "PACMHCI 单栏 acmsmall 模板，适用于 CSCW 等人机交互会议。"
+
+[setup]
+notes = "Set up for anonymous submission; some PACMHCI venues ask for the manuscript format instead. The \\DocumentMetadata tagging block of ACM's sample was removed so it compiles with TeX Live 2025; add it back for tagged PDFs on newer TeX."

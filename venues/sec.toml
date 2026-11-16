@@ -1,0 +1,552 @@
+# CCF 2026 (7th edition) recommended conferences: sec.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "ccs"
+abbr = "CCS"
+name = "ACM Conference on Computer and Communications Security"
+template = "acm-sigconf"
+ccf = "A"
+area = "sec"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.sigsac.org/ccs/CCS2026/call-for/call-for-papers.html"
+confidence = "medium"
+
+[[venues]]
+id = "crypto"
+abbr = "CRYPTO"
+name = "International Cryptology Conference"
+template = "springer-lncs"
+ccf = "A"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://crypto.iacr.org/2026/"
+confidence = "high"
+
+[[venues]]
+id = "eurocrypt"
+abbr = "EUROCRYPT"
+name = "International Conference on the Theory and Applications of Cryptographic Techniques"
+template = "springer-lncs"
+ccf = "A"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://eurocrypt.iacr.org/2027/"
+confidence = "high"
+
+[[venues]]
+id = "ndss"
+abbr = "NDSS"
+name = "Network and Distributed System Security Symposium"
+template = "ieee-conference"
+ccf = "A"
+area = "sec"
+publisher = "ISOC"
+year = 2027
+cfp = "https://www.ndss-symposium.org/ndss2027/submissions/templates/"
+confidence = "low"
+note = "NDSS ships an IEEEtran-based kit (bare_conf_NDSS2027.tex); IEEEtran conference is the same base."
+
+[[venues]]
+id = "s-p"
+abbr = "S&P"
+name = "IEEE Symposium on Security and Privacy"
+template = "ieee-conference"
+ccf = "A"
+area = "sec"
+publisher = "IEEE"
+year = 2027
+cfp = "https://sp2027.ieee-security.org/cfpapers.html"
+confidence = "high"
+
+[[venues]]
+id = "usenix-security"
+abbr = "USENIX Security"
+name = "USENIX Security Symposium"
+template = "usenix"
+ccf = "A"
+area = "sec"
+publisher = "USENIX"
+year = 2027
+cfp = "https://www.usenix.org/sites/default/files/sec27_cfp-070826.pdf"
+confidence = "high"
+
+[[venues]]
+id = "acsac"
+abbr = "ACSAC"
+name = "Annual Computer Security Applications Conference"
+template = "acm-sigconf"
+ccf = "B"
+area = "sec"
+publisher = "IEEE"
+year = 2026
+cfp = "https://acsac.org/2024/submissions/papers"
+confidence = "high"
+
+[[venues]]
+id = "asiacrypt"
+abbr = "ASIACRYPT"
+name = "Annual International Conference on the Theory and Application of Cryptology and Information Security"
+template = "springer-lncs"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://asiacrypt.iacr.org/2026/"
+confidence = "high"
+
+[[venues]]
+id = "ches"
+abbr = "CHES"
+name = "International Conference on Cryptographic Hardware and Embedded Systems"
+template = "iacrj"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://tches.iacr.org/index.php/TCHES/cfp"
+confidence = "high"
+
+[[venues]]
+id = "csfw"
+abbr = "CSFW"
+name = "IEEE Computer Security Foundations Workshop"
+template = "ieee-conference"
+ccf = "B"
+area = "sec"
+publisher = "IEEE"
+year = 2027
+cfp = "https://www.ieee-security.org/TC/CSF2027/cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "dsn"
+abbr = "DSN"
+name = "International Conference on Dependable Systems and Networks"
+template = "ieee-conference"
+ccf = "B"
+area = "sec"
+publisher = "IEEE/IFIP"
+year = 2026
+cfp = "https://dsn2026.github.io/cfindustry.html"
+confidence = "high"
+
+[[venues]]
+id = "esorics"
+abbr = "ESORICS"
+name = "European Symposium on Research in Computer Security"
+template = "springer-lncs"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.ieee-security.org/Calendar/cfps/cfp-ESORICS2026.html"
+confidence = "high"
+
+[[venues]]
+id = "fse-crypto"
+abbr = "FSE"
+name = "Fast Software Encryption"
+template = "iacrj"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://tosc.iacr.org/call"
+confidence = "medium"
+
+[[venues]]
+id = "pkc"
+abbr = "PKC"
+name = "International Workshop on Practice and Theory in Public Key Cryptography"
+template = "springer-lncs"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://pkc.iacr.org/2027/"
+confidence = "high"
+
+[[venues]]
+id = "raid"
+abbr = "RAID"
+name = "International Symposium on Recent Advances in Intrusion Detection"
+template = "ieee-conference"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2025
+cfp = "https://raid2025.github.io/call.html"
+confidence = "high"
+
+[[venues]]
+id = "srds"
+abbr = "SRDS"
+name = "IEEE International Symposium on Reliable Distributed Systems"
+template = "ieee-conference"
+ccf = "B"
+area = "sec"
+publisher = "IEEE"
+year = 2026
+cfp = "https://srds-conference.org/"
+confidence = "high"
+
+[[venues]]
+id = "tcc"
+abbr = "TCC"
+name = "Theory of Cryptography Conference"
+template = "springer-lncs"
+ccf = "B"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://tcc.iacr.org/2026/"
+confidence = "high"
+
+[[venues]]
+id = "acisp"
+abbr = "ACISP"
+name = "Australasia Conference on Information Security and Privacy"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://acisp.org/"
+confidence = "medium"
+
+[[venues]]
+id = "acns"
+abbr = "ACNS"
+name = "International Conference on Applied Cryptography and Network Security"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://acns2027.isg.rhul.ac.uk/"
+confidence = "medium"
+
+[[venues]]
+id = "asiaccs"
+abbr = "AsiaCCS"
+name = "ACM Asia Conference on Computer and Communications Security"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2027
+cfp = "https://asiaccs2027.cityu.edu.mo/index.html"
+confidence = "medium"
+
+[[venues]]
+id = "blocksys"
+abbr = "BlockSys"
+name = "International Conference on Blockchain, Artificial Intelligence, and Trustworthy Systems"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://blocksys.info/2027/"
+confidence = "high"
+
+[[venues]]
+id = "codaspy"
+abbr = "CODASPY"
+name = "Conference on Data and Application Security and Privacy"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2027
+cfp = "https://www.codaspy.org/2027/"
+confidence = "low"
+
+[[venues]]
+id = "cscloud"
+abbr = "CSCloud"
+name = "IEEE International Conference on Cyber Security and Cloud Computing"
+template = "ieee-conference"
+ccf = "C"
+area = "sec"
+publisher = "CSCloud Steering Committee"
+year = 2026
+cfp = "https://www.cloud-conf.net/cscloud/2026/cscloud/"
+confidence = "low"
+
+[[venues]]
+id = "ct-rsa"
+abbr = "CT-RSA"
+name = "The Cryptographer's Track at RSA Conference"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://www.esat.kuleuven.be/cosic/events/ct-rsa-2027/"
+confidence = "medium"
+
+[[venues]]
+id = "dfrws"
+abbr = "DFRWS"
+name = "Digital Forensic Research Workshop"
+template = "article"
+ccf = "C"
+area = "sec"
+publisher = "Elsevier"
+year = 2027
+cfp = "https://dfrws.org/call-for-papers-dfc-europe-2027/"
+confidence = "medium"
+
+[[venues]]
+id = "dimva"
+abbr = "DIMVA"
+name = "Conference on Detection of Intrusions and Malware & Vulnerability Assessment"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.dimva.org/dimva2026/"
+confidence = "medium"
+
+[[venues]]
+id = "drm"
+abbr = "DRM"
+name = "ACM Workshop on Digital Rights Management"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "euros-p"
+abbr = "EuroS&P"
+name = "IEEE European Symposium on Security and Privacy"
+template = "ieee-conference"
+ccf = "C"
+area = "sec"
+publisher = "IEEE"
+year = 2027
+cfp = "https://eurosp2027.ieee-security.org/"
+confidence = "low"
+
+[[venues]]
+id = "fc"
+abbr = "FC"
+name = "Financial Cryptography and Data Security"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://fc27.ifca.ai/"
+confidence = "low"
+
+[[venues]]
+id = "hotsec"
+abbr = "HotSec"
+name = "USENIX Workshop on Hot Topics in Security"
+template = "usenix"
+ccf = "C"
+area = "sec"
+publisher = "USENIX"
+year = 2026
+cfp = "https://www.usenix.org"
+confidence = "low"
+
+[[venues]]
+id = "icdf2c"
+abbr = "ICDF2C"
+name = "International Conference on Digital Forensics & Cyber Crime"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://icdf2c.eai-conferences.org/2027/"
+confidence = "low"
+
+[[venues]]
+id = "icics"
+abbr = "ICICS"
+name = "International Conference on Information and Communications Security"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://sulab-sever.u-aizu.ac.jp/icics2026/cfp.html"
+confidence = "medium"
+
+[[venues]]
+id = "ifip-wg-11-9"
+abbr = "IFIP WG 11.9"
+name = "IFIP Working Group 11.9 International Conference on Digital Forensics"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "ih-mmsec"
+abbr = "IH&MMSec"
+name = "ACM Workshop on Information Hiding and Multimedia Security"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.ihmmsec.org/cms/home/home2026.html"
+confidence = "low"
+
+[[venues]]
+id = "inscrypt"
+abbr = "Inscrypt"
+name = "International Conference on Information Security and Cryptology"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://inscrypt2026.comp.polyu.edu.hk"
+confidence = "medium"
+
+[[venues]]
+id = "isc"
+abbr = "ISC"
+name = "Information Security Conference"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://isc2026.github.io/"
+confidence = "medium"
+
+[[venues]]
+id = "nspw"
+abbr = "NSPW"
+name = "New Security Paradigms Workshop"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.nspw.org/2026"
+confidence = "low"
+
+[[venues]]
+id = "pam"
+abbr = "PAM"
+name = "Passive and Active Measurement Conference"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://pam2026.at/"
+confidence = "low"
+
+[[venues]]
+id = "pets"
+abbr = "PETS"
+name = "Privacy Enhancing Technologies Symposium"
+template = "article"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2027
+cfp = "https://petsymposium.org/cfp27.php"
+confidence = "low"
+note = "PoPETs ships its own LaTeX template."
+
+[[venues]]
+id = "sac"
+abbr = "SAC"
+name = "Selected Areas in Cryptography"
+template = "springer-lncs"
+ccf = "C"
+area = "sec"
+publisher = "Springer"
+year = 2026
+cfp = "https://sacworkshop.org/SAC26/"
+confidence = "low"
+
+[[venues]]
+id = "sacmat"
+abbr = "SACMAT"
+name = "ACM Symposium on Access Control Models and Technologies"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2027
+cfp = "https://www.sacmat.org/2027/"
+confidence = "medium"
+
+[[venues]]
+id = "ifip-sec"
+abbr = "SEC"
+name = "IFIP International Information Security Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "sec"
+publisher = "IEEE/ACM"
+year = 2027
+cfp = "https://ifipsec.org/"
+confidence = "low"
+
+[[venues]]
+id = "securecomm"
+abbr = "SecureComm"
+name = "International Conference on Security and Privacy in Communication Networks"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2027
+cfp = "https://securecomm.eai-conferences.org/2027/"
+confidence = "low"
+
+[[venues]]
+id = "soups"
+abbr = "SOUPS"
+name = "Symposium On Usable Privacy and Security"
+template = "usenix"
+ccf = "C"
+area = "sec"
+publisher = "USENIX"
+year = 2027
+cfp = "https://www.usenix.org/conference/soups2027"
+confidence = "low"
+
+[[venues]]
+id = "trustcom"
+abbr = "TrustCom"
+name = "IEEE International Conference on Trust, Security and Privacy in Computing and Communications"
+template = "ieee-conference"
+ccf = "C"
+area = "sec"
+publisher = "IEEE"
+year = 2025
+cfp = "https://ieee-aiplus-2025.org/"
+confidence = "low"
+
+[[venues]]
+id = "wisec"
+abbr = "WiSec"
+name = "ACM Conference on Security and Privacy in Wireless and Mobile Networks"
+template = "acm-sigconf"
+ccf = "C"
+area = "sec"
+publisher = "ACM"
+year = 2026
+cfp = "https://wisec26.events.cispa.de/"
+confidence = "medium"

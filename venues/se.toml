@@ -1,0 +1,682 @@
+# CCF 2026 (7th edition) recommended conferences: se.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "ase"
+abbr = "ASE"
+name = "International Conference on Automated Software Engineering"
+template = "acm-sigconf"
+ccf = "A"
+area = "se"
+publisher = "IEEE/ACM"
+year = 2026
+cfp = "https://conf.researchr.org/home/ase-2026"
+confidence = "high"
+
+[[venues]]
+id = "fm"
+abbr = "FM"
+name = "International Symposium on Formal Methods"
+template = "springer-lncs"
+ccf = "A"
+area = "se"
+publisher = "FME"
+year = 2027
+cfp = "https://www.fmeurope.org/feature/upcoming_conferences/"
+confidence = "medium"
+
+[[venues]]
+id = "fse"
+abbr = "FSE"
+name = "ACM International Conference on the Foundations of Software Engineering"
+template = "acm-acmsmall-conf"
+ccf = "A"
+area = "se"
+publisher = "ACM"
+year = 2027
+cfp = "https://conf.researchr.org/home/fse-2027"
+confidence = "high"
+
+[[venues]]
+id = "icse"
+abbr = "ICSE"
+name = "International Conference on Software Engineering"
+template = "ieee-conference"
+ccf = "A"
+area = "se"
+publisher = "ACM/IEEE"
+year = 2027
+cfp = "https://conf.researchr.org/track/icse-2027/icse-2027-research-track"
+confidence = "high"
+
+[[venues]]
+id = "issta"
+abbr = "ISSTA"
+name = "International Symposium on Software Testing and Analysis"
+template = "acm-acmsmall-conf"
+ccf = "A"
+area = "se"
+publisher = "ACM"
+year = 2027
+cfp = "https://conf.researchr.org/home/issta-2027"
+confidence = "high"
+
+[[venues]]
+id = "oopsla"
+abbr = "OOPSLA"
+name = "Conference on Object-Oriented Programming Systems, Languages, and Applications"
+template = "acm-pacmpl"
+ccf = "A"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://2027.splashcon.org/track/splashoopsla2027"
+confidence = "high"
+
+[[venues]]
+id = "osdi"
+abbr = "OSDI"
+name = "USENIX Symposium on Operating Systems Design and Implementation"
+template = "usenix"
+ccf = "A"
+area = "se"
+publisher = "USENIX"
+year = 2027
+cfp = "https://www.usenix.org/conference/osdi27"
+confidence = "medium"
+
+[[venues]]
+id = "pldi"
+abbr = "PLDI"
+name = "ACM SIGPLAN Conference on Programming Language Design and Implementation"
+template = "acm-pacmpl"
+ccf = "A"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://pldi27.sigplan.org/track/pldi-2027-papers"
+confidence = "high"
+
+[[venues]]
+id = "popl"
+abbr = "POPL"
+name = "ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages"
+template = "acm-pacmpl"
+ccf = "A"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://popl27.sigplan.org/track/POPL-2027-popl-research-papers"
+confidence = "high"
+
+[[venues]]
+id = "sosp"
+abbr = "SOSP"
+name = "ACM Symposium on Operating Systems Principles"
+template = "acm-sigconf"
+ccf = "A"
+area = "se"
+publisher = "ACM"
+year = 2026
+cfp = "https://sigops.org/s/conferences/sosp/2026/index.html"
+confidence = "low"
+
+[[venues]]
+id = "caise"
+abbr = "CAiSE"
+name = "International Conference on Advanced Information Systems Engineering"
+template = "springer-lncs"
+ccf = "B"
+area = "se"
+publisher = "Springer"
+year = 2027
+cfp = "https://deal.us.es/caise27/"
+confidence = "high"
+
+[[venues]]
+id = "cc"
+abbr = "CC"
+name = "International Conference on Compiler Construction"
+template = "acm-sigplan"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://conf.researchr.org/home/CC-2027"
+confidence = "high"
+
+[[venues]]
+id = "cp"
+abbr = "CP"
+name = "International Conference on Principles and Practice of Constraint Programming"
+template = "lipics"
+ccf = "B"
+area = "se"
+publisher = "Springer"
+year = 2026
+cfp = "https://cp2026.a4cp.org/"
+confidence = "high"
+
+[[venues]]
+id = "ecoop"
+abbr = "ECOOP"
+name = "European Conference on Object-Oriented Programming"
+template = "lipics"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "AITO"
+year = 2027
+cfp = "https://2027.ecoop.org/"
+confidence = "high"
+
+[[venues]]
+id = "esem"
+abbr = "ESEM"
+name = "International Symposium on Empirical Software Engineering and Measurement"
+template = "lipics"
+ccf = "B"
+area = "se"
+publisher = "ACM/IEEE"
+year = 2026
+cfp = "https://conf.researchr.org/home/eseiw-2026"
+confidence = "high"
+
+[[venues]]
+id = "etaps"
+abbr = "ETAPS"
+name = "European Joint Conferences on Theory and Practice of Software"
+template = "springer-lncs"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "Springer"
+year = 2027
+cfp = "https://etaps.org/2027"
+confidence = "high"
+
+[[venues]]
+id = "hotos"
+abbr = "HotOS"
+name = "USENIX Workshop on Hot Topics in Operating Systems"
+template = "acm-sigconf"
+ccf = "B"
+area = "se"
+publisher = "USENIX"
+year = 2027
+cfp = "https://sigops.org/s/conferences/hotos/2027/"
+confidence = "low"
+
+[[venues]]
+id = "icfp"
+abbr = "ICFP"
+name = "ACM SIGPLAN International Conference on Functional Programming"
+template = "acm-pacmpl"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://icfp27.sigplan.org/"
+confidence = "high"
+
+[[venues]]
+id = "icpc"
+abbr = "ICPC"
+name = "IEEE International Conference on Program Comprehension"
+template = "ieee-conference"
+ccf = "B"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://conf.researchr.org/home/icpc-2026"
+confidence = "low"
+
+[[venues]]
+id = "icsme"
+abbr = "ICSME"
+name = "International Conference on Software Maintenance and Evolution"
+template = "ieee-conference"
+ccf = "B"
+area = "se"
+publisher = "IEEE"
+year = 2027
+cfp = "https://conf.researchr.org/home/icsme-2027"
+confidence = "high"
+
+[[venues]]
+id = "icsoc"
+abbr = "ICSOC"
+name = "International Conference on Service Oriented Computing"
+template = "springer-lncs"
+ccf = "B"
+area = "se"
+publisher = "Springer"
+year = 2026
+cfp = "https://icsoc2026.it.p.lodz.pl/"
+confidence = "high"
+
+[[venues]]
+id = "icws"
+abbr = "ICWS"
+name = "IEEE International Conference on Web Services"
+template = "ieee-conference"
+ccf = "B"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://services.conferences.computer.org/2026/icws-2026/"
+confidence = "medium"
+
+[[venues]]
+id = "issre"
+abbr = "ISSRE"
+name = "IEEE International Symposium on Software Reliability Engineering"
+template = "ieee-conference"
+ccf = "B"
+area = "se"
+publisher = "IEEE"
+year = 2027
+cfp = "https://conf.researchr.org/home/issre-2027"
+confidence = "medium"
+
+[[venues]]
+id = "lctes"
+abbr = "LCTES"
+name = "ACM SIGPLAN/SIGBED International Conference on Languages, Compilers and Tools for Embedded Systems"
+template = "acm-sigplan"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2026
+cfp = "https://pldi26.sigplan.org/home/LCTES-2026"
+confidence = "medium"
+
+[[venues]]
+id = "middleware"
+abbr = "Middleware"
+name = "International Middleware Conference"
+template = "acm-sigconf"
+ccf = "B"
+area = "se"
+publisher = "ACM/IFIP/USENIX"
+year = 2026
+cfp = "https://middleware-conf.github.io/2026/"
+confidence = "high"
+
+[[venues]]
+id = "models"
+abbr = "MoDELS"
+name = "ACM/IEEE International Conference on Model Driven Engineering Languages and Systems"
+template = "acm-sigconf"
+ccf = "B"
+area = "se"
+publisher = "ACM, IEEE"
+year = 2026
+cfp = "https://conf.researchr.org/home/models-2026"
+confidence = "low"
+
+[[venues]]
+id = "re"
+abbr = "RE"
+name = "IEEE International Requirements Engineering Conference"
+template = "ieee-conference"
+ccf = "B"
+area = "se"
+publisher = "IEEE"
+year = 2027
+cfp = "https://conf.researchr.org/home/RE-2027"
+confidence = "high"
+
+[[venues]]
+id = "saner"
+abbr = "SANER"
+name = "IEEE International Conference on Software Analysis, Evolution, and Reengineering"
+template = "ieee-conference"
+ccf = "B"
+area = "se"
+publisher = "IEEE"
+year = 2027
+cfp = "https://conf.researchr.org/track/saner-2027/saner-2027-papers"
+confidence = "high"
+
+[[venues]]
+id = "sas"
+abbr = "SAS"
+name = "International Static Analysis Symposium"
+template = "springer-lncs"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "Springer"
+year = 2026
+cfp = "https://conf.researchr.org/home/splash-issta-2026/sas-2026"
+confidence = "medium"
+
+[[venues]]
+id = "vmcai"
+abbr = "VMCAI"
+name = "International Conference on Verification, Model Checking and Abstract Interpretation"
+template = "springer-lncs"
+ccf = "B"
+area = "se"
+topics = ["pl"]
+publisher = "Springer"
+year = 2027
+cfp = "https://conf.researchr.org/home/VMCAI-2027"
+confidence = "medium"
+
+[[venues]]
+id = "aplas"
+abbr = "APLAS"
+name = "Asian Symposium on Programming Languages and Systems"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+topics = ["pl"]
+publisher = "Springer"
+year = 2026
+cfp = "https://conf.researchr.org/track/aplas-atva-2026/aplas-2026"
+confidence = "low"
+
+[[venues]]
+id = "apsec"
+abbr = "APSEC"
+name = "Asia-Pacific Software Engineering Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://conf.researchr.org/home/apsec-2026"
+confidence = "low"
+
+[[venues]]
+id = "atva"
+abbr = "ATVA"
+name = "International Symposium on Automated Technology for Verification and Analysis"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+year = 2026
+cfp = "https://conf.researchr.org/track/aplas-atva-2026/atva-2026"
+confidence = "low"
+
+[[venues]]
+id = "compsac"
+abbr = "COMPSAC"
+name = "International Computer Software and Applications Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2027
+cfp = "https://ieeecompsac.computer.org/2027/"
+confidence = "low"
+
+[[venues]]
+id = "ease"
+abbr = "EASE"
+name = "International Conference on Evaluation and Assessment in Software Engineering"
+template = "acm-sigconf"
+ccf = "C"
+area = "se"
+publisher = "ACM"
+year = 2027
+cfp = "https://conf.researchr.org/home/ease-2027"
+confidence = "medium"
+
+[[venues]]
+id = "iceccs"
+abbr = "ICECCS"
+name = "International Conference on Engineering of Complex Computer Systems"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://formal-analysis.com/iceccs/2026/"
+confidence = "high"
+
+[[venues]]
+id = "icfem"
+abbr = "ICFEM"
+name = "International Conference on Formal Engineering Methods"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+year = 2026
+cfp = "https://icfem2026.github.io/"
+confidence = "medium"
+
+[[venues]]
+id = "icsr"
+abbr = "ICSR"
+name = "International Conference on Software Reuse"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "icssp"
+abbr = "ICSSP"
+name = "International Conference on Software and System Process"
+template = "acm-sigconf"
+ccf = "C"
+area = "se"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "icst"
+abbr = "ICST"
+name = "IEEE International Conference on Software Testing, Verification and Validation"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2027
+cfp = "https://conf.researchr.org/home/icst-2027"
+confidence = "low"
+
+[[venues]]
+id = "icwe"
+abbr = "ICWE"
+name = "International Conference on Web Engineering"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "internetware"
+abbr = "Internetware"
+name = "Asia-Pacific Symposium on Internetware"
+template = "acm-sigconf"
+ccf = "C"
+area = "se"
+publisher = "ACM"
+year = 2026
+cfp = "https://conf.researchr.org/home/internetware-2026"
+confidence = "low"
+
+[[venues]]
+id = "ispass"
+abbr = "ISPASS"
+name = "IEEE International Symposium on Performance Analysis of Systems and Software"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ispass.org/ispass2026/"
+confidence = "low"
+
+[[venues]]
+id = "lopstr"
+abbr = "LOPSTR"
+name = "International Symposium on Logic-based Program Synthesis and Transformation"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "memocode"
+abbr = "MEMOCODE"
+name = "International Conference on Formal Methods and Models for Co-Design"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE/ACM"
+confidence = "low"
+
+[[venues]]
+id = "msr"
+abbr = "MSR"
+name = "Mining Software Repositories"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE/ACM"
+year = 2027
+cfp = "https://2027.msrconf.org/"
+confidence = "medium"
+
+[[venues]]
+id = "paste"
+abbr = "PASTE"
+name = "ACMSIGPLAN-SIGSOFT Workshop on Program Analysis for Software Tools and Engineering"
+template = "acm-sigconf"
+ccf = "C"
+area = "se"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "pepm"
+abbr = "PEPM"
+name = "ACM SIGPLAN Workshop on Partial Evaluation and Program Manipulation"
+template = "acm-sigconf"
+ccf = "C"
+area = "se"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://popl27.sigplan.org/home/pepm-2027"
+confidence = "low"
+
+[[venues]]
+id = "qrs"
+abbr = "QRS"
+name = "International Conference on Software Quality, Reliability and Security"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://qrs26.techconf.org/"
+confidence = "low"
+
+[[venues]]
+id = "refsq"
+abbr = "REFSQ"
+name = "Requirements Engineering: Foundation for Software Quality"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+year = 2027
+cfp = "https://2027.refsq.org/"
+confidence = "low"
+
+[[venues]]
+id = "rv"
+abbr = "RV"
+name = "International Conference on Runtime Verification"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+year = 2026
+cfp = "https://rv2026.smithengineering.queensu.ca/"
+confidence = "medium"
+
+[[venues]]
+id = "scam"
+abbr = "SCAM"
+name = "IEEE International Working Conference on Source Code Analysis and Manipulation"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://conf.researchr.org/home/scam-2026"
+confidence = "medium"
+
+[[venues]]
+id = "seke"
+abbr = "SEKE"
+name = "International Conference on Software Engineering and Knowledge Engineering"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "KSI"
+year = 2026
+cfp = "https://ksiresearch.org/seke/seke26.html"
+confidence = "low"
+
+[[venues]]
+id = "spin"
+abbr = "SPIN"
+name = "International Symposium on Model Checking of Software"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "sse"
+abbr = "SSE"
+name = "IEEE International Conference on Software Services Engineering"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://services.conferences.computer.org/2026/sse/"
+confidence = "low"
+
+[[venues]]
+id = "tase"
+abbr = "TASE"
+name = "Theoretical Aspects of Software Engineering Conference"
+template = "springer-lncs"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+year = 2026
+cfp = "https://tase2026.github.io/"
+confidence = "high"
+
+[[venues]]
+id = "wicsa"
+abbr = "WICSA"
+name = "Working IEEE/IFIP Conference on Software Architecture"
+template = "ieee-conference"
+ccf = "C"
+area = "se"
+publisher = "IEEE"
+confidence = "low"

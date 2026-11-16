@@ -1,0 +1,23 @@
+id = "acm-pomacs"
+version = "2.21"
+name = "POMACS (SIGMETRICS)"
+description = "acmart in the acmsmall format for Proceedings of the ACM on Measurement and Analysis of Computing Systems, the journal of SIGMETRICS."
+category = "conference"
+tags = ["acm", "pomacs", "sigmetrics", "performance"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "pomacs.tex"
+engine = "pdflatex"
+organization = "ACM"
+
+[upstream]
+url = "https://portalparts.acm.org/hippo/latex_templates/acmart-primary.zip"
+homepage = "https://www.acm.org/publications/proceedings-template"
+version = "acmart v2.21 (2026-11-01; ACM page 'last update November 3, 2026')"
+sha256 = "a1e52cce16394ac8517225b7ebc008a7188f765b4c25aa902d24cea397dc687f"
+
+[zh-CN]
+description = "POMACS 单栏 acmsmall 模板，SIGMETRICS 论文发表于此。"
+
+[setup]
+notes = "Set up for anonymous submission. The \\DocumentMetadata tagging block of ACM's sample was removed so it compiles with TeX Live 2025; add it back for tagged PDFs on newer TeX."

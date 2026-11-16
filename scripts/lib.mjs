@@ -129,3 +129,59 @@ export function contentHash(dir, files) {
 }
 
 export const sha256 = data => crypto.createHash('sha256').update(data).digest('hex');
+
+// ---- Venues ---------------------------------------------------------------
+// venues/*.toml list conferences. Each points at the template its call for papers requires,
+// so hundreds of venues share a few dozen templates. A venue whose template is its own kit
+// (template = id) only adds its CCF data to that template.
+export const VENUES = path.join(ROOT, 'venues');
+export const AREAS = {
+  arch: ['Architecture, parallel & storage systems', '计算机体系结构/并行与分布计算/存储系统'],
+  net: ['Computer networks', '计算机网络'],
+  sec: ['Network & information security', '网络与信息安全'],
+  se: ['Software engineering, systems software & PL', '软件工程/系统软件/程序设计语言'],
+  db: ['Databases, data mining & IR', '数据库/数据挖掘/内容检索'],
+  tcs: ['Theory of computing', '计算机科学理论'],
+  cg: ['Graphics & multimedia', '计算机图形学与多媒体'],
+  ai: ['Artificial intelligence', '人工智能'],
+  hci: ['HCI & ubiquitous computing', '人机交互与普适计算'],
+  mx: ['Interdisciplinary & emerging', '交叉/综合/新兴'],
+  pl: ['Programming languages', '程序设计语言'],
+};
+const CONFIDENCE = ['high', 'medium', 'low'];
+
+export function validateVenue(venue, templates) {
+  const errors = [], v = venue ?? {}, where = `venue ${v.id ?? '?'}`;
+  if (typeof v.id !== 'string' || !ID.test(v.id)) errors.push(`${where}: id must be lowercase kebab-case`);
+  text(errors, `${where}: abbr`, v.abbr, { max: 40 });
+  text(errors, `${where}: name`, v.name, { max: 200 });
+  if (!templates.has(v.template)) errors.push(`${where}: template "${v.template}" does not exist`);
+  if (v.ccf !== undefined && !['A', 'B', 'C'].includes(v.ccf)) errors.push(`${where}: ccf must be A, B or C`);
+  if (!(v.area in AREAS)) errors.push(`${where}: area must be one of ${Object.keys(AREAS).join(', ')}`);
+  if (v.topics !== undefined && (!Array.isArray(v.topics) || v.topics.some(topic => !(topic in AREAS)))) errors.push(`${where}: topics must list area ids`);
+  text(errors, `${where}: publisher`, v.publisher, { max: 80, optional: true });
+  if (v.year !== undefined && (!Number.isInteger(v.year) || v.year < 2000 || v.year > 2100)) errors.push(`${where}: year must be a year`);
+  url(errors, `${where}: cfp`, v.cfp, true);
+  if (!CONFIDENCE.includes(v.confidence)) errors.push(`${where}: confidence must be high, medium or low`);
+  text(errors, `${where}: note`, v.note, { max: 300, optional: true });
+  const known = new Set(['id', 'abbr', 'name', 'template', 'ccf', 'area', 'topics', 'publisher', 'year', 'cfp', 'confidence', 'note']);
+  for (const key of Object.keys(v)) if (!known.has(key)) errors.push(`${where}: unknown key "${key}"`);
+  return errors;
+}
+
+export function loadVenues(templateIds) {
+  const templates = new Set(templateIds), venues = [], errors = [], seen = new Map();
+  if (!fs.existsSync(VENUES)) return { venues, errors };
+  for (const file of fs.readdirSync(VENUES).filter(name => name.endsWith('.toml')).sort()) {
+    let data;
+    try { data = parse(fs.readFileSync(path.join(VENUES, file), 'utf8')); } catch (error) { errors.push(`venues/${file}: ${error.message}`); continue; }
+    for (const venue of data.venues ?? []) {
+      errors.push(...validateVenue(venue, templates).map(error => `venues/${file}: ${error}`));
+      if (seen.has(venue.id)) errors.push(`venues/${file}: venue ${venue.id} is also in venues/${seen.get(venue.id)}`);
+      else if (templates.has(venue.id) && venue.template !== venue.id) errors.push(`venues/${file}: venue ${venue.id} has the id of another template`);
+      seen.set(venue.id, file);
+      venues.push(venue);
+    }
+  }
+  return { venues, errors };
+}

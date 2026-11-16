@@ -1,0 +1,23 @@
+id = "acm-acmsmall-conf"
+version = "2.21"
+name = "ACM Proceedings (acmsmall)"
+description = "acmart in the single-column acmsmall format with the conference sample, which FSE, ISSTA and the Haskell Symposium ask for."
+category = "conference"
+tags = ["acm", "acmsmall", "fse", "issta", "haskell", "software engineering"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "acmsmall-conf.tex"
+engine = "pdflatex"
+organization = "ACM"
+
+[upstream]
+url = "https://portalparts.acm.org/hippo/latex_templates/acmart-primary.zip"
+homepage = "https://www.acm.org/publications/proceedings-template"
+version = "acmart v2.21 (2026-11-01; ACM page 'last update November 3, 2026')"
+sha256 = "a1e52cce16394ac8517225b7ebc008a7188f765b4c25aa902d24cea397dc687f"
+
+[zh-CN]
+description = "ACM 单栏 acmsmall 会议样例，FSE、ISSTA、Haskell Symposium 投稿使用。"
+
+[setup]
+notes = "Set up for anonymous submission (review, anonymous); remove both for the camera-ready. The \\DocumentMetadata tagging block of ACM's sample was removed so it compiles with TeX Live 2025; add it back for tagged PDFs on newer TeX."

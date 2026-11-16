@@ -1,0 +1,518 @@
+# CCF 2026 (7th edition) recommended conferences: ai.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "aaai"
+abbr = "AAAI"
+name = "AAAI Conference on Artificial Intelligence"
+template = "aaai"
+ccf = "A"
+area = "ai"
+publisher = "AAAI"
+year = 2027
+cfp = "https://aaai.org/conference/aaai/aaai-27/"
+confidence = "medium"
+
+[[venues]]
+id = "acl"
+abbr = "ACL"
+name = "Annual Meeting of the Association for Computational Linguistics"
+template = "acl"
+ccf = "A"
+area = "ai"
+publisher = "ACL"
+year = 2027
+cfp = "https://2027.aclweb.org/"
+confidence = "high"
+
+[[venues]]
+id = "cvpr"
+abbr = "CVPR"
+name = "IEEE/CVF Computer Vision and Pattern Recognition Conference"
+template = "cvpr"
+ccf = "A"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://cvpr.thecvf.com/Conferences/2027"
+confidence = "medium"
+
+[[venues]]
+id = "iccv"
+abbr = "ICCV"
+name = "International Conference on Computer Vision"
+template = "cvpr"
+ccf = "A"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://iccv.thecvf.com/Conferences/2027"
+confidence = "medium"
+note = "ICCV ships its own kit, nearly identical to CVPR’s; use it once the call for papers is out."
+
+[[venues]]
+id = "iclr"
+abbr = "ICLR"
+name = "International Conference on Learning Representations"
+template = "iclr"
+ccf = "A"
+area = "ai"
+publisher = "OpenReview"
+year = 2027
+cfp = "https://iclr.cc/Conferences/2027"
+confidence = "medium"
+
+[[venues]]
+id = "icml"
+abbr = "ICML"
+name = "International Conference on Machine Learning"
+template = "icml"
+ccf = "A"
+area = "ai"
+publisher = "ACM"
+year = 2027
+cfp = "https://icml.cc/Conferences/2027"
+confidence = "high"
+
+[[venues]]
+id = "neurips"
+abbr = "NeurIPS"
+name = "Conference on Neural Information Processing Systems"
+template = "neurips"
+ccf = "A"
+area = "ai"
+publisher = "MIT Press"
+year = 2026
+cfp = "https://neurips.cc/Conferences/2026"
+confidence = "medium"
+
+[[venues]]
+id = "aamas"
+abbr = "AAMAS"
+name = "International Joint Conference on Autonomous Agents and Multi-agent Systems"
+template = "acm-sigconf"
+ccf = "B"
+area = "ai"
+publisher = "Springer"
+year = 2027
+cfp = "https://warwick.ac.uk/fac/sci/dcs/aamas2027/"
+confidence = "medium"
+note = "AAMAS uses IFAAMAS’s acmart-based template (sigconf with AAMAS settings)."
+
+[[venues]]
+id = "coling"
+abbr = "COLING"
+name = "International Conference on Computational Linguistics"
+template = "acl"
+ccf = "B"
+area = "ai"
+publisher = "ACM"
+year = 2027
+cfp = "https://2027.coling-iccl.org/"
+confidence = "high"
+
+[[venues]]
+id = "colt"
+abbr = "COLT"
+name = "Annual Conference on Computational Learning Theory"
+template = "pmlr"
+ccf = "B"
+area = "ai"
+publisher = "Springer"
+year = 2027
+cfp = "https://learningtheory.org/colt2027/cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "ecai"
+abbr = "ECAI"
+name = "European Conference on Artificial Intelligence"
+template = "article"
+ccf = "B"
+area = "ai"
+publisher = "IOS Press"
+year = 2027
+cfp = "https://ecai2027.org/"
+confidence = "low"
+note = "ECAI ships its own IOS Press (FAIA) template."
+
+[[venues]]
+id = "eccv"
+abbr = "ECCV"
+name = "European Conference on Computer Vision"
+template = "eccv"
+ccf = "B"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://eccv.ecva.net/"
+confidence = "high"
+
+[[venues]]
+id = "emnlp"
+abbr = "EMNLP"
+name = "Conference on Empirical Methods in Natural Language Processing"
+template = "acl"
+ccf = "B"
+area = "ai"
+publisher = "ACL"
+year = 2026
+cfp = "https://2026.emnlp.org/"
+confidence = "high"
+
+[[venues]]
+id = "icaps"
+abbr = "ICAPS"
+name = "International Conference on Automated Planning and Scheduling"
+template = "aaai"
+ccf = "B"
+area = "ai"
+publisher = "AAAI"
+year = 2027
+cfp = "https://icaps27.icaps-conference.org/"
+confidence = "medium"
+
+[[venues]]
+id = "iccbr"
+abbr = "ICCBR"
+name = "International Conference on Case-Based Reasoning"
+template = "springer-lncs"
+ccf = "B"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://2026.iccbr.org/"
+confidence = "high"
+
+[[venues]]
+id = "icra"
+abbr = "ICRA"
+name = "IEEE International Conference on Robotics and Automation"
+template = "ieee-conference"
+ccf = "B"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://2027.ieee-icra.org/"
+confidence = "medium"
+
+[[venues]]
+id = "ijcai"
+abbr = "IJCAI"
+name = "International Joint Conference on Artificial Intelligence"
+template = "ijcai"
+ccf = "B"
+area = "ai"
+publisher = "Morgan Kaufmann"
+year = 2027
+cfp = "https://2027.ijcai.org/"
+confidence = "medium"
+
+[[venues]]
+id = "kr"
+abbr = "KR"
+name = "International Conference on Principles of Knowledge Representation and Reasoning"
+template = "ijcai"
+ccf = "B"
+area = "ai"
+publisher = "Morgan Kaufmann"
+year = 2027
+cfp = "https://kr.org/KR2027/"
+confidence = "medium"
+note = "KR ships kr.sty, derived from the IJCAI style."
+
+[[venues]]
+id = "naacl"
+abbr = "NAACL"
+name = "North American Chapter of the Association for Computational Linguistics"
+template = "acl"
+ccf = "B"
+area = "ai"
+publisher = "ACL"
+year = 2027
+cfp = "https://2027.naacl.org/"
+confidence = "high"
+
+[[venues]]
+id = "ppsn"
+abbr = "PPSN"
+name = "Parallel Problem Solving from Nature"
+template = "springer-lncs"
+ccf = "B"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://ppsn2026.disi.unitn.it/"
+confidence = "high"
+
+[[venues]]
+id = "uai"
+abbr = "UAI"
+name = "Conference on Uncertainty in Artificial Intelligence"
+template = "pmlr"
+ccf = "B"
+area = "ai"
+publisher = "AUAI"
+year = 2026
+cfp = "https://www.auai.org/uai2026/"
+confidence = "medium"
+
+[[venues]]
+id = "accv"
+abbr = "ACCV"
+name = "Asian Conference on Computer Vision"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://accv2026.org/"
+confidence = "medium"
+
+[[venues]]
+id = "acml"
+abbr = "ACML"
+name = "Asian Conference on Machine Learning"
+template = "pmlr"
+ccf = "C"
+area = "ai"
+publisher = "JMLR"
+year = 2026
+cfp = "https://www.acml-conf.org/2026/"
+confidence = "high"
+
+[[venues]]
+id = "aistats"
+abbr = "AISTATS"
+name = "International Conference on Artificial Intelligence and Statistics"
+template = "aistats"
+ccf = "C"
+area = "ai"
+publisher = "JMLR"
+year = 2027
+cfp = "https://virtual.aistats.org/Conferences/2027"
+confidence = "high"
+
+[[venues]]
+id = "alt"
+abbr = "ALT"
+name = "International Conference on Algorithmic Learning Theory"
+template = "pmlr"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2027
+cfp = "https://algorithmiclearningtheory.org/alt2027/"
+confidence = "high"
+
+[[venues]]
+id = "bmvc"
+abbr = "BMVC"
+name = "British Machine Vision Conference"
+template = "article"
+ccf = "C"
+area = "ai"
+publisher = "BMVA"
+year = 2026
+cfp = "https://bmvc2026.bmva.org/authors/author-guidelines/"
+confidence = "low"
+note = "BMVC ships its own author kit."
+
+[[venues]]
+id = "conll"
+abbr = "CoNLL"
+name = "Conference on Computational Natural Language Learning"
+template = "acl"
+ccf = "C"
+area = "ai"
+publisher = "ACL"
+year = 2026
+cfp = "https://www.conll.org/"
+confidence = "medium"
+
+[[venues]]
+id = "dai"
+abbr = "DAI"
+name = "International Conference on Distributed Artificial Intelligence"
+template = "acm-sigconf"
+ccf = "C"
+area = "ai"
+publisher = "ACM/Springer"
+year = 2026
+cfp = "https://www.adai.ai/dai/2026/index.html"
+confidence = "high"
+
+[[venues]]
+id = "fg"
+abbr = "FG"
+name = "IEEE International Conference on Automatic Face and Gesture Recognition"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "gecco"
+abbr = "GECCO"
+name = "Linguistics Genetic and Evolutionary Computation Conference"
+template = "acm-sigconf"
+ccf = "C"
+area = "ai"
+publisher = "ACM"
+year = 2027
+cfp = "https://gecco-2027.sigevo.org/HomePage"
+confidence = "low"
+
+[[venues]]
+id = "icann"
+abbr = "ICANN"
+name = "International Conference on Artificial Neural Networks"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2027
+cfp = "https://e-nns.org/icann2027/"
+confidence = "low"
+
+[[venues]]
+id = "icdar"
+abbr = "ICDAR"
+name = "International Conference on Document Analysis and Recognition"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://icdar2027.org/"
+confidence = "high"
+
+[[venues]]
+id = "iconip"
+abbr = "ICONIP"
+name = "International Conference on Neural Information Processing"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.iconip2026.org/"
+confidence = "medium"
+
+[[venues]]
+id = "icpr"
+abbr = "ICPR"
+name = "International Conference on Pattern Recognition"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://www.icpr2027.com/"
+confidence = "low"
+
+[[venues]]
+id = "ictai"
+abbr = "ICTAI"
+name = "IEEE International Conference on Tools with Artificial Intelligence"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ictai.computer.org/2026/"
+confidence = "low"
+
+[[venues]]
+id = "ieee-cec"
+abbr = "IEEE CEC"
+name = "Congress on Evolutionary Computation"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://ieeecec.org/2027"
+confidence = "low"
+
+[[venues]]
+id = "ijcb"
+abbr = "IJCB"
+name = "International Joint Conference on Biometrics"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://ijcb2027.ieee-biometrics.org/"
+confidence = "low"
+
+[[venues]]
+id = "ijcnn"
+abbr = "IJCNN"
+name = "International Joint Conference on Neural Networks"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://ijcnn.org/2027"
+confidence = "medium"
+
+[[venues]]
+id = "ilp"
+abbr = "ILP"
+name = "International Conference on Inductive Logic Programming"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "iros"
+abbr = "IROS"
+name = "IEEE\\RSJ International Conference on Intelligent Robots and Systems"
+template = "ieee-conference"
+ccf = "C"
+area = "ai"
+publisher = "IEEE"
+year = 2027
+cfp = "https://2027.ieee-iros.org/"
+confidence = "low"
+
+[[venues]]
+id = "ksem"
+abbr = "KSEM"
+name = "International conference on Knowledge Science, Engineering and Management"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://ksem2026.rosc.org.cn/"
+confidence = "low"
+
+[[venues]]
+id = "nlpcc"
+abbr = "NLPCC"
+name = "CCF International Conference on Natural Language Processing and Chinese Computing"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2026
+confidence = "low"
+
+[[venues]]
+id = "pricai"
+abbr = "PRICAI"
+name = "Pacific Rim International Conference on Artificial Intelligence"
+template = "springer-lncs"
+ccf = "C"
+area = "ai"
+publisher = "Springer"
+year = 2026
+cfp = "https://2026.pricai.org/"
+confidence = "low"
