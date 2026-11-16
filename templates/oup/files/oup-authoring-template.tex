@@ -1,3 +1,4 @@
+% Papilot Universe: wrote \extracolsep{\fill} with braces (was \extracolsep\fill), which TeX Live 2026 needs.
 %%
 %% Copyright 2026 Oxford University Press
 %%
@@ -259,7 +260,7 @@ Lengthy tables which do not fit within textwidth should be set as rotated tables
 
 \begin{table}[!t]
 \caption{Caption text\label{tab1}}%
-\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}llll@{\extracolsep\fill}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llll@{\extracolsep{\fill}}}
 \toprule
 column 1 & column 2  & column 3 & column 4\\
 \midrule
@@ -882,7 +883,7 @@ vehicula libero dui cursus dui. Mauris tempor ligula sed lacus. Duis cursus enim
 \begin{minipage}{.52\columnwidth}
 \caption{This is an example of Appendix table showing food requirements of army, navy and airforce\label{tab4}}%
 \tabcolsep16pt
-\begin{tabular}{@{\extracolsep\fill}lcc@{}}%
+\begin{tabular}{@{\extracolsep{\fill}}lcc@{}}%
 \toprule
 col1 head & col2 head & col3 head \\
 \midrule
@@ -976,7 +977,7 @@ pellentesque felis eu massa.
 \begin{center}
 \begin{minipage}{.52\columnwidth}
 \caption{}{%
-\begin{tabular}{@{\extracolsep\fill}lcc}%
+\begin{tabular}{@{\extracolsep{\fill}}lcc}%
 \toprule
 col1 head & col2 head & col3 head \\
 \midrule
