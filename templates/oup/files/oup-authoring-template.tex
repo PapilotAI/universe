@@ -1,5 +1,5 @@
-% Papilot Universe: loads booktabs and uses \bottomrule instead of the class's \toprule,
-% \midrule and \botrule, which break with TeX Live 2026.
+% Papilot Universe: the active layout is modern instead of contemporary, whose arydshln
+% package breaks tabular* with TeX Live 2026.
 %%
 %% Copyright 2026 Oxford University Press
 %%
@@ -21,7 +21,7 @@
 %%
 
 %%%CONTEMPORARY%%%
-\documentclass[unnumsec,webpdf,contemporary,large]{oup-authoring-template}%
+\documentclass[unnumsec,webpdf,modern,large]{oup-authoring-template}%
 %\documentclass[unnumsec,webpdf,contemporary,medium]{oup-authoring-template}
 %\documentclass[unnumsec,webpdf,contemporary,mediumone]{oup-authoring-template}
 %\documentclass[unnumsec,webpdf,contemporary,small]{oup-authoring-template}
@@ -64,7 +64,6 @@
 %\usepackage{draftwatermark}
 %\SetWatermarkText{Draft}
 %%Uncomment  \usepackage{draftwatermark} and \SetWatermarkText{Draft} to watermark your PDF as a draft
-\usepackage{booktabs}
 \begin{document}
 
 \journaltitle{Journal Title Here}
@@ -244,7 +243,7 @@ column 1 & column 2 & column 3 & column 4\\
 row 1 & data 1 & data 2          & data 3 \\
 row 2 & data 4 & data 5$^{1}$ & data 6 \\
 row 3 & data 7 & data 8      & data 9$^{2}$\\
-\bottomrule
+\botrule
 \end{tabular}
 \begin{tablenotes}%
 \item Source: Example for source.
@@ -269,7 +268,7 @@ column 1 & column 2  & column 3 & column 4\\
 row 1    & data 1   & data 2  & data 3  \\
 row 2    & data 4   & data 5$^{1}$  & data 6  \\
 row 3    & data 7   & data 8  & data 9$^{2}$  \\
-\bottomrule
+\botrule
 \end{tabular*}
 \begin{tablenotes}%
 \item Source: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote
@@ -289,7 +288,7 @@ Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ 
 \midrule
 Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
 Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
-\bottomrule
+\botrule
 \end{tabular*}
 \begin{tablenotes}%
 \item Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote
@@ -309,7 +308,7 @@ Projectile & Energy     & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{
 \midrule
 Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
 Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
-\bottomrule
+\botrule
 \end{tabular*}
 \begin{tablenotes}%
 \item Note: This is an example of a table footnote this is an example of a table footnote this is an example of a table footnote this is an example of a table footnote this is an example of a table footnote
@@ -892,7 +891,7 @@ col1 head & col2 head & col3 head \\
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
-\bottomrule
+\botrule
 \end{tabular}
 \end{minipage}
 \end{center}
@@ -986,7 +985,7 @@ col1 head & col2 head & col3 head \\
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
-\bottomrule
+\botrule
 \end{tabular}}{}
 \end{minipage}
 \end{center}

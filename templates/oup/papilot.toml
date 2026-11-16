@@ -21,4 +21,4 @@ name = "牛津大学出版社期刊"
 description = "牛津大学出版社（OUP）官方期刊模板，提供 traditional、contemporary、modern 三种版式。"
 
 [setup]
-notes = "Pick the layout and size in the class options (traditional, contemporary or modern; small, medium or large) as the journal asks. The class's own \\toprule, \\midrule and \\botrule break with TeX Live 2026, so the sample loads booktabs and uses its rules."
+notes = "Pick the layout and size in the class options (traditional, contemporary or modern; small, medium or large) as the journal asks. The sample uses the modern layout: contemporary loads arydshln, which breaks tabular* with TeX Live 2026."
