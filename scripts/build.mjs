@@ -195,7 +195,7 @@ const card = entry => `<a class="card" href="${U}${entry.page}" data-group="${gr
   <div class="card-text"><span class="card-title">${both(entry.name, zh(entry, 'name'))}</span><span class="card-meta">${meta(entry)}</span></div>
 </a>`;
 const rank = entry => entry.venue?.ccf ? `<span class="rank rank-${entry.venue.ccf.toLowerCase()}" title="CCF ${entry.venue.ccf}">${entry.venue.ccf}</span>` : `<span class="rank rank-none" title="${esc(L.notCcf[0])}">·</span>`;
-const venueSearch = entry => [entry.venue.name, entry.venue.full, entry.description, entry.venue.publisher, familyName(entry.template ?? entry.id), `ccf ${entry.venue.ccf ?? ''}`, ...AREAS[entry.venue.area], ...(entry.venue.topics ?? []).flatMap(topic => AREAS[topic])].filter(Boolean).join(' ').toLowerCase();
+const venueSearch = entry => [entry.venue.name, entry.venue.full, entry.description, entry.venue.publisher, entry.template ?? entry.id, `ccf ${entry.venue.ccf ?? ''}`, ...AREAS[entry.venue.area], ...(entry.venue.topics ?? []).flatMap(topic => AREAS[topic])].filter(Boolean).join(' ').toLowerCase();
 const row = entry => `<a class="venue" href="${U}${entry.page}"${entry.template ? ' data-alias' : ''} data-ccf="${entry.venue.ccf ?? 'none'}" data-areas="${[entry.venue.area, ...(entry.venue.topics ?? [])].join(' ')}" data-search="${esc(venueSearch(entry))}">
   ${rank(entry)}<span class="venue-abbr">${esc(entry.venue.name)}</span><span class="venue-name">${esc(entry.venue.full ?? entry.description)}</span><span class="venue-template">${esc(familyName(entry.template ?? entry.id))}</span>
 </a>`;
