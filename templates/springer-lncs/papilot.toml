@@ -1,0 +1,24 @@
+id = "springer-lncs"
+version = "2.25"
+name = "Springer LNCS"
+description = "Springer's Lecture Notes in Computer Science proceedings template."
+category = "conference"
+tags = ["springer", "lncs", "proceedings"]
+languages = ["en"]
+license = "LicenseRef-Springer-LNCS"
+license_note = "Springer's download states no license; CTAN lists the llncs class as CC-BY-4.0. splncs04.bst is LPPL."
+main = "samplepaper.tex"
+engine = "pdflatex"
+organization = "Springer"
+
+[upstream]
+url = "https://cms-resources.apps.public.k8s.springernature.io/springer-cms/rest/v1/content/27851904/data/LaTeX2e%20Proceedings%20Template%20ZIP"
+homepage = "https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines"
+version = "llncs v2.25 (2026-09-03)"
+sha256 = "42afb32ed4fadc9e209134ec65dab1bd2a7ead42f9a3f8abb184f250c4a197b9"
+
+[zh-CN]
+description = "Springer LNCS 会议论文集模板。"
+
+[setup]
+notes = "fig1.eps is converted to PDF during compilation. Use splncs04.bst for BibTeX references."

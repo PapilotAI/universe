@@ -1,0 +1,28 @@
+id = "aistats"
+version = "2027"
+name = "AISTATS 2027"
+description = "Official AISTATS 2027 paper pack."
+category = "conference"
+tags = ["machine learning", "statistics", "aistats"]
+languages = ["en"]
+license = "LicenseRef-AISTATS"
+license_note = "aistats2027.sty states no license; fancyhdr.sty is LPPL. Distributed by AISTATS for author use."
+main = "sample_paper.tex"
+engine = "pdflatex"
+
+[venue]
+name = "AISTATS"
+year = 2027
+url = "https://virtual.aistats.org/Conferences/2027/CallForPapers"
+
+[upstream]
+url = "https://aistats.org/aistats2027/AISTATS2027PaperPack.zip"
+homepage = "https://virtual.aistats.org/Conferences/2027/CallForPapers"
+version = "2027"
+sha256 = "aac31ecf2e41f5a2b7f21d00094bfc2fc1207c34d9f955e991b66f3dc98fdb9b"
+
+[zh-CN]
+description = "AISTATS 2027 官方论文模板。"
+
+[setup]
+notes = "\\usepackage{aistats2027} is the anonymous submission; [accepted] is the camera-ready."

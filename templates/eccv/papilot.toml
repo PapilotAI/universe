@@ -1,0 +1,29 @@
+id = "eccv"
+version = "2026"
+name = "ECCV 2026"
+description = "Official ECCV 2026 paper template, based on Springer LNCS."
+category = "conference"
+tags = ["computer vision", "eccv", "springer"]
+languages = ["en"]
+license = "LicenseRef-ECCV"
+license_note = "The ECCV template is MIT licensed; the bundled llncs.cls is Springer's (listed as CC-BY-4.0 on CTAN) and splncs04.bst is LPPL."
+main = "main.tex"
+engine = "pdflatex"
+
+[venue]
+name = "ECCV"
+year = 2026
+url = "https://eccv.ecva.net/Conferences/2026/SubmissionPolicies"
+
+[upstream]
+url = "https://github.com/paolo-favaro/paper-template/archive/refs/tags/Latest.zip"
+homepage = "https://eccv.ecva.net/Conferences/2026/SubmissionPolicies"
+version = "2026"
+sha256 = "8ed161c418f690cc4f48f7c9f57f78b630c2d615d74ebfb3bff37699bd6e4fa1"
+commit = "da8c09c40239d5665757527e77388f4716a6564a"
+
+[zh-CN]
+description = "ECCV 2026 官方论文模板（基于 Springer LNCS）。"
+
+[setup]
+notes = "Anonymous review mode is set in main.tex; follow its comments for the camera-ready. Do not change margins or fonts."
