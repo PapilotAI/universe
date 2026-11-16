@@ -1,0 +1,24 @@
+id = "moderncv"
+version = "2.6.1"
+name = "moderncv CV"
+description = "moderncv, the classic LaTeX CV with several styles (classic, casual, banking, oldstyle, fancy) and colors."
+category = "cv"
+tags = ["cv", "resume", "moderncv", "curriculum vitae"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "template.tex"
+engine = "pdflatex"
+organization = "moderncv"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/moderncv.zip"
+homepage = "https://ctan.org/pkg/moderncv"
+version = "2.6.1 (2026-06-24)"
+sha256 = "9b50ba5c8e7de1c55e1252eaa0126f498fea2cd2d18236aab146f9f21d01ad59"
+
+[zh-CN]
+name = "moderncv 简历"
+description = "经典 LaTeX 简历模板 moderncv，提供 classic、casual、banking、oldstyle、fancy 等样式与配色。"
+
+[setup]
+notes = "Pick the style and color with \\moderncvstyle and \\moderncvcolor near the top of template.tex. moderncv 2.6.1 is bundled because the sample uses commands older TeX Live releases lack; its icons need the fontawesome6 package (TeX Live 2026 or newer)."

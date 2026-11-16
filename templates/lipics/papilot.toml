@@ -1,0 +1,23 @@
+id = "lipics"
+version = "2021.2.3"
+name = "Dagstuhl LIPIcs"
+description = "The LIPIcs class of Schloss Dagstuhl, used by ECOOP, ITP, ICALP, CONCUR, FSCD, CSL, TYPES, STACS, ESA and many theory venues."
+category = "conference"
+tags = ["lipics", "dagstuhl", "ecoop", "itp", "icalp", "concur", "fscd", "theory", "programming languages"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "lipics-v2021-sample-article.tex"
+engine = "pdflatex"
+organization = "Schloss Dagstuhl"
+
+[upstream]
+url = "https://github.com/dagstuhl-publishing/styles/archive/refs/tags/v2021.2.3.tar.gz"
+homepage = "https://github.com/dagstuhl-publishing/styles"
+version = "v2021.2.3 (LIPIcs/authors)"
+commit = "56852031fed1ca08d1899145d61c18ece41ea306"
+
+[zh-CN]
+description = "Schloss Dagstuhl 的 LIPIcs 模板，ECOOP、ITP、ICALP、CONCUR、FSCD、CSL、TYPES、STACS、ESA 等会议使用。"
+
+[setup]
+notes = "The sample uses \\documentclass[a4paper,UKenglish,cleveref]{lipics-v2021}: the autoref and thm-restate options of the upstream sample break with TeX Live 2026 (dagstuhl-publishing/styles#44). Add anonymous for double-blind venues. Title, authors, ORCID, CCS concepts and keywords are set in the preamble of lipics-v2021-sample-article.tex; the event data (\\EventEditors and friends) come from the venue after acceptance."

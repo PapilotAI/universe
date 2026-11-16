@@ -1,0 +1,21 @@
+id = "aastex"
+version = "7.0.1"
+name = "AAS Journals (AASTeX 7)"
+description = "AASTeX 7, the class of the American Astronomical Society journals (ApJ, AJ, ApJS, PSJ)."
+category = "journal"
+tags = ["aas", "aastex", "astronomy", "apj", "journal"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "aastex701-sample.tex"
+engine = "pdflatex"
+organization = "American Astronomical Society"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/aastex.zip"
+homepage = "https://ctan.org/pkg/aastex"
+version = "7.0.1 (2025-05-09)"
+sha256 = "8b76872176f499607d63c477629ffd06b90f1d765b3910e1d2fa02d2306e0ab9"
+
+[zh-CN]
+name = "AAS 天文期刊（AASTeX 7）"
+description = "美国天文学会期刊（ApJ、AJ、ApJS、PSJ）使用的 AASTeX 7 模板。"

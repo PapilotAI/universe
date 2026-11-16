@@ -1,0 +1,30 @@
+id = "pvldb"
+version = "2027"
+name = "VLDB 2027 / PVLDB Vol. 20"
+description = "The official VLDB template, acmart with VLDB's pvldb overrides; required for all VLDB 2027 and PVLDB Volume 20 submissions."
+category = "conference"
+tags = ["vldb", "pvldb", "databases", "acmart"]
+languages = ["en"]
+license = "LicenseRef-VLDB"
+license_note = "VLDB's official template repository states no license. acmart.cls and ACM-Reference-Format.bst inside it are ACM's files (LPPL 1.3c); pvldb.sty is VLDB's."
+main = "main.tex"
+engine = "pdflatex"
+organization = "VLDB Endowment"
+
+[venue]
+name = "VLDB"
+year = 2027
+url = "https://vldb.org/2027/formatting-guidelines.html"
+
+[upstream]
+url = "https://github.com/vldbproceedings/VLDB-Template/archive/39c95f5c6fcbe652a83be24e4eff8f2134cd3fbc.tar.gz"
+homepage = "https://github.com/vldbproceedings/VLDB-Template"
+version = "pvldb.sty v1.0 (2026-07-06)"
+commit = "39c95f5c6fcbe652a83be24e4eff8f2134cd3fbc"
+
+[zh-CN]
+name = "VLDB 2027 / PVLDB 第 20 卷"
+description = "VLDB 官方模板（acmart 加 pvldb 样式），VLDB 2027 与 PVLDB 第 20 卷投稿必须使用。"
+
+[setup]
+notes = "Fill in the title, authors and abstract in main.tex; keep the PVLDB reference, artifact and copyright blocks. Accepted papers update \\vldbdoi, \\vldbpages, volume and issue from the camera-ready email."

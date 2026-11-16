@@ -50,25 +50,35 @@
   var grid = document.querySelector('[data-grid]');
   if (!grid) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('[data-venue-list] .venue'));
+  var venues = document.querySelector('[data-venues]'), venueCount = document.querySelector('[data-venue-count]');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
   var input = document.querySelector('[data-search-input]'), empty = document.querySelector('[data-empty]');
   var params = new URLSearchParams(location.search);
-  var filter = tabs.some(function (tab) { return tab.dataset.filter === params.get('category'); }) ? params.get('category') : 'all';
+  var pick = function (list, attr, value) { return list.some(function (el) { return el.getAttribute(attr) === value; }) ? value : 'all'; };
+  var filter = pick(tabs, 'data-filter', params.get('category'));
   input.value = params.get('q') || '';
-  function matches(card, words) { return words.every(function (word) { return card.dataset.search.indexOf(word) >= 0; }); }
+  function matches(el, words) { return words.every(function (word) { return el.dataset.search.indexOf(word) >= 0; }); }
   function apply() {
-    var words = input.value.toLowerCase().split(/\s+/).filter(Boolean), shown = 0, counts = { all: 0 };
+    var words = input.value.toLowerCase().split(/\s+/).filter(Boolean), shown = 0, counts = { all: 0, conference: 0 };
     cards.forEach(function (card) {
-      var hit = matches(card, words);
-      if (hit) { counts.all++; counts[card.dataset.group] = (counts[card.dataset.group] || 0) + 1; }
-      var visible = hit && (filter === 'all' || card.dataset.group === filter);
+      var hit = matches(card, words), group = card.dataset.group;
+      if (hit) { counts.all++; counts[group] = (counts[group] || 0) + (group === 'conference' && card.hasAttribute('data-venue-kit') ? 0 : 1); }
+      var visible = hit && (filter === 'all' || group === filter);
       card.hidden = !visible; if (visible) shown++;
     });
+    var listed = filter === 'all' || filter === 'conference', rowsShown = 0;
+    rows.forEach(function (row) {
+      var hit = matches(row, words);
+      if (matches(row, words)) { counts.conference++; if (row.hasAttribute('data-alias')) counts.all++; }
+      row.hidden = !(hit && listed); if (hit && listed) rowsShown++;
+    });
+    if (venues) { venues.hidden = !listed || !rowsShown; venueCount.textContent = rowsShown; }
     tabs.forEach(function (tab) {
       tab.setAttribute('aria-selected', String(tab.dataset.filter === filter));
       tab.querySelector('.count').textContent = counts[tab.dataset.filter] || 0;
     });
-    empty.hidden = shown > 0;
+    empty.hidden = shown + rowsShown > 0;
     var next = new URLSearchParams();
     if (filter !== 'all') next.set('category', filter);
     if (input.value.trim()) next.set('q', input.value.trim());

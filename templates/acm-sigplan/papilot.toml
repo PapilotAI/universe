@@ -1,0 +1,23 @@
+id = "acm-sigplan"
+version = "2.21"
+name = "ACM SIGPLAN (sigplan)"
+description = "ACM's primary article template in the two-column sigplan format used by SIGPLAN conferences such as PPoPP, CC, CGO, ASPLOS and CPP."
+category = "conference"
+tags = ["acm", "sigplan", "programming languages", "ppopp", "cc", "cgo", "asplos", "cpp"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "sigplan.tex"
+engine = "pdflatex"
+organization = "ACM"
+
+[upstream]
+url = "https://portalparts.acm.org/hippo/latex_templates/acmart-primary.zip"
+homepage = "https://www.acm.org/publications/proceedings-template"
+version = "acmart v2.21 (2026-11-01; ACM page 'last update November 3, 2026')"
+sha256 = "a1e52cce16394ac8517225b7ebc008a7188f765b4c25aa902d24cea397dc687f"
+
+[zh-CN]
+description = "ACM 官方 sigplan 双栏模板，适用于 PPoPP、CC、CGO、ASPLOS、CPP 等 SIGPLAN 会议。"
+
+[setup]
+notes = "For double-blind review use \\documentclass[sigplan,review,anonymous]{acmart}; many SIGPLAN venues also ask for 10pt (add 10pt). The \\DocumentMetadata tagging block of ACM's sample was removed so it compiles with TeX Live 2025; add it back for tagged PDFs on newer TeX."

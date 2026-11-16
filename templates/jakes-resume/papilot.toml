@@ -1,0 +1,21 @@
+id = "jakes-resume"
+version = "2024.8"
+name = "Jake's Resume"
+description = "A one-page software-engineering resume, ATS-friendly and among the most copied LaTeX resumes."
+category = "cv"
+tags = ["resume", "cv", "one page", "software engineer", "简历"]
+languages = ["en"]
+license = "MIT"
+main = "resume.tex"
+engine = "pdflatex"
+organization = "Jake Gutierrez"
+
+[upstream]
+url = "https://github.com/jakegut/resume/archive/3e64a933141a7cda3a328f0743f73a201628a4ba.tar.gz"
+homepage = "https://github.com/jakegut/resume"
+version = "master (2024-08-10)"
+commit = "3e64a933141a7cda3a328f0743f73a201628a4ba"
+
+[zh-CN]
+name = "Jake 的简历"
+description = "一页式软件工程师简历，对招聘系统友好，是被模仿最多的 LaTeX 简历之一。"

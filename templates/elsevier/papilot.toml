@@ -1,0 +1,24 @@
+id = "elsevier"
+version = "3.5"
+name = "Elsevier Journal (elsarticle)"
+description = "Elsevier's elsarticle class for its journals, including Computer-Aided Design and Graphical Models (SPM and GMP papers)."
+category = "journal"
+tags = ["elsevier", "elsarticle", "journal", "spm", "gmp"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "elsarticle-template-num.tex"
+engine = "pdflatex"
+organization = "Elsevier"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/elsarticle.zip"
+homepage = "https://ctan.org/pkg/elsarticle"
+version = "3.5 (2026-01-09); elsarticle.cls generated from elsarticle.ins"
+sha256 = "f25a3e1b006e0f86abb091a02f3afa7c6d60491665c7aa89f70cc5609e14d9dc"
+
+[zh-CN]
+name = "Elsevier 期刊（elsarticle）"
+description = "Elsevier 的 elsarticle 期刊模板，Computer-Aided Design、Graphical Models（SPM、GMP 论文）等期刊使用。"
+
+[setup]
+notes = "Set the journal with \\journal{...}. The template uses numbered citations (elsarticle-num); for author-year citations switch to elsarticle-harv and add authoryear to the class options."

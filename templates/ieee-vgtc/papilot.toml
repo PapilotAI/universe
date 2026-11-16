@@ -1,0 +1,25 @@
+id = "ieee-vgtc"
+version = "2026.6"
+name = "IEEE VGTC (TVCG journal track)"
+description = "The IEEE VGTC journal-track template for IEEE VIS full papers and other TVCG special issues such as IEEE VR and ISMAR journal papers."
+category = "conference"
+tags = ["ieee", "vgtc", "tvcg", "vis", "visualization", "ieee vr", "ismar"]
+languages = ["en"]
+license = "LicenseRef-VGTC"
+license_note = "The IEEE VGTC template repository states no license; VGTC publishes it for authors of VGTC-sponsored venues."
+main = "template.tex"
+engine = "pdflatex"
+organization = "IEEE VGTC"
+
+[upstream]
+url = "https://github.com/ieeevgtc/tvcg-journal-latex/archive/d5e179555e2f32f412a74862e5e5d3325fdb998f.tar.gz"
+homepage = "https://github.com/ieeevgtc/tvcg-journal-latex"
+version = "main (VGTC page: last updated June 2026)"
+commit = "d5e179555e2f32f412a74862e5e5d3325fdb998f"
+
+[zh-CN]
+name = "IEEE VGTC（TVCG 期刊轨）"
+description = "IEEE VGTC 期刊轨模板，IEEE VIS 正式论文及 IEEE VR、ISMAR 等 TVCG 专刊论文使用。"
+
+[setup]
+notes = "Use \\documentclass[review,journal]{vgtc} for anonymous review and \\documentclass[journal]{vgtc} for the final version."

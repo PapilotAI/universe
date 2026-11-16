@@ -1,0 +1,20 @@
+id = "amsart"
+version = "1.0"
+name = "AMS Article (amsart)"
+description = "A short amsart article with theorem environments, the starting point for AMS journals and most mathematics journals."
+category = "journal"
+tags = ["ams", "amsart", "mathematics", "journal"]
+languages = ["en"]
+license = "MIT"
+main = "article.tex"
+engine = "pdflatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+homepage = "https://ctan.org/pkg/amscls"
+version = "Written for Papilot Universe; uses amsart from TeX Live"
+
+[zh-CN]
+name = "AMS 数学论文（amsart）"
+description = "带定理环境的 amsart 数学论文起点，适用于 AMS 期刊及多数数学期刊。"

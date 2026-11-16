@@ -1,0 +1,24 @@
+id = "oup"
+version = "1.5"
+name = "Oxford University Press Journals"
+description = "OUP's official authoring template for its journals, with traditional, contemporary and modern layouts."
+category = "journal"
+tags = ["oup", "oxford", "journal", "bioinformatics"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "oup-authoring-template.tex"
+engine = "pdflatex"
+organization = "Oxford University Press"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/oup-authoring-template.zip"
+homepage = "https://ctan.org/pkg/oup-authoring-template"
+version = "1.5 (2026-07-14)"
+sha256 = "025434f53ed3a46b9fd84d50a78c734c309476bc47b1cb7a90c383734df38e97"
+
+[zh-CN]
+name = "牛津大学出版社期刊"
+description = "牛津大学出版社（OUP）官方期刊模板，提供 traditional、contemporary、modern 三种版式。"
+
+[setup]
+notes = "Pick the layout and size in the class options (traditional, contemporary or modern; small, medium or large) as the journal asks. The sample uses the modern layout: contemporary loads arydshln, which breaks tabular* with TeX Live 2026."

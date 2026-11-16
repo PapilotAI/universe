@@ -1,0 +1,23 @@
+id = "tikzposter"
+version = "2.0"
+name = "Scientific Poster (tikzposter)"
+description = "An A0 portrait conference poster in two columns with tikzposter, ready for figures and equations."
+category = "poster"
+tags = ["poster", "tikzposter", "a0", "conference poster"]
+languages = ["en"]
+license = "MIT"
+main = "poster.tex"
+engine = "pdflatex"
+organization = "Papilot"
+
+[upstream]
+url = "https://github.com/PapilotAI/universe"
+homepage = "https://ctan.org/pkg/tikzposter"
+version = "Written for Papilot Universe; uses tikzposter (LPPL 1.2) from TeX Live"
+
+[zh-CN]
+name = "学术海报（tikzposter）"
+description = "A0 竖版双栏学术海报，基于 tikzposter，方便放图和公式。"
+
+[setup]
+notes = "Change the paper size in the class options (a0paper, a1paper; portrait or landscape) and the look with \\usetheme (Default, Simple, Envelope, Wave, Board, Autumn, Desert)."

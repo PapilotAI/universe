@@ -1,0 +1,365 @@
+# CCF 2026 (7th edition) recommended conferences: db.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "icde"
+abbr = "ICDE"
+name = "IEEE International Conference on Data Engineering"
+template = "ieee-conference"
+ccf = "A"
+area = "db"
+publisher = "IEEE"
+year = 2027
+cfp = "https://icde2027.github.io/submission-guidelines.html"
+confidence = "high"
+
+[[venues]]
+id = "sigir"
+abbr = "SIGIR"
+name = "International ACM SIGIR Conference on Research and Development in Information Retrieval"
+template = "acm-sigconf"
+ccf = "A"
+area = "db"
+publisher = "ACM"
+year = 2027
+cfp = "https://sigir2027.org/"
+confidence = "high"
+
+[[venues]]
+id = "sigkdd"
+abbr = "SIGKDD"
+name = "ACM SIGKDD Conference on Knowledge Discovery and Data Mining"
+template = "acm-sigconf"
+ccf = "A"
+area = "db"
+publisher = "ACM"
+year = 2027
+cfp = "https://kdd2027.kdd.org/research-track-call-for-papers/"
+confidence = "high"
+
+[[venues]]
+id = "sigmod"
+abbr = "SIGMOD"
+name = "ACM SIGMOD Conference"
+template = "acm-sigconf"
+ccf = "A"
+area = "db"
+publisher = "ACM"
+year = 2027
+cfp = "https://2027.sigmodconf.hosting.acm.org/calls_papers_sigmod_research.shtml"
+confidence = "medium"
+
+[[venues]]
+id = "vldb"
+abbr = "VLDB"
+name = "International Conference on Very Large Data Bases"
+template = "pvldb"
+ccf = "A"
+area = "db"
+publisher = "Morgan Kaufmann/ACM"
+year = 2027
+cfp = "https://www.vldb.org/2027/formatting-guidelines.html"
+confidence = "high"
+
+[[venues]]
+id = "cidr"
+abbr = "CIDR"
+name = "Conference on Innovative Data Systems Research"
+template = "acm-sigconf"
+ccf = "B"
+area = "db"
+publisher = "CIDR"
+year = 2027
+cfp = "https://www.cidrdb.org/cidr2027/cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "cikm"
+abbr = "CIKM"
+name = "ACM International Conference on Information and Knowledge Management"
+template = "acm-sigconf"
+ccf = "B"
+area = "db"
+publisher = "ACM"
+year = 2026
+cfp = "https://cikm2026.diag.uniroma1.it/full-research-papers/"
+confidence = "high"
+
+[[venues]]
+id = "dasfaa"
+abbr = "DASFAA"
+name = "International Conference on Database Systems for Advanced Applications"
+template = "springer-lncs"
+ccf = "B"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://dasfaa2026.github.io/calls/research-papers.html"
+confidence = "high"
+
+[[venues]]
+id = "ecml-pkdd"
+abbr = "ECML-PKDD"
+name = "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases"
+template = "springer-lncs"
+ccf = "B"
+area = "db"
+publisher = "Springer"
+year = 2026
+cfp = "https://ecmlpkdd.org/2026/submissions-research-track/"
+confidence = "high"
+
+[[venues]]
+id = "edbt"
+abbr = "EDBT"
+name = "International Conference on Extending Database Technology"
+template = "acm-sigconf"
+ccf = "B"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://edbticdt2027.github.io/"
+confidence = "high"
+
+[[venues]]
+id = "icdm"
+abbr = "ICDM"
+name = "IEEE International Conference on Data Mining"
+template = "ieee-conference"
+ccf = "B"
+area = "db"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www3.cs.stonybrook.edu/~icdm2026/calls/list.htm"
+confidence = "high"
+
+[[venues]]
+id = "icdt"
+abbr = "ICDT"
+name = "International Conference on Database Theory"
+template = "lipics"
+ccf = "B"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://databasetheory.org/node/154"
+confidence = "high"
+
+[[venues]]
+id = "iswc"
+abbr = "ISWC"
+name = "IEEE International Semantic Web Conference"
+template = "springer-lncs"
+ccf = "B"
+area = "db"
+publisher = "IEEE"
+year = 2024
+cfp = "https://iswc.umbc.edu/call-for-research-track-papers/"
+confidence = "high"
+
+[[venues]]
+id = "pods"
+abbr = "PODS"
+name = "ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems"
+template = "acm-pacmmod"
+ccf = "B"
+area = "db"
+publisher = "ACM"
+year = 2027
+cfp = "https://2027.sigmodconf.hosting.acm.org/calls_papers_pods_research.shtml"
+confidence = "high"
+
+[[venues]]
+id = "recsys"
+abbr = "RecSys"
+name = "ACM Conference on Recommender Systems"
+template = "acm-sigconf"
+ccf = "B"
+area = "db"
+publisher = "ACM"
+year = 2026
+cfp = "https://recsys.acm.org/recsys26/call/"
+confidence = "medium"
+
+[[venues]]
+id = "sdm"
+abbr = "SDM"
+name = "SIAM International Conference on Data Mining"
+template = "article"
+ccf = "B"
+area = "db"
+publisher = "SIAM"
+year = 2026
+cfp = "https://groups.google.com/g/ml-news/c/K0gI_9aldQg"
+confidence = "low"
+note = "SDM uses SIAM’s proceedings macros."
+
+[[venues]]
+id = "wise"
+abbr = "WISE"
+name = "Web Information Systems Engineering Conference"
+template = "springer-lncs"
+ccf = "B"
+area = "db"
+publisher = "Springer"
+year = 2026
+cfp = "https://conferences.sigappfr.org/wise2026/?p=3763"
+confidence = "high"
+
+[[venues]]
+id = "wsdm"
+abbr = "WSDM"
+name = "ACM International Conference on Web Search and Data Mining"
+template = "acm-sigconf"
+ccf = "B"
+area = "db"
+publisher = "ACM"
+year = 2027
+cfp = "https://wsdm-conference.org/2027/cffp.html"
+confidence = "high"
+
+[[venues]]
+id = "adma"
+abbr = "ADMA"
+name = "International Conference on Advanced Data Mining and Applications"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2026
+cfp = "https://adma2026.github.io/"
+confidence = "medium"
+
+[[venues]]
+id = "apweb"
+abbr = "APWeb"
+name = "Asia Pacific Web Conference"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://conferences.sigappfr.org/apweb2027/"
+confidence = "medium"
+
+[[venues]]
+id = "dexa"
+abbr = "DEXA"
+name = "International Conference on Database and Expert System Applications"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.dexa.org/2026/dexa2026.html"
+confidence = "medium"
+
+[[venues]]
+id = "ecir"
+abbr = "ECIR"
+name = "European Conference on Information Retrieval"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://ecir2027.co.uk/"
+confidence = "medium"
+
+[[venues]]
+id = "er"
+abbr = "ER"
+name = "International Conference on Conceptual Modeling"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.er2026.org/"
+confidence = "medium"
+
+[[venues]]
+id = "eswc"
+abbr = "ESWC"
+name = "Extended Semantic Web Conference"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://2027.eswc-conferences.org/"
+confidence = "medium"
+
+[[venues]]
+id = "mdm"
+abbr = "MDM"
+name = "International Conference on Mobile Data Management"
+template = "ieee-conference"
+ccf = "C"
+area = "db"
+publisher = "IEEE"
+year = 2027
+cfp = "https://mdm2027.github.io/index.html"
+confidence = "high"
+
+[[venues]]
+id = "pakdd"
+abbr = "PAKDD"
+name = "Pacific-Asia Conference on Knowledge Discovery and Data Mining"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+year = 2027
+cfp = "https://www.pakdd2027.org/"
+confidence = "medium"
+
+[[venues]]
+id = "ssdbm"
+abbr = "SSDBM"
+name = "International Conference on Scientific and Statistical Database Management"
+template = "ieee-conference"
+ccf = "C"
+area = "db"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "sstd"
+abbr = "SSTD"
+name = "International Symposium on Spatial and Temporal Databases"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "waim"
+abbr = "WAIM"
+name = "International Conference on Web Age Information Management"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "webdb"
+abbr = "WebDB"
+name = "International Workshop on Web and Databases"
+template = "acm-sigconf"
+ccf = "C"
+area = "db"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "wisa"
+abbr = "WISA"
+name = "Web Information Systems and Applications"
+template = "springer-lncs"
+ccf = "C"
+area = "db"
+publisher = "Springer"
+confidence = "low"

@@ -1,0 +1,257 @@
+# CCF 2026 (7th edition) recommended conferences: mx.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "rtss"
+abbr = "RTSS"
+name = "IEEE Real-Time Systems Symposium"
+template = "ieee-conference"
+ccf = "A"
+area = "mx"
+publisher = "IEEE"
+year = 2026
+confidence = "high"
+
+[[venues]]
+id = "www"
+abbr = "WWW"
+name = "The Web Conference"
+template = "acm-sigconf"
+ccf = "A"
+area = "mx"
+publisher = "ACM"
+year = 2027
+cfp = "https://www2027.thewebconf.org/demos/"
+confidence = "high"
+
+[[venues]]
+id = "bibm"
+abbr = "BIBM"
+name = "IEEE International Conference on Bioinformatics and Biomedicine"
+template = "ieee-conference"
+ccf = "B"
+area = "mx"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www3.cs.stonybrook.edu/~bibm2026/callforpaper2026.html"
+confidence = "high"
+
+[[venues]]
+id = "cogsci"
+abbr = "CogSci"
+name = "Annual Meeting of the Cognitive Science Society"
+template = "cogsci"
+ccf = "B"
+area = "mx"
+publisher = "Cognitive Science Society"
+year = 2026
+cfp = "https://cognitivesciencesociety.org/?p=216392"
+confidence = "medium"
+
+[[venues]]
+id = "emsoft"
+abbr = "EMSOFT"
+name = "International Conference on Embedded Software"
+template = "ieee-journal"
+ccf = "B"
+area = "mx"
+publisher = "ACM/IEEE/IFIP"
+year = 2026
+cfp = "https://esweek.org/emsoft_cfp/"
+confidence = "medium"
+note = "Full papers are published in IEEE TCAD."
+
+[[venues]]
+id = "ismb"
+abbr = "ISMB"
+name = "International conference on Intelligent Systems for Molecular Biology"
+template = "article"
+ccf = "B"
+area = "mx"
+publisher = "Oxford Journals"
+year = 2026
+cfp = "https://www.iscb.org/ismb2026/call-for-submissions/proceedings"
+confidence = "medium"
+note = "Proceedings use the OUP Bioinformatics template or a template-free 12-page format."
+
+[[venues]]
+id = "miccai"
+abbr = "MICCAI"
+name = "International Conference on Medical Image Computing and Computer-Assisted Intervention"
+template = "springer-lncs"
+ccf = "B"
+area = "mx"
+publisher = "Springer"
+year = 2026
+cfp = "https://conferences.miccai.org/2026/en/PAPER-SUBMISSION-GUIDELINES.html"
+confidence = "high"
+
+[[venues]]
+id = "recomb"
+abbr = "RECOMB"
+name = "Annual International Conference on Research in Computational Molecular Biology"
+template = "springer-lncs"
+ccf = "B"
+area = "mx"
+publisher = "Springer"
+year = 2027
+cfp = "https://easychair.org/cfp/RECOMB2027"
+confidence = "high"
+
+[[venues]]
+id = "wine"
+abbr = "WINE"
+name = "Conference on Web and Internet Economics"
+template = "springer-lncs"
+ccf = "B"
+area = "mx"
+publisher = "Springer"
+year = 2026
+cfp = "https://wine2026conf.github.io/"
+confidence = "low"
+
+[[venues]]
+id = "aft"
+abbr = "AFT"
+name = "Advances in Financial Technologies"
+template = "lipics"
+ccf = "C"
+area = "mx"
+publisher = "Springer"
+year = 2026
+cfp = "https://aft.ifca.ai/aft26/index.html"
+confidence = "high"
+
+[[venues]]
+id = "amia"
+abbr = "AMIA"
+name = "American Medical Informatics Association Annual Symposium"
+template = "article"
+ccf = "C"
+area = "mx"
+publisher = "AMIA"
+year = 2026
+cfp = "https://amia.org/education-events/amia-2026-annual-symposium/call-participation"
+confidence = "medium"
+note = "AMIA supplies a Word template only; this is a plain LaTeX starting point."
+
+[[venues]]
+id = "apbc"
+abbr = "APBC"
+name = "Asia Pacific Bioinformatics Conference"
+template = "article"
+ccf = "C"
+area = "mx"
+publisher = "BioMed Central"
+year = 2026
+cfp = "https://easychair.org/cfp/apbc2026"
+confidence = "medium"
+
+[[venues]]
+id = "cosit"
+abbr = "COSIT"
+name = "International Conference on Spatial Information Theory"
+template = "acm-sigconf"
+ccf = "C"
+area = "mx"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "icic"
+abbr = "ICIC"
+name = "International Conference on Intelligent Computing"
+template = "springer-lncs"
+ccf = "C"
+area = "mx"
+publisher = "Springer-Nature"
+year = 2027
+confidence = "medium"
+
+[[venues]]
+id = "icss"
+abbr = "ICSS"
+name = "International Conference on Service Science"
+template = "ieee-conference"
+ccf = "C"
+area = "mx"
+publisher = "CCF/Springer"
+confidence = "low"
+
+[[venues]]
+id = "ieee-bigdata"
+abbr = "IEEE BigData"
+name = "IEEE International Conference on Big Data"
+template = "ieee-conference"
+ccf = "C"
+area = "mx"
+publisher = "IEEE"
+year = 2026
+cfp = "https://bigdataieee.org/BigData2026/"
+confidence = "low"
+
+[[venues]]
+id = "ieee-cloud"
+abbr = "IEEE CLOUD"
+name = "IEEE International Conference on Cloud Computing"
+template = "ieee-conference"
+ccf = "C"
+area = "mx"
+publisher = "IEEE"
+year = 2026
+cfp = "https://services.conferences.computer.org/2026/cloud/"
+confidence = "low"
+
+[[venues]]
+id = "ijtcs-faw"
+abbr = "IJTCS-FAW"
+name = "International Joint Conference on Theoretical Computer Science - Frontier of Algorithmic Wisdom"
+template = "springer-lncs"
+ccf = "C"
+area = "mx"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "isbra"
+abbr = "ISBRA"
+name = "International Symposium on Bioinformatics Research and Applications"
+template = "springer-lncs"
+ccf = "C"
+area = "mx"
+publisher = "Springer"
+year = 2026
+cfp = "https://isbra2026.scimeeting.cn/"
+confidence = "medium"
+
+[[venues]]
+id = "sagt"
+abbr = "SAGT"
+name = "International Symposium on Algorithmic Game Theory"
+template = "springer-lncs"
+ccf = "C"
+area = "mx"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "sigspatial"
+abbr = "SIGSPATIAL"
+name = "ACM Special Interest Group on Spatial Information"
+template = "acm-sigconf"
+ccf = "C"
+area = "mx"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "smc"
+abbr = "SMC"
+name = "IEEE International Conference on Systems, Man, and Cybernetics"
+template = "ieee-conference"
+ccf = "C"
+area = "mx"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.ieeesmc2026.org/"
+confidence = "low"

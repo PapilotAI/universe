@@ -1,0 +1,790 @@
+# CCF 2026 (7th edition) recommended conferences: arch.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "acm-sigops-atc"
+abbr = "ACM SIGOPS ATC"
+name = "ACM SIGOPS Annual Technical Conference"
+template = "acm-sigconf"
+ccf = "A"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://sigops.org/s/conferences/atc/2026/cfp.html"
+confidence = "low"
+
+[[venues]]
+id = "asplos"
+abbr = "ASPLOS"
+name = "International Conference on Architectural Support for Programming Languages and Operating Systems"
+template = "acm-sigplan"
+ccf = "A"
+area = "arch"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://www.asplos-conference.org/?p=8512"
+confidence = "medium"
+
+[[venues]]
+id = "dac"
+abbr = "DAC"
+name = "Design Automation Conference"
+template = "ieee-conference"
+ccf = "A"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://dac.com/2026/research-manuscript-submissions"
+confidence = "medium"
+
+[[venues]]
+id = "eurosys"
+abbr = "EuroSys"
+name = "European Conference on Computer Systems"
+template = "acm-sigplan"
+ccf = "A"
+area = "arch"
+publisher = "ACM"
+year = 2027
+cfp = "https://2027.eurosys.org/cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "fast"
+abbr = "FAST"
+name = "USENIX Conference on File and Storage Technologies"
+template = "usenix"
+ccf = "A"
+area = "arch"
+publisher = "USENIX"
+year = 2027
+cfp = "https://www.usenix.org/conference/fast27/call-for-papers"
+confidence = "high"
+
+[[venues]]
+id = "hpca"
+abbr = "HPCA"
+name = "IEEE International Symposium on High Performance Computer Architecture"
+template = "ieee-conference"
+ccf = "A"
+area = "arch"
+publisher = "IEEE"
+year = 2027
+cfp = "https://www.sigarch.org/call-contributions/hpca-2027/"
+confidence = "high"
+
+[[venues]]
+id = "hpdc"
+abbr = "HPDC"
+name = "The International ACM Symposium on High-Performance Parallel and Distributed Computing"
+template = "acm-sigconf"
+ccf = "A"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://hpdc.sci.utah.edu/2026/calls-cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "isca"
+abbr = "ISCA"
+name = "International Symposium on Computer Architecture"
+template = "ieee-conference"
+ccf = "A"
+area = "arch"
+publisher = "ACM/IEEE"
+year = 2026
+cfp = "https://iscaconf.org/isca2026/submit/guidelines.php"
+confidence = "low"
+note = "ISCA ships its own IEEEtran-based template."
+
+[[venues]]
+id = "micro"
+abbr = "MICRO"
+name = "IEEE/ACM International Symposium on Microarchitecture"
+template = "acm-sigconf"
+ccf = "A"
+area = "arch"
+publisher = "IEEE/ACM"
+year = 2026
+cfp = "https://www.microarch.org/micro59/submit/guidelines.php"
+confidence = "medium"
+
+[[venues]]
+id = "ppopp"
+abbr = "PPoPP"
+name = "ACM SIGPLAN Symposium on Principles & Practice of Parallel Programming"
+template = "acm-sigplan"
+ccf = "A"
+area = "arch"
+topics = ["pl"]
+publisher = "ACM"
+year = 2027
+cfp = "https://ppopp27.sigplan.org/track/PPoPP-2027-papers"
+confidence = "high"
+
+[[venues]]
+id = "sc"
+abbr = "SC"
+name = "International Conference for High Performance Computing, Networking, Storage, and Analysis"
+template = "ieee-conference"
+ccf = "A"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://sc26.supercomputing.org/program/"
+confidence = "high"
+
+[[venues]]
+id = "cgo"
+abbr = "CGO"
+name = "The International Symposium on Code Generation and Optimization"
+template = "acm-sigplan"
+ccf = "B"
+area = "arch"
+topics = ["pl"]
+publisher = "IEEE/ACM"
+year = 2027
+cfp = "https://conf.researchr.org/track/cgo-2027/cgo-2027-papers"
+confidence = "high"
+
+[[venues]]
+id = "cluster"
+abbr = "CLUSTER"
+name = "IEEE International Conference on Cluster Computing"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://clustercomp.org/2026"
+confidence = "low"
+
+[[venues]]
+id = "codes-isss"
+abbr = "CODES+ISSS"
+name = "International Conference on Hardware/Software Co-design and System Synthesis"
+template = "acm-acmsmall"
+ccf = "B"
+area = "arch"
+publisher = "ACM/IEEE"
+year = 2026
+cfp = "https://esweek.org/codes"
+confidence = "medium"
+
+[[venues]]
+id = "date"
+abbr = "DATE"
+name = "Design, Automation & Test in Europe"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE/ACM"
+year = 2027
+cfp = "https://date27.date-conference.com/date-2027-call-papers"
+confidence = "high"
+
+[[venues]]
+id = "euro-par"
+abbr = "Euro-Par"
+name = "European Conference on Parallel and Distributed Computing"
+template = "springer-lncs"
+ccf = "B"
+area = "arch"
+publisher = "Springer"
+year = 2026
+cfp = "https://2026.euro-par.org/calls/papers"
+confidence = "high"
+
+[[venues]]
+id = "fpga"
+abbr = "FPGA"
+name = "ACM/SIGDA International Symposium on Field-Programmable Gate Arrays"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2027
+cfp = "https://www.isfpga.org/"
+confidence = "medium"
+
+[[venues]]
+id = "hipeac"
+abbr = "HiPEAC"
+name = "International Conference on High Performance and Embedded Architectures and Compilers"
+template = "acm-acmsmall"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2027
+cfp = "https://www.hipeac.net/2027/glasgow/#/call-for-papers/"
+confidence = "medium"
+
+[[venues]]
+id = "hot-chips"
+abbr = "HOT CHIPS"
+name = "Hot Chips: A Symposium on High Performance Chips"
+template = "article"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://hc2026.hotchips.org/call_for_contrib/"
+confidence = "medium"
+
+[[venues]]
+id = "iccad"
+abbr = "ICCAD"
+name = "International Conference on Computer-Aided Design"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "IEEE/ACM"
+year = 2026
+cfp = "https://iccad.com/2026/final-author-instructions"
+confidence = "medium"
+
+[[venues]]
+id = "iccd"
+abbr = "ICCD"
+name = "International Conference on Computer Design"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.iccd-conf.com/2026/home.html"
+confidence = "low"
+
+[[venues]]
+id = "icdcs"
+abbr = "ICDCS"
+name = "IEEE International Conference on Distributed Computing Systems"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2021
+cfp = "https://computer.org/conferences/cfp/ICDCS"
+confidence = "low"
+
+[[venues]]
+id = "icpp"
+abbr = "ICPP"
+name = "International Conference on Parallel Processing"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://icpp2026.github.io/call-for-papers"
+confidence = "high"
+
+[[venues]]
+id = "ics"
+abbr = "ICS"
+name = "International Conference on Supercomputing"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.sigarch.org/call-contributions/ics-2026/"
+confidence = "medium"
+
+[[venues]]
+id = "ipdps"
+abbr = "IPDPS"
+name = "IEEE International Parallel & Distributed Processing Symposium"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.ipdps.org/ipdps2026/2026-call-for-papers.html"
+confidence = "high"
+
+[[venues]]
+id = "iscas"
+abbr = "ISCAS"
+name = "IEEE International Symposium on Circuits and Systems"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2027
+cfp = "https://ieee-cas.org/files/ieeecass/2026-07/iscas2027-cfp.pdf"
+confidence = "low"
+
+[[venues]]
+id = "itc"
+abbr = "ITC"
+name = "International Test Conference"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.itctestweek.org/itc-authors-page-2/"
+confidence = "medium"
+
+[[venues]]
+id = "lisa"
+abbr = "LISA"
+name = "Large Installation System Administration Conference"
+template = "article"
+ccf = "B"
+area = "arch"
+publisher = "USENIX"
+year = 2021
+cfp = "https://www.usenix.org/node/266040"
+confidence = "medium"
+
+[[venues]]
+id = "msst"
+abbr = "MSST"
+name = "Mass Storage Systems and Technologies"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://easychair.org/cfp/MSST26"
+confidence = "medium"
+
+[[venues]]
+id = "pact"
+abbr = "PACT"
+name = "International Conference on Parallel Architectures and Compilation Techniques"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "IEEE/ACM"
+year = 2026
+cfp = "https://pact2026.github.io/submit"
+confidence = "high"
+
+[[venues]]
+id = "performance"
+abbr = "Performance"
+name = "International Symposium on Computer Performance, Modeling, Measurements and Evaluation"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://performance2026.github.io/call/"
+confidence = "medium"
+
+[[venues]]
+id = "podc"
+abbr = "PODC"
+name = "ACM Symposium on Principles of Distributed Computing"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.podc.org/podc2026/"
+confidence = "medium"
+
+[[venues]]
+id = "rtas"
+abbr = "RTAS"
+name = "IEEE Real-Time and Embedded Technology and Applications Symposium"
+template = "ieee-conference"
+ccf = "B"
+area = "arch"
+publisher = "IEEE"
+year = 2027
+cfp = "https://2027.rtas.org/submission"
+confidence = "high"
+
+[[venues]]
+id = "sigmetrics"
+abbr = "SIGMETRICS"
+name = "International Conference on Measurement and Modeling of Computer Systems"
+template = "acm-pomacs"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2027
+cfp = "https://sigmetrics.org/sigmetrics2027/pages/cfp.html"
+confidence = "high"
+
+[[venues]]
+id = "socc"
+abbr = "SoCC"
+name = "ACM Symposium on Cloud Computing"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://acmsocc.org/2026/papers.html"
+confidence = "high"
+
+[[venues]]
+id = "spaa"
+abbr = "SPAA"
+name = "ACM Symposium on Parallelism in Algorithms and Architectures"
+template = "acm-sigconf"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2027
+cfp = "https://spaa.acm.org/call-for-papers/"
+confidence = "high"
+
+[[venues]]
+id = "vee"
+abbr = "VEE"
+name = "International Conference on Virtual Execution Environments"
+template = "acm-sigplan"
+ccf = "B"
+area = "arch"
+publisher = "ACM"
+year = 2018
+cfp = "https://www.sigops.org/2018/vee2019/"
+confidence = "low"
+
+[[venues]]
+id = "appt"
+abbr = "APPT"
+name = "International Symposium on Advanced Parallel Processing Technology"
+template = "springer-lncs"
+ccf = "C"
+area = "arch"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.appt-conference.com/2026"
+confidence = "low"
+
+[[venues]]
+id = "asap"
+abbr = "ASAP"
+name = "IEEE International Conference on Application-Specific Systems, Architectures, and Processors"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://2026.asap-conf.org/"
+confidence = "low"
+
+[[venues]]
+id = "asp-dac"
+abbr = "ASP-DAC"
+name = "Asia and South Pacific Design Automation Conference"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM/IEEE"
+year = 2027
+cfp = "https://www.aspdac.com/aspdac2027/"
+confidence = "medium"
+
+[[venues]]
+id = "ats"
+abbr = "ATS"
+name = "IEEE Asian Test Symposium"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.ats2026.tw/"
+confidence = "medium"
+
+[[venues]]
+id = "cases"
+abbr = "CASES"
+name = "International Conference on Compilers, Architectures, and Synthesis for Embedded Systems"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "ccgrid"
+abbr = "CCGRID"
+name = "IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM/IEEE"
+year = 2027
+cfp = "https://hpcclab.org/ccgrid27/"
+confidence = "low"
+
+[[venues]]
+id = "cf"
+abbr = "CF"
+name = "ACM International Conference on Computing Frontiers"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.computingfrontiers.org/2026/"
+confidence = "medium"
+
+[[venues]]
+id = "ets"
+abbr = "ETS"
+name = "IEEE European Test Symposium"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2027
+cfp = "https://www.ets2027.co.uk/"
+confidence = "low"
+
+[[venues]]
+id = "fccm"
+abbr = "FCCM"
+name = "IEEE Symposium on Field-Programmable Custom Computing Machines"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2027
+cfp = "https://www.fccm.org/"
+confidence = "low"
+
+[[venues]]
+id = "fpl"
+abbr = "FPL"
+name = "International Conference on Field-Programmable Logic and Applications"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "fpt"
+abbr = "FPT"
+name = "International Conference on Field-Programmable Technology"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://fpt2026.uark.edu"
+confidence = "low"
+
+[[venues]]
+id = "glsvlsi"
+abbr = "GLSVLSI"
+name = "Great Lakes Symposium on VLSI"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM/IEEE"
+year = 2026
+cfp = "https://www.glsvlsi.org/"
+confidence = "low"
+
+[[venues]]
+id = "hipc"
+abbr = "HiPC"
+name = "IEEE International Conference on High Performance Computing, Data and Analytics"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE/ACM"
+confidence = "low"
+
+[[venues]]
+id = "hoti"
+abbr = "HOTI"
+name = "IEEE Symposium on High-Performance Interconnects"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "hotstorage"
+abbr = "HotStorage"
+name = "ACM Workshop on Hot Topics in Storage and File Systems"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "USENIX"
+year = 2026
+cfp = "https://www.sigarch.org/call-contributions/hotstorage-sosp-2026/"
+confidence = "high"
+
+[[venues]]
+id = "hpcc"
+abbr = "HPCC"
+name = "IEEE International Conference on High Performance Computing and Communications"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ieee-hyper-intelligence.org/2026/hpcc/"
+confidence = "low"
+
+[[venues]]
+id = "ica3pp"
+abbr = "ICA3PP"
+name = "International Conference on Algorithms and Architectures for Parallel Processing"
+template = "springer-lncs"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://hpcn.exeter.ac.uk/ica3pp2026/"
+confidence = "high"
+
+[[venues]]
+id = "icpads"
+abbr = "ICPADS"
+name = "International Conference on Parallel and Distributed Systems"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.cloud-conf.net/icpads2026"
+confidence = "high"
+
+[[venues]]
+id = "islped"
+abbr = "ISLPED"
+name = "International Symposium on Low Power Electronics and Design"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM/IEEE"
+confidence = "low"
+
+[[venues]]
+id = "ispa"
+abbr = "ISPA"
+name = "IEEE International Symposium on Parallel and Distributed Processing with Applications"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ieee-ai-for-science.org/2026/ispa/"
+confidence = "low"
+
+[[venues]]
+id = "ispd"
+abbr = "ISPD"
+name = "International Symposium on Physical Design"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM"
+year = 2027
+cfp = "https://ispd.cc/ispd2027/"
+confidence = "low"
+
+[[venues]]
+id = "itc-asia"
+abbr = "ITC-Asia"
+name = "International Test Conference in Asia"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.castest.com.cn/itcasia_2026"
+confidence = "low"
+
+[[venues]]
+id = "jcc"
+abbr = "JCC"
+name = "International Conference on JointCloud Computing"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "CCF&IEEE"
+year = 2026
+cfp = "https://cisose.fit.ac.jp/jcc/?p=183"
+confidence = "high"
+
+[[venues]]
+id = "mascots"
+abbr = "MASCOTS"
+name = "International Symposium on Modeling, Analysis, and Simulation of Computer and Telecommunication Systems"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "nas"
+abbr = "NAS"
+name = "International Conference on Networking, Architecture and Storages"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "nocs"
+abbr = "NOCS"
+name = "ACM/IEEE International Symposium on Networks-on-Chip"
+template = "acm-sigconf"
+ccf = "C"
+area = "arch"
+publisher = "ACM/IEEE"
+confidence = "low"
+
+[[venues]]
+id = "npc"
+abbr = "NPC"
+name = "IFIP International Conference on Network and Parallel Computing"
+template = "springer-lncs"
+ccf = "C"
+area = "arch"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "sec-edge"
+abbr = "SEC"
+name = "ACM/IEEE Symposium on Edge Computing"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE/ACM"
+year = 2026
+cfp = "https://acm-ieee-sec.org/2026/"
+confidence = "low"
+
+[[venues]]
+id = "systor"
+abbr = "SYSTOR"
+name = "ACM International Systems and Storage Conference"
+template = "acm-sigplan"
+ccf = "C"
+area = "arch"
+publisher = "ACM"
+year = 2026
+cfp = "https://www.systor.org/2026/"
+confidence = "high"
+
+[[venues]]
+id = "vts"
+abbr = "VTS"
+name = "IEEE VLSI Test Symposium"
+template = "ieee-conference"
+ccf = "C"
+area = "arch"
+publisher = "IEEE"
+confidence = "low"

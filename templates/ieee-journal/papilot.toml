@@ -1,0 +1,24 @@
+id = "ieee-journal"
+version = "1.8-b"
+name = "IEEE Transactions (journal)"
+description = "IEEEtran in journal mode, the layout of IEEE Transactions; used by journal-track papers such as EMSOFT (IEEE TCAD) and FMCAD."
+category = "journal"
+tags = ["ieee", "ieeetran", "journal", "transactions", "tcad", "emsoft", "fmcad"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "bare_jrnl.tex"
+engine = "pdflatex"
+organization = "IEEE"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/IEEEtran.zip"
+homepage = "https://ctan.org/pkg/ieeetran"
+version = "1.8-b"
+sha256 = "e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4"
+
+[zh-CN]
+name = "IEEE Transactions（期刊）"
+description = "IEEEtran 期刊模式，IEEE Transactions 的版式；EMSOFT（发表于 IEEE TCAD）、FMCAD 等期刊轨论文使用。"
+
+[setup]
+notes = "For a Computer Society journal use \\documentclass[10pt,journal,compsoc]{IEEEtran}; for peer review add peerreview."

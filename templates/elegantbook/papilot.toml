@@ -1,0 +1,24 @@
+id = "elegantbook"
+version = "4.7"
+name = "ElegantBook"
+description = "ElegantBook, a widely used book and lecture-notes class with Chinese and English samples, colored theorem boxes and a cover page."
+category = "book"
+tags = ["book", "notes", "elegantbook", "elegantlatex", "chinese", "中文", "讲义"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c"
+main = "elegantbook-cn.tex"
+engine = "xelatex"
+organization = "ElegantLaTeX"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/elegantbook.zip"
+homepage = "https://ctan.org/pkg/elegantbook"
+version = "4.7 (2026-05-01)"
+sha256 = "481a8fe07ba8a9da44b0907e98972e6712de139a5bdbb89281d3335c006e187f"
+
+[zh-CN]
+name = "ElegantBook 书籍模板"
+description = "ElegantLaTeX 的 ElegantBook，广泛使用的书籍与讲义模板，带中英文示例、彩色定理框和封面。"
+
+[setup]
+notes = "elegantbook-cn.tex is the Chinese sample and elegantbook-en.tex the English one; set the main file to the one you keep. Colors and modes are class options (color=blue, mode=fancy)."

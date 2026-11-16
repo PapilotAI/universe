@@ -1,0 +1,24 @@
+id = "popets"
+version = "2027"
+name = "PoPETs 2027 (PETS)"
+description = "The Proceedings on Privacy Enhancing Technologies 2027 submission template, acmart with PoPETs settings; mandatory for PETS papers."
+category = "conference"
+tags = ["popets", "pets", "privacy", "security", "acmart"]
+languages = ["en"]
+license = "LicenseRef-PoPETs"
+license_note = "The PoPETs template states no license. acmart.cls, the acmnumeric biblatex styles and ACM-Reference-Format.bst inside it are ACM's files (LPPL 1.3c); popets.sty is PoPETs'."
+main = "main.tex"
+engine = "pdflatex"
+organization = "Privacy Enhancing Technologies Board"
+
+[upstream]
+url = "https://www.petsymposium.org/files/submission-template-2027.zip"
+homepage = "https://www.petsymposium.org/authors-2027.php"
+version = "PoPETs 2027 submission template"
+sha256 = "b1abbcc0832b7860f5fe8d9773088540b0456965a05fd14c3d47b3a8d85ea7d7"
+
+[zh-CN]
+description = "PoPETs 2027 投稿模板（acmart 加 PoPETs 设置），PETS 论文必须使用。"
+
+[setup]
+notes = "This is the submission template; PoPETs ships a separate camera-ready template. Keep the mandatory ethical considerations, open science and AI use sections."

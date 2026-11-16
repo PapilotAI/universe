@@ -1,0 +1,24 @@
+id = "achemso"
+version = "3.14"
+name = "ACS Journals (achemso)"
+description = "achemso, the LaTeX class for American Chemical Society journals such as JACS, ACS Nano and Inorganic Chemistry."
+category = "journal"
+tags = ["acs", "achemso", "chemistry", "jacs", "journal"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "achemso-demo.tex"
+engine = "pdflatex"
+organization = "American Chemical Society"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/achemso.zip"
+homepage = "https://ctan.org/pkg/achemso"
+version = "3.14 (2025-09-22)"
+sha256 = "0fd9e883a2ff3f074859be868e3b468935b89e2c7474e3a8b1dd62a220619b45"
+
+[zh-CN]
+name = "ACS 期刊（achemso）"
+description = "美国化学会（ACS）期刊的 achemso 模板，JACS、ACS Nano 等使用。"
+
+[setup]
+notes = "Set the journal code with journal=… in the class options (jacsat is JACS). The achemso class comes with TeX Live."

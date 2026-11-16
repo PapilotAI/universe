@@ -1,0 +1,303 @@
+# CCF 2026 (7th edition) recommended conferences: hci.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "chi"
+abbr = "CHI"
+name = "ACM Conference on Human Factors in Computing Systems"
+template = "acm-manuscript"
+ccf = "A"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://chi2027.acm.org/"
+confidence = "medium"
+
+[[venues]]
+id = "cscw"
+abbr = "CSCW"
+name = "ACM Conference On Computer-Supported Cooperative Work And Social Computing"
+template = "acm-pacmhci"
+ccf = "A"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://cscw.acm.org/2027/"
+confidence = "medium"
+
+[[venues]]
+id = "ubicomp"
+abbr = "UbiComp"
+name = "ACM international joint conference on Pervasive and Ubiquitous Computing"
+template = "acm-imwut"
+ccf = "A"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://sigchi.org/events/ubicomp-2027/"
+confidence = "medium"
+
+[[venues]]
+id = "uist"
+abbr = "UIST"
+name = "ACM Symposium on User Interface Software and Technology"
+template = "acm-sigconf"
+ccf = "A"
+area = "hci"
+publisher = "ACM"
+year = 2026
+cfp = "https://uist.acm.org/2026/"
+confidence = "low"
+
+[[venues]]
+id = "ecscw"
+abbr = "ECSCW"
+name = "European Conference on Computer Supported Cooperative Work"
+template = "article"
+ccf = "B"
+area = "hci"
+publisher = "Springer"
+year = 2026
+cfp = "https://ecscw.eusset.eu/2026"
+confidence = "medium"
+
+[[venues]]
+id = "group"
+abbr = "GROUP"
+name = "ACM International Conference on Supporting Group Work"
+template = "acm-pacmhci"
+ccf = "B"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://group.acm.org/conferences/group27/"
+confidence = "medium"
+
+[[venues]]
+id = "icwsm"
+abbr = "ICWSM"
+name = "The International AAAI Conference on Web and Social Media"
+template = "aaai"
+ccf = "B"
+area = "hci"
+publisher = "AAAI"
+year = 2027
+cfp = "https://www.icwsm.org/2027/"
+confidence = "medium"
+
+[[venues]]
+id = "iss"
+abbr = "ISS"
+name = "ACM International Conference on Interactive Surfaces and Spaces"
+template = "acm-pacmhci"
+ccf = "B"
+area = "hci"
+publisher = "ACM"
+year = 2026
+cfp = "https://iss.acm.org/2026/"
+confidence = "medium"
+
+[[venues]]
+id = "iui"
+abbr = "IUI"
+name = "ACM International Conference on Intelligent User Interfaces"
+template = "acm-sigconf"
+ccf = "B"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://iui.hosting.acm.org/2027/"
+confidence = "medium"
+
+[[venues]]
+id = "mobilehci"
+abbr = "MobileHCI"
+name = "ACM International Conference on Mobile Human- Computer Interaction"
+template = "acm-pacmhci"
+ccf = "B"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://mobilehci.acm.org/2027/"
+confidence = "medium"
+
+[[venues]]
+id = "percom"
+abbr = "PERCOM"
+name = "IEEE International Conference on Pervasive Computing and Communications"
+template = "ieee-conference"
+ccf = "B"
+area = "hci"
+publisher = "IEEE"
+year = 2027
+cfp = "https://percom.org/"
+confidence = "medium"
+
+[[venues]]
+id = "assets"
+abbr = "ASSETS"
+name = "International ACM SIGACCESS Conference on Computers and Accessibility"
+template = "acm-sigconf"
+ccf = "C"
+area = "hci"
+publisher = "ACM"
+year = 2026
+cfp = "https://assets26.sigaccess.org/"
+confidence = "low"
+
+[[venues]]
+id = "avi"
+abbr = "AVI"
+name = "International Working Conference on Advanced Visual Interfaces"
+template = "acm-sigconf"
+ccf = "C"
+area = "hci"
+publisher = "ACM"
+confidence = "low"
+
+[[venues]]
+id = "collaboratecom"
+abbr = "CollaborateCom"
+name = "International Conference on Collaborative Computing: Networking, Applications and Worksharing"
+template = "springer-lncs"
+ccf = "C"
+area = "hci"
+publisher = "Springer"
+year = 2026
+cfp = "https://collaboratecom.eai-conferences.org/2026/"
+confidence = "low"
+
+[[venues]]
+id = "coopis"
+abbr = "CoopIS"
+name = "International Conference on Cooperative Information Systems"
+template = "springer-lncs"
+ccf = "C"
+area = "hci"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "cscwd"
+abbr = "CSCWD"
+name = "International Conference on Computer Supported Cooperative Work in Design"
+template = "ieee-conference"
+ccf = "C"
+area = "hci"
+publisher = "Springer"
+year = 2027
+confidence = "high"
+
+[[venues]]
+id = "dis"
+abbr = "DIS"
+name = "ACM SIGCHI Conference on Designing Interactive Systems"
+template = "acm-sigconf"
+ccf = "C"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://dis.acm.org/2027/"
+confidence = "low"
+
+[[venues]]
+id = "gi"
+abbr = "GI"
+name = "Graphics Interface"
+template = "acm-sigconf"
+ccf = "C"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://conferences.graphicsinterface.org/2027"
+confidence = "medium"
+
+[[venues]]
+id = "gpc"
+abbr = "GPC"
+name = "Conference on Green, Pervasive and Cloud Computing"
+template = "springer-lncs"
+ccf = "C"
+area = "hci"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "icmi"
+abbr = "ICMI"
+name = "ACM International Conference on Multimodal Interaction"
+template = "acm-sigconf"
+ccf = "C"
+area = "hci"
+publisher = "ACM"
+year = 2026
+cfp = "https://icmi.acm.org/2026/"
+confidence = "low"
+
+[[venues]]
+id = "icxr"
+abbr = "ICXR"
+name = "CCF International Conference on Extended Reality"
+template = "springer-lncs"
+ccf = "C"
+area = "hci"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "idc"
+abbr = "IDC"
+name = "ACM Interaction Design and Children"
+template = "acm-sigconf"
+ccf = "C"
+area = "hci"
+publisher = "ACM"
+year = 2027
+cfp = "https://idc.acm.org/2027/"
+confidence = "low"
+
+[[venues]]
+id = "interact"
+abbr = "INTERACT"
+name = "of International Federation for Information Processing"
+template = "springer-lncs"
+ccf = "C"
+area = "hci"
+publisher = "IFIP"
+year = 2027
+cfp = "https://interact2027.org/"
+confidence = "high"
+
+[[venues]]
+id = "mobiquitous"
+abbr = "MobiQuitous"
+name = "International Conference on Mobile and Ubiquitous Systems: Computing, Networking and Services"
+template = "springer-lncs"
+ccf = "C"
+area = "hci"
+publisher = "Springer"
+confidence = "low"
+
+[[venues]]
+id = "uic"
+abbr = "UIC"
+name = "IEEE International Conference on Ubiquitous Intelligence and Computing"
+template = "ieee-conference"
+ccf = "C"
+area = "hci"
+publisher = "IEEE"
+year = 2026
+cfp = "https://swc-ieee-2026.github.io/uic/"
+confidence = "low"
+
+[[venues]]
+id = "whc"
+abbr = "WHC"
+name = "IEEE World Haptics Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "hci"
+publisher = "IEEE"
+year = 2027
+cfp = "https://2027.worldhaptics.org/"
+confidence = "low"

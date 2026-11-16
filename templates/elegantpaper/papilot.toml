@@ -1,0 +1,24 @@
+id = "elegantpaper"
+version = "0.12"
+name = "ElegantPaper"
+description = "ElegantPaper, a clean working-paper and report class with Chinese and English samples."
+category = "report"
+tags = ["report", "working paper", "elegantpaper", "elegantlatex", "chinese", "中文"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c"
+main = "elegantpaper-cn.tex"
+engine = "xelatex"
+organization = "ElegantLaTeX"
+
+[upstream]
+url = "https://mirrors.ctan.org/macros/latex/contrib/elegantpaper.zip"
+homepage = "https://ctan.org/pkg/elegantpaper"
+version = "0.12 (2026-02-27)"
+sha256 = "5979e15024baf8d5c7e322fa48a65f325feaaae0afc1d915872770f4f7b1cf56"
+
+[zh-CN]
+name = "ElegantPaper 工作论文"
+description = "ElegantLaTeX 的 ElegantPaper，简洁的工作论文与报告模板，带中英文示例。"
+
+[setup]
+notes = "elegantpaper-cn.tex is the Chinese sample and elegantpaper-en.tex the English one; set the main file to the one you keep."

@@ -1,0 +1,284 @@
+# Programming-language venues outside the CCF list.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "cpp"
+abbr = "CPP"
+name = "Certified Programs and Proofs"
+template = "acm-sigplan"
+area = "pl"
+year = 2027
+cfp = "https://popl27.sigplan.org/home/CPP-2027"
+confidence = "high"
+
+[[venues]]
+id = "dls"
+abbr = "DLS"
+name = "Dynamic Languages Symposium"
+template = "acm-sigplan"
+area = "pl"
+year = 2026
+cfp = "https://2026.splashcon.org/home/dls-2026"
+confidence = "medium"
+
+[[venues]]
+id = "esop"
+abbr = "ESOP"
+name = "European Symposium on Programming"
+template = "springer-lncs"
+area = "pl"
+year = 2027
+cfp = "https://etaps.org/2027"
+confidence = "high"
+
+[[venues]]
+id = "fase"
+abbr = "FASE"
+name = "Fundamental Approaches to Software Engineering"
+template = "springer-lncs"
+area = "pl"
+year = 2027
+cfp = "https://etaps.org/2027"
+confidence = "high"
+
+[[venues]]
+id = "flops"
+abbr = "FLOPS"
+name = "International Symposium on Functional and Logic Programming"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://www.cs.tsukuba.ac.jp/flops2026/"
+confidence = "low"
+
+[[venues]]
+id = "fossacs"
+abbr = "FoSSaCS"
+name = "Foundations of Software Science and Computation Structures"
+template = "springer-lncs"
+area = "pl"
+year = 2027
+cfp = "https://etaps.org/2027"
+confidence = "high"
+
+[[venues]]
+id = "gpce"
+abbr = "GPCE"
+name = "Generative Programming: Concepts & Experiences"
+template = "acm-sigplan"
+area = "pl"
+year = 2026
+cfp = "https://2026.splashcon.org/home/gpce-2026"
+confidence = "medium"
+
+[[venues]]
+id = "haskell"
+abbr = "Haskell"
+name = "ACM SIGPLAN Haskell Symposium"
+template = "acm-acmsmall-conf"
+area = "pl"
+year = 2026
+cfp = "https://icfp26.sigplan.org/home/haskellsymp-2026"
+confidence = "medium"
+
+[[venues]]
+id = "iclp"
+abbr = "ICLP"
+name = "International Conference on Logic Programming"
+template = "article"
+area = "pl"
+year = 2026
+cfp = "https://www.semsys.aau.at/events/iclp2026/content/1-submissioninfo.html"
+confidence = "low"
+note = "Regular papers use the TPLP (Cambridge) format; technical communications use EPTCS."
+
+[[venues]]
+id = "ifl"
+abbr = "IFL"
+name = "Implementation and Application of Functional Languages"
+template = "article"
+area = "pl"
+year = 2026
+cfp = "https://mailman.haskell.org/archives/list/haskell-cafe@haskell.org/thread/MWCRAAP2M3LFQBYH2MUSCNEJYIAG6BUW/"
+confidence = "medium"
+
+[[venues]]
+id = "ifm"
+abbr = "iFM"
+name = "Integrated Formal Methods"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://ifm2026.github.io/"
+confidence = "low"
+
+[[venues]]
+id = "ijcar"
+abbr = "IJCAR"
+name = "International Joint Conference on Automated Reasoning"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://floc26.org/"
+confidence = "low"
+
+[[venues]]
+id = "ismm"
+abbr = "ISMM"
+name = "ACM SIGPLAN International Symposium on Memory Management"
+template = "acm-sigplan"
+area = "pl"
+year = 2026
+cfp = "https://pldi26.sigplan.org/home/ismm-2026"
+confidence = "medium"
+
+[[venues]]
+id = "itp"
+abbr = "ITP"
+name = "Interactive Theorem Proving"
+template = "lipics"
+area = "pl"
+year = 2026
+cfp = "https://itp-conference-2026.github.io/cfp"
+confidence = "high"
+
+[[venues]]
+id = "mfps"
+abbr = "MFPS"
+name = "Mathematical Foundations of Programming Semantics"
+template = "article"
+area = "pl"
+year = 2026
+cfp = "https://www.mfps.info/"
+confidence = "low"
+note = "MFPS proceedings appear in ENTICS, with its own class."
+
+[[venues]]
+id = "mplr"
+abbr = "MPLR"
+name = "Managed Programming Languages and Runtimes"
+template = "acm-sigplan"
+area = "pl"
+year = 2026
+cfp = "https://conf.researchr.org/home/mplr-2026"
+confidence = "medium"
+
+[[venues]]
+id = "nfm"
+abbr = "NFM"
+name = "NASA Formal Methods Symposium"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://nfm2026.github.io/"
+confidence = "high"
+
+[[venues]]
+id = "onward"
+abbr = "Onward!"
+name = "Onward! (SPLASH)"
+template = "acm-sigplan"
+area = "pl"
+year = 2026
+cfp = "https://2026.splashcon.org/track/splash-2026-Onward-papers"
+confidence = "low"
+
+[[venues]]
+id = "padl"
+abbr = "PADL"
+name = "Practical Aspects of Declarative Languages"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://popl26.sigplan.org/home/PADL-2026"
+confidence = "low"
+
+[[venues]]
+id = "ppdp"
+abbr = "PPDP"
+name = "Principles and Practice of Declarative Programming"
+template = "acm-sigconf"
+area = "pl"
+year = 2026
+cfp = "https://conf.researchr.org/home/ppdp-2026"
+confidence = "low"
+
+[[venues]]
+id = "programming"
+abbr = "Programming"
+name = "The Art, Science, and Engineering of Programming (<Programming> conference)"
+template = "programming"
+area = "pl"
+year = 2027
+cfp = "https://2027.programming-conference.org/track/programming-2027-papers"
+confidence = "high"
+
+[[venues]]
+id = "sefm"
+abbr = "SEFM"
+name = "Software Engineering and Formal Methods"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://sefm-conference.github.io/"
+confidence = "low"
+
+[[venues]]
+id = "sle"
+abbr = "SLE"
+name = "Software Language Engineering"
+template = "acm-sigplan"
+area = "pl"
+year = 2026
+cfp = "https://2026.splashcon.org/home/sle-2026"
+confidence = "medium"
+
+[[venues]]
+id = "splash"
+abbr = "SPLASH"
+name = "ACM SIGPLAN Conference on Systems, Programming, Languages, and Applications: Software for Humanity"
+template = "acm-pacmpl"
+area = "pl"
+year = 2027
+cfp = "https://2027.splashcon.org/track/splashoopsla2027"
+confidence = "high"
+
+[[venues]]
+id = "tacas"
+abbr = "TACAS"
+name = "Tools and Algorithms for the Construction and Analysis of Systems"
+template = "springer-lncs"
+area = "pl"
+year = 2027
+cfp = "https://etaps.org/2027"
+confidence = "high"
+
+[[venues]]
+id = "tfp"
+abbr = "TFP"
+name = "Trends in Functional Programming"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://mailman.haskell.org/archives/list/haskell-cafe@haskell.org/thread/W7UGGTDF4MJLJNZSRO7AFWW6RLRHE55S"
+confidence = "high"
+
+[[venues]]
+id = "types"
+abbr = "TYPES"
+name = "Types for Proofs and Programs"
+template = "article"
+area = "pl"
+year = 2026
+cfp = "https://types2026.github.io/"
+confidence = "medium"
+
+[[venues]]
+id = "vstte"
+abbr = "VSTTE"
+name = "Verified Software: Theories, Tools, and Experiments"
+template = "springer-lncs"
+area = "pl"
+year = 2026
+cfp = "https://vstte.org/"
+confidence = "low"

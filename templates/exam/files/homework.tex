@@ -1,0 +1,42 @@
+\documentclass[11pt,addpoints,answers]{exam}
+% A homework or exam sheet with the exam class (Papilot Universe, MIT).
+% Remove "answers" from the class options to hide the solutions.
+\usepackage{amsmath,amssymb}
+\pagestyle{headandfoot}
+\firstpageheader{Course Name}{Homework 1}{Due: date}
+\runningheader{Course Name}{Homework 1}{Page \thepage\ of \numpages}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+\begin{document}
+\begin{center}
+  \fbox{\fbox{\parbox{5.5in}{\centering Answer every question. Show your work.}}}
+\end{center}
+\vspace{0.5em}
+\begin{center}
+  \gradetable[h][questions]
+\end{center}
+
+\begin{questions}
+\question[10] Compute $\displaystyle\int_0^1 x^2\,dx$.
+\begin{solution}
+  $\int_0^1 x^2\,dx = \left[\tfrac{x^3}{3}\right]_0^1 = \tfrac13$.
+\end{solution}
+
+\question Let $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$.
+\begin{parts}
+  \part[5] Find the eigenvalues of $A$.
+  \begin{solution} $\lambda = 1$ and $\lambda = 3$. \end{solution}
+  \part[5] Is $A$ positive definite? Explain.
+  \begin{solution} Yes: both eigenvalues are positive. \end{solution}
+\end{parts}
+
+\question[5] Which of these sets are countable?
+\begin{checkboxes}
+  \choice $\mathbb{R}$
+  \CorrectChoice $\mathbb{Q}$
+  \CorrectChoice $\mathbb{Z}$
+  \choice $[0,1]$
+\end{checkboxes}
+\end{questions}
+\end{document}

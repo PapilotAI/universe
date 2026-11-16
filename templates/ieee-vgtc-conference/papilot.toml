@@ -1,0 +1,25 @@
+id = "ieee-vgtc-conference"
+version = "2026.6"
+name = "IEEE VGTC (conference style)"
+description = "The IEEE VGTC conference-style template for conference-track papers at IEEE VIS, IEEE VR, ISMAR and PacificVis."
+category = "conference"
+tags = ["ieee", "vgtc", "vis", "ieee vr", "ismar", "pacificvis"]
+languages = ["en"]
+license = "LicenseRef-VGTC"
+license_note = "The IEEE VGTC template repository states no license; VGTC publishes it for authors of VGTC-sponsored venues."
+main = "template.tex"
+engine = "pdflatex"
+organization = "IEEE VGTC"
+
+[upstream]
+url = "https://github.com/ieeevgtc/vgtc_conference_latex/archive/5c3b40f311d09f878317e4d6915d792afddc07af.tar.gz"
+homepage = "https://github.com/ieeevgtc/vgtc_conference_latex"
+version = "main (VGTC page: last updated June 2026)"
+commit = "5c3b40f311d09f878317e4d6915d792afddc07af"
+
+[zh-CN]
+name = "IEEE VGTC（会议版式）"
+description = "IEEE VGTC 会议版式模板，IEEE VIS、IEEE VR、ISMAR、PacificVis 的会议轨论文使用。"
+
+[setup]
+notes = "Use \\documentclass[review]{vgtc} for anonymous review."

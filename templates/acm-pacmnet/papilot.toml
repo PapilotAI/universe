@@ -1,0 +1,23 @@
+id = "acm-pacmnet"
+version = "2.21"
+name = "PACMNET (CoNEXT)"
+description = "acmart in the acmsmall format for Proceedings of the ACM on Networking, the journal of CoNEXT."
+category = "conference"
+tags = ["acm", "pacmnet", "conext", "networking"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "pacmnet.tex"
+engine = "pdflatex"
+organization = "ACM"
+
+[upstream]
+url = "https://portalparts.acm.org/hippo/latex_templates/acmart-primary.zip"
+homepage = "https://www.acm.org/publications/proceedings-template"
+version = "acmart v2.21 (2026-11-01; ACM page 'last update November 3, 2026')"
+sha256 = "a1e52cce16394ac8517225b7ebc008a7188f765b4c25aa902d24cea397dc687f"
+
+[zh-CN]
+description = "PACMNET 单栏 acmsmall 模板，CoNEXT 论文发表于此。"
+
+[setup]
+notes = "Set up for anonymous submission. The \\DocumentMetadata tagging block of ACM's sample was removed so it compiles with TeX Live 2025; add it back for tagged PDFs on newer TeX."

@@ -1,6 +1,6 @@
 # Papilot Universe
 
-LaTeX templates for starting a new paper in [Papilot](https://papilot.ai): official conference author kits and university thesis templates, each compiled in CI and published with a preview.
+LaTeX templates for starting a new document in [Papilot](https://papilot.ai): official conference and journal author kits, the right template for more than 400 conferences, university theses, slides, posters, CVs, books and letters, each compiled in CI and published with a preview.
 
 Browse them at **[papilot.ai/universe](https://papilot.ai/universe/)**, or pick one in Papilot under **New paper…**. Papilot downloads the template, checks its SHA-256, creates the folder with Git history, and opens it with the template's main file and engine already set.
 
@@ -16,7 +16,7 @@ CI compiles every template with TeX Live (free fonts only) and publishes a stati
 
 | Path | Contents |
 | --- | --- |
-| `/universe/` | the gallery, one page per template under `t/<id>/` |
+| `/universe/` | the gallery; template pages at `templates/<id>/`, conference pages at `conferences/<id>/` |
 | `/universe/v1/index.json` | every template, with its archive URL, size and SHA-256 |
 | `/universe/v1/templates/<id>/<version>.zip` | the files, immutable once published |
 | `/universe/v1/templates/<id>/<version>/` | `thumbnail.png` and `preview.pdf` |
@@ -57,6 +57,27 @@ description = "…"
 [setup]                        # optional hints for the agent that sets up a new paper
 notes = "Fill in the title and authors in …"
 ```
+
+## Conferences (`venues/*.toml`)
+
+Many conferences share one template: hundreds of ACM venues use `acm-sigconf`, theory venues use `lipics`, and so on. `venues/` lists conferences, each pointing at the template its latest call for papers asks for. The first set covers the CCF 2026 (7th edition) list, which spans computer science, plus programming-language venues outside it (`pl.toml`); venues from other fields go in their own files. The gallery lists venues alphabetically; CCF data is metadata, not an ordering.
+
+```toml
+[[venues]]
+id = "pldi"
+abbr = "PLDI"
+name = "ACM SIGPLAN Conference on Programming Language Design and Implementation"
+template = "acm-pacmpl"        # an existing templates/<id>
+ccf = "A"                      # A, B or C; omit when not in the CCF list
+area = "se"                    # CCF area (arch, net, sec, se, db, tcs, cg, ai, hci, mx) or pl
+topics = ["pl"]                # optional extra areas
+year = 2027                    # the edition whose call was read
+cfp = "https://pldi27.sigplan.org/track/pldi-2027-papers"
+confidence = "high"            # high: read in that call; medium: a past call or the publisher; low: inferred
+note = "…"                     # optional, e.g. when the venue ships its own kit not yet in the gallery
+```
+
+Each venue becomes its own entry in `v1/index.json` and its own page, reusing the template's archive and preview. A venue whose template is its own kit (`id` equals `template`, as for NeurIPS) only adds its CCF data to that template.
 
 ## Working locally
 

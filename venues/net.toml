@@ -1,0 +1,396 @@
+# CCF 2026 (7th edition) recommended conferences: net.
+# template = the template the latest call for papers asks for; confidence = how directly that was confirmed.
+
+[[venues]]
+id = "infocom"
+abbr = "INFOCOM"
+name = "IEEE International Conference on Computer Communications"
+template = "ieee-conference"
+ccf = "A"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://lists.mcs.anl.gov/pipermail/hpc-announce/2025-July/011355.html"
+confidence = "medium"
+
+[[venues]]
+id = "mobicom"
+abbr = "MobiCom"
+name = "ACM International Conference on Mobile Computing and Networking"
+template = "acm-sigconf"
+ccf = "A"
+area = "net"
+publisher = "ACM"
+year = 2027
+cfp = "https://sigmobile.org/mobicom/2027/cfp.html"
+confidence = "medium"
+
+[[venues]]
+id = "nsdi"
+abbr = "NSDI"
+name = "Symposium on Network System Design and Implementation"
+template = "usenix"
+ccf = "A"
+area = "net"
+publisher = "USENIX"
+year = 2027
+cfp = "https://www.usenix.org/conference/nsdi27/call-for-papers"
+confidence = "high"
+
+[[venues]]
+id = "sigcomm"
+abbr = "SIGCOMM"
+name = "ACM International Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication"
+template = "acm-sigconf"
+ccf = "A"
+area = "net"
+publisher = "ACM"
+year = 2026
+cfp = "https://conferences.sigcomm.org/sigcomm/2026/submission/"
+confidence = "medium"
+
+[[venues]]
+id = "conext"
+abbr = "CoNEXT"
+name = "ACM International Conference on Emerging Networking Experiments and Technologies"
+template = "acm-pacmnet"
+ccf = "B"
+area = "net"
+publisher = "ACM"
+year = 2026
+cfp = "https://conferences2.sigcomm.org/co-next/2026/partials/cfp.html"
+confidence = "medium"
+
+[[venues]]
+id = "icnp"
+abbr = "ICNP"
+name = "IEEE International Conference on Network Protocols International Symposium on Theory, Algorithmic Foundations,"
+template = "ieee-conference"
+ccf = "B"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://icnp26.cs.ucr.edu/submission.html"
+confidence = "high"
+
+[[venues]]
+id = "imc"
+abbr = "IMC"
+name = "ACM Internet Measurement Conference"
+template = "acm-sigconf"
+ccf = "B"
+area = "net"
+publisher = "ACM/USENIX"
+year = 2026
+cfp = "https://conferences.sigcomm.org/imc/2026/submission-instructions"
+confidence = "medium"
+
+[[venues]]
+id = "ipsn"
+abbr = "IPSN"
+name = "International Conference on Information Processing in Sensor Networks"
+template = "acm-sigconf"
+ccf = "B"
+area = "net"
+publisher = "IEEE/ACM"
+year = 2027
+cfp = "https://sensys.acm.org/2027/cfp.html"
+confidence = "low"
+
+[[venues]]
+id = "iwqos"
+abbr = "IWQoS"
+name = "IEEE/ACM International Workshop on Quality of Service"
+template = "ieee-conference"
+ccf = "B"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://iwqos2026.ieee-iwqos.org/"
+confidence = "medium"
+
+[[venues]]
+id = "mobihoc"
+abbr = "MobiHoc"
+name = "International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing"
+template = "acm-sigconf"
+ccf = "B"
+area = "net"
+publisher = "ACM/IEEE"
+year = 2026
+cfp = "https://www.sigmobile.org/mobihoc/2026/submission.html"
+confidence = "medium"
+
+[[venues]]
+id = "mobisys"
+abbr = "MobiSys"
+name = "ACM International Conference on Mobile Systems, Applications, and Services"
+template = "acm-sigconf"
+ccf = "B"
+area = "net"
+publisher = "ACM"
+year = 2027
+cfp = "https://www.sigmobile.org/mobisys/2027/call_for_papers/"
+confidence = "high"
+
+[[venues]]
+id = "nossdav"
+abbr = "NOSSDAV"
+name = "International Workshop on Network and Operating System Support for Digital Audio and Video"
+template = "acm-sigconf"
+ccf = "B"
+area = "net"
+publisher = "ACM"
+year = 2027
+cfp = "https://nossdav.org/"
+confidence = "low"
+
+[[venues]]
+id = "secon"
+abbr = "SECON"
+name = "IEEE International Conference on Sensing, Communication, and Networking"
+template = "ieee-conference"
+ccf = "B"
+area = "net"
+publisher = "IEEE"
+year = 2027
+cfp = "https://www.comsoc.org/conferences-events/ieee-international-conference-sensing-communication-and-networking-2027"
+confidence = "high"
+
+[[venues]]
+id = "sensys"
+abbr = "SenSys"
+name = "ACM Conference on Embedded Networked Sensor Systems"
+template = "acm-sigconf"
+ccf = "B"
+area = "net"
+publisher = "ACM"
+year = 2027
+cfp = "https://sensys.acm.org/2027/cfp.html"
+confidence = "medium"
+
+[[venues]]
+id = "ancs"
+abbr = "ANCS"
+name = "ACM/IEEE Symposium on Architectures for Networking and Communication Systems"
+template = "acm-sigconf"
+ccf = "C"
+area = "net"
+publisher = "ACM/IEEE"
+confidence = "low"
+
+[[venues]]
+id = "apnet"
+abbr = "APNet"
+name = "Asia-Pacific Workshop on Networking"
+template = "acm-sigconf"
+ccf = "C"
+area = "net"
+publisher = "ACM"
+year = 2026
+cfp = "https://conferences.sigcomm.org/events/apnet2026/"
+confidence = "low"
+
+[[venues]]
+id = "apnoms"
+abbr = "APNOMS"
+name = "Asia-Pacific Network Operations and Management Symposium"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IFIP/IEEE"
+confidence = "low"
+
+[[venues]]
+id = "forte"
+abbr = "FORTE"
+name = "International Conference on Formal Techniques for Distributed Objects, Components, and Systems"
+template = "springer-lncs"
+ccf = "C"
+area = "net"
+publisher = "Springer"
+year = 2026
+cfp = "https://www.discotec.org/2026/forte"
+confidence = "medium"
+
+[[venues]]
+id = "globecom"
+abbr = "GLOBECOM"
+name = "IEEE Global Communications Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://globecom2026.ieee-globecom.org/"
+confidence = "low"
+
+[[venues]]
+id = "hotnets"
+abbr = "HotNets"
+name = "ACM The Workshop on Hot Topics in Networks"
+template = "acm-sigconf"
+ccf = "C"
+area = "net"
+publisher = "ACM"
+year = 2026
+cfp = "https://conferences.sigcomm.org/hotnets/2026/"
+confidence = "low"
+
+[[venues]]
+id = "icc"
+abbr = "ICC"
+name = "IEEE International Conference on Communications"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2027
+cfp = "https://icc2027.ieee-icc.org"
+confidence = "medium"
+
+[[venues]]
+id = "icccn"
+abbr = "ICCCN"
+name = "IEEE International Conference on Computer Communications and Networks"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2027
+confidence = "low"
+
+[[venues]]
+id = "im"
+abbr = "IM"
+name = "IFIP/IEEE International Symposium on Integrated NetworkManagement"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IFIP/IEEE"
+confidence = "low"
+
+[[venues]]
+id = "ipccc"
+abbr = "IPCCC"
+name = "IEEE International Performance Computing and Communications Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "iscc"
+abbr = "ISCC"
+name = "IEEE Symposium on Computers and Communications"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ieee-iscc.computer.org/2026/"
+confidence = "low"
+
+[[venues]]
+id = "lcn"
+abbr = "LCN"
+name = "IEEE Conference on Local Computer Networks"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://www.ieeelcn.org/"
+confidence = "low"
+
+[[venues]]
+id = "mass"
+abbr = "MASS"
+name = "IEEE International Conference on Mobile Adhoc and Sensor Systems"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "msn"
+abbr = "MSN"
+name = "International Conference on Mobility, Sensing and Networking"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2026
+cfp = "https://ieee-msn.org/2026"
+confidence = "low"
+
+[[venues]]
+id = "mswim"
+abbr = "MSWiM"
+name = "International Conference on Modeling, Analysis and Simulation of Wireless and Mobile Systems"
+template = "acm-sigconf"
+ccf = "C"
+area = "net"
+publisher = "ACM"
+year = 2026
+cfp = "https://mswimconf.com/2026/"
+confidence = "low"
+
+[[venues]]
+id = "networking"
+abbr = "Networking"
+name = "IFIP International Conferences on Networking"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IFIP"
+year = 2026
+cfp = "https://networking.ifip.org/2026/index.php/calls/call-for-papers.html"
+confidence = "high"
+
+[[venues]]
+id = "p2p"
+abbr = "P2P"
+name = "IEEE International Conference on Peer-to-Peer Computing"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+confidence = "low"
+
+[[venues]]
+id = "wasa"
+abbr = "WASA"
+name = "The International Conference on Wireless Artificial Intelligent Computing Systems and Applications"
+template = "springer-lncs"
+ccf = "C"
+area = "net"
+publisher = "Springer"
+year = 2026
+confidence = "medium"
+
+[[venues]]
+id = "wcnc"
+abbr = "WCNC"
+name = "IEEE Wireless Communications and Networking Conference"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2027
+cfp = "https://wcnc2027.ieee-wcnc.org/"
+confidence = "low"
+
+[[venues]]
+id = "wowmom"
+abbr = "WoWMoM"
+name = "IEEE International Symposium on a World of Wireless, Mobile and Multimedia Networks"
+template = "ieee-conference"
+ccf = "C"
+area = "net"
+publisher = "IEEE"
+year = 2027
+cfp = "https://wowmom2027.dii.unipi.it/index.html"
+confidence = "medium"
