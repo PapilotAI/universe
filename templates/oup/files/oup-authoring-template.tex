@@ -1,4 +1,5 @@
-% Papilot Universe: wrote \extracolsep{\fill} with braces (was \extracolsep\fill), which TeX Live 2026 needs.
+% Papilot Universe: loads booktabs and uses \bottomrule instead of the class's \toprule,
+% \midrule and \botrule, which break with TeX Live 2026.
 %%
 %% Copyright 2026 Oxford University Press
 %%
@@ -63,6 +64,7 @@
 %\usepackage{draftwatermark}
 %\SetWatermarkText{Draft}
 %%Uncomment  \usepackage{draftwatermark} and \SetWatermarkText{Draft} to watermark your PDF as a draft
+\usepackage{booktabs}
 \begin{document}
 
 \journaltitle{Journal Title Here}
@@ -242,7 +244,7 @@ column 1 & column 2 & column 3 & column 4\\
 row 1 & data 1 & data 2          & data 3 \\
 row 2 & data 4 & data 5$^{1}$ & data 6 \\
 row 3 & data 7 & data 8      & data 9$^{2}$\\
-\botrule
+\bottomrule
 \end{tabular}
 \begin{tablenotes}%
 \item Source: Example for source.
@@ -260,14 +262,14 @@ Lengthy tables which do not fit within textwidth should be set as rotated tables
 
 \begin{table}[!t]
 \caption{Caption text\label{tab1}}%
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llll@{\extracolsep{\fill}}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}llll@{\extracolsep\fill}}
 \toprule
 column 1 & column 2  & column 3 & column 4\\
 \midrule
 row 1    & data 1   & data 2  & data 3  \\
 row 2    & data 4   & data 5$^{1}$  & data 6  \\
 row 3    & data 7   & data 8  & data 9$^{2}$  \\
-\botrule
+\bottomrule
 \end{tabular*}
 \begin{tablenotes}%
 \item Source: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote
@@ -287,7 +289,7 @@ Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ 
 \midrule
 Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
 Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
-\botrule
+\bottomrule
 \end{tabular*}
 \begin{tablenotes}%
 \item Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote
@@ -307,7 +309,7 @@ Projectile & Energy     & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{
 \midrule
 Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
 Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
-\botrule
+\bottomrule
 \end{tabular*}
 \begin{tablenotes}%
 \item Note: This is an example of a table footnote this is an example of a table footnote this is an example of a table footnote this is an example of a table footnote this is an example of a table footnote
@@ -883,14 +885,14 @@ vehicula libero dui cursus dui. Mauris tempor ligula sed lacus. Duis cursus enim
 \begin{minipage}{.52\columnwidth}
 \caption{This is an example of Appendix table showing food requirements of army, navy and airforce\label{tab4}}%
 \tabcolsep16pt
-\begin{tabular}{@{\extracolsep{\fill}}lcc@{}}%
+\begin{tabular}{@{\extracolsep\fill}lcc@{}}%
 \toprule
 col1 head & col2 head & col3 head \\
 \midrule
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
-\botrule
+\bottomrule
 \end{tabular}
 \end{minipage}
 \end{center}
@@ -977,14 +979,14 @@ pellentesque felis eu massa.
 \begin{center}
 \begin{minipage}{.52\columnwidth}
 \caption{}{%
-\begin{tabular}{@{\extracolsep{\fill}}lcc}%
+\begin{tabular}{@{\extracolsep\fill}lcc}%
 \toprule
 col1 head & col2 head & col3 head \\
 \midrule
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
 col1 text & col2 text & col3 text \\
-\botrule
+\bottomrule
 \end{tabular}}{}
 \end{minipage}
 \end{center}
