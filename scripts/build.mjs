@@ -76,7 +76,8 @@ for (const v of venues) {
   const family = byId.get(v.template);
   const venue = { name: v.abbr, ...(v.year ? { year: v.year } : {}), ...(v.cfp ? { url: v.cfp } : {}), ...(v.ccf ? { ccf: v.ccf } : {}), area: v.area, ...(v.topics ? { topics: v.topics } : {}), ...(v.publisher ? { publisher: v.publisher } : {}), full: v.name, basis: v.confidence, ...(v.note ? { note: v.note } : {}) };
   if (v.template === v.id) { family.venue = { ...family.venue, ...venue, name: family.venue?.name ?? v.abbr, year: family.venue?.year ?? v.year }; continue; }
-  const { id, name, description, i18n, tags, organization, setup, page, venue: _, ...shared } = family;
+  // A venue is a conference whatever category its template has (STOC uses the generic article).
+  const { id, name, description, i18n, tags, organization, setup, page, venue: _, category: __, ...shared } = family;
   entries.push({
     id: v.id, version: family.version, name: v.year ? `${v.abbr} ${v.year}` : v.abbr, description: v.name, category: 'conference',
     tags: [v.abbr, ...(v.ccf ? [`CCF-${v.ccf}`] : []), v.area, ...(v.topics ?? [])].slice(0, 12),
