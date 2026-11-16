@@ -20,4 +20,4 @@ commit = "56852031fed1ca08d1899145d61c18ece41ea306"
 description = "Schloss Dagstuhl 的 LIPIcs 模板，ECOOP、ITP、ICALP、CONCUR、FSCD、CSL、TYPES、STACS、ESA 等会议使用。"
 
 [setup]
-notes = "Use \\documentclass[a4paper,UKenglish,cleveref,autoref,thm-restate]{lipics-v2021}; add anonymous for double-blind venues. Title, authors, ORCID, CCS concepts and keywords are set in the preamble of lipics-v2021-sample-article.tex; the event data (\\EventEditors and friends) come from the venue after acceptance."
+notes = "The sample uses \\documentclass[a4paper,UKenglish,cleveref]{lipics-v2021}: the autoref and thm-restate options of the upstream sample break with TeX Live 2026 (dagstuhl-publishing/styles#44). Add anonymous for double-blind venues. Title, authors, ORCID, CCS concepts and keywords are set in the preamble of lipics-v2021-sample-article.tex; the event data (\\EventEditors and friends) come from the venue after acceptance."
