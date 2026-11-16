@@ -205,7 +205,7 @@ for (const entry of entries) {
 <article class="detail">
   <div class="stage">${cover ? `<a ${entry.preview ? `href="${U}${entry.preview}"` : ''} aria-label="${esc(L.preview[0])}"><div class="sheet"><img src="${U}${cover}" alt="" width="${width}" height="${height}"></div></a>` : ''}</div>
   <div class="detail-body">
-    <p class="eyebrow"><span>${label(group(entry) + 'One')}</span>${entry.organization && entry.organization !== 'Papilot' ? `<span>${esc(entry.organization)}</span>` : ''}${entry.venue ? `<span>${esc(entry.venue.name)} ${esc(entry.venue.year)}</span>` : ''}</p>
+    <p class="eyebrow"><span>${label(group(entry) + 'One')}</span>${entry.organization && entry.organization !== 'Papilot' ? `<span>${esc(entry.organization)}</span>` : ''}${entry.venue && !entry.name.includes(entry.venue.name) ? `<span>${esc(entry.venue.name)} ${esc(entry.venue.year)}</span>` : ''}</p>
     <h1>${both(entry.name, zh(entry, 'name'))}</h1>
     <p class="lead">${both(entry.description, zh(entry, 'description'))}</p>
     <div class="actions"><a class="button primary" href="${deep}">${label('open')}</a><a class="button" href="${U}${entry.archive.url}" download>${ICON.download}${label('download')}</a>${entry.preview ? `<a class="button" href="${U}${entry.preview}">${ICON.pdf}${label('preview')}</a>` : ''}</div>
