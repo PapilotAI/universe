@@ -1,0 +1,25 @@
+id = "hithesis"
+version = "3.2-a"
+name = "Harbin Institute of Technology Thesis"
+description = "hithesis, the LaTeX thesis template for HIT's Harbin, Shenzhen and Weihai campuses: bachelor, master, doctoral and postdoctoral."
+category = "thesis"
+tags = ["thesis", "hit", "harbin institute of technology", "ctex", "中文", "哈工大"]
+languages = ["zh"]
+license = "LPPL-1.3a+"
+license_note = "The LPPL 1.3a-or-later grant is in the headers of hithesisbook.cls, hithesis.sty and hithesis.bst (no LICENSE file); wiseref.sty is LPPL 1.3c or later (wiseref-LICENSE). The hithesis-*.eps logos are HIT's. figures/empty-resolution.pdf embeds subsets of SimSun, SimHei and Times New Roman."
+main = "thesis.tex"
+engine = "xelatex"
+organization = "Harbin Institute of Technology"
+
+[upstream]
+url = "https://github.com/hithesis/hithesis/releases/download/v3.2a/chinese-harbin-doctor.zip"
+homepage = "https://github.com/hithesis/hithesis"
+version = "v3.2a"
+sha256 = "0a28f05afce649048dd9ec068723964d8affdc095bf622d49183dfca363c2038"
+
+[zh-CN]
+name = "哈尔滨工业大学学位论文"
+description = "哈工大学位论文模板 hithesis，适用于哈尔滨、深圳、威海三个校区的本科、硕士、博士及博士后论文。"
+
+[setup]
+notes = "Choose the degree and campus in \\documentclass[fontset=fandol,type=doctor,campus=harbin]{hithesisbook} of thesis.tex (type = doctor|master|bachelor|postdoc, campus = harbin|shenzhen|weihai; no spaces in the options). Title, author, supervisor, school and dates go in \\hitsetup{...} in front/cover.tex; chapters are in body/, conclusion, appendix, publications and acknowledgements in back/, references in reference.bib (BibTeX). The example sets fontset=fandol; remove it to use system fonts. Figures are EPS, which need Ghostscript."

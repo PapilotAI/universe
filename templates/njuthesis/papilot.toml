@@ -1,0 +1,25 @@
+id = "njuthesis"
+version = "1.5.1"
+name = "Nanjing University Thesis"
+description = "NJUThesis, the thesis template preinstalled on Nanjing University's own LaTeX platform: bachelor, master, doctoral and postdoctoral."
+category = "thesis"
+tags = ["thesis", "nanjing university", "ctex", "biblatex", "中文", "南大"]
+languages = ["zh"]
+license = "LPPL-1.3c"
+license_note = "nju-emblem-*.pdf and nju-name-*.pdf are Nanjing University visual-identity marks, which belong to the university."
+main = "njuthesis-sample.tex"
+engine = "xelatex"
+organization = "Nanjing University"
+
+[upstream]
+url = "https://github.com/nju-lug/NJUThesis/releases/download/v1.5.1/njuthesis-user-v1.5.1.zip"
+homepage = "https://github.com/nju-lug/NJUThesis"
+version = "v1.5.1"
+sha256 = "366a68cdb581631ae69d6681fe891b578630d9a83c1b7b19b6b997104fbb91eb"
+
+[zh-CN]
+name = "南京大学学位论文"
+description = "南京大学学位论文模板 NJUThesis，南大 TeX 平台预装，支持本科、硕士、博士及博士后。"
+
+[setup]
+notes = "Choose the degree with type = bachelor|master|doctor|postdoc (and degree = academic|professional) in the \\documentclass options of njuthesis-sample.tex; it defaults to bachelor. Title, author, supervisor, department and dates go in \\njusetup[info]{...} in njuthesis-setup.def; references are in njuthesis-sample.bib (biblatex with biber). Upstream's sample sets fontset = win; that line is commented out here so the class picks Windows, macOS or free Fandol fonts by system."

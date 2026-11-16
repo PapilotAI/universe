@@ -1,0 +1,25 @@
+id = "sjtuthesis"
+version = "2.3.1"
+name = "Shanghai Jiao Tong University Thesis"
+description = "SJTUThesis, the thesis template recommended by the SJTU graduate school, for bachelor, master and doctoral theses."
+category = "thesis"
+tags = ["thesis", "sjtu", "ctex", "biblatex", "中文", "上海交大"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c AND Apache-2.0"
+license_note = "The sjtutex classes and their .def files are LPPL 1.3c; the rest of the example is Apache 2.0 (LICENSE). The sjtu-vi-*.pdf emblem and name images are copyrighted by Shanghai Jiao Tong University."
+main = "main.tex"
+engine = "xelatex"
+organization = "Shanghai Jiao Tong University"
+
+[upstream]
+url = "https://github.com/sjtug/SJTUThesis/releases/download/v2.3.1/SJTUThesis-full-2.3.1.zip"
+homepage = "https://github.com/sjtug/SJTUThesis"
+version = "v2.3.1"
+sha256 = "4f8ab545c61eda53bd55170afefebf70c4f98979a02ddcfb2fb2faa2bea40e50"
+
+[zh-CN]
+name = "上海交通大学学位论文"
+description = "上海交通大学研究生院推荐的学位论文模板 SJTUThesis，支持学士、硕士和博士论文。"
+
+[setup]
+notes = "Choose the thesis type in \\documentclass[type=...] of main.tex (doctor, master or bachelor; bachelor theses usually add preset=jwc; lang=en for English). Title, author, student ID, supervisor, department, major and degree go in \\sjtusetup{info={...}} in setup.tex, which also loads biblatex (gb7714-2015, biber) with refs.bib; chapters are in contents/. Upstream's texmf/ class files sit next to main.tex because Papilot sets no TEXINPUTS."

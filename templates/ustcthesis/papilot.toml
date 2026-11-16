@@ -1,0 +1,25 @@
+id = "ustcthesis"
+version = "5.1.0"
+name = "USTC Thesis"
+description = "ustcthesis, the thesis template listed by the USTC graduate school, for bachelor, master and doctoral theses in Chinese or English."
+category = "thesis"
+tags = ["thesis", "ustc", "ctex", "中文", "中国科大"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c"
+license_note = "figures/ustc-*.pdf are the USTC emblem and name artwork, which belong to the University of Science and Technology of China."
+main = "main.tex"
+engine = "xelatex"
+organization = "University of Science and Technology of China"
+
+[upstream]
+url = "https://github.com/ustctug/ustcthesis/releases/download/v5.1.0/ustcthesis-v5.1.0.zip"
+homepage = "https://github.com/ustctug/ustcthesis"
+version = "v5.1.0"
+sha256 = "48700aaed485a9f66369cb453afd26fbc42593b46e6bb85c1e611983533753bc"
+
+[zh-CN]
+name = "中国科学技术大学学位论文"
+description = "中国科大研究生院列出的学位论文模板 ustcthesis，支持学士、硕士和博士，可写中文或英文论文。"
+
+[setup]
+notes = "Choose the degree in \\documentclass[degree=...] of main.tex (doctor, master or bachelor; add degree-type=professional or language=english as needed). Title, author, student ID, discipline, supervisor and department go in \\ustcsetup{...} in ustcsetup.tex; chapters, abstract and notation are in chapters/, references in references.bib (BibTeX). main.tex includes the originality and AI-usage declarations."

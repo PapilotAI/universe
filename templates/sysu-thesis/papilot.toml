@@ -1,0 +1,25 @@
+id = "sysu-thesis"
+version = "2.1.1"
+name = "Sun Yat-sen University Thesis"
+description = "sysu-thesis, the LaTeX thesis template for Sun Yat-sen University: bachelor, master and doctoral theses in Chinese or English."
+category = "thesis"
+tags = ["thesis", "sun yat-sen university", "sysu", "ctex", "中文", "中大"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c AND GPL-3.0-only"
+license_note = "Unclear licensing: the repository's LICENSE is the GPL 3.0 text, while sysuthesis.cls (derived from the LPPL ustcthesis) and the sysuthesis-* bibliography styles (from biblatex-gb7714-2015 and gbt7714) state LPPL 1.3c or later in their headers; the README is silent. Both allow redistribution. image/template/*.pdf are from the SYSU visual identity system and belong to the university."
+main = "main.tex"
+engine = "xelatex"
+organization = "Sun Yat-sen University"
+
+[upstream]
+url = "https://github.com/SYSU-SCC/sysu-thesis/archive/refs/tags/v2.1.1.zip"
+homepage = "https://github.com/SYSU-SCC/sysu-thesis"
+version = "v2.1.1"
+commit = "383756ff0963db3e9f65e2e1ed91eab9a3fbbd8b"
+
+[zh-CN]
+name = "中山大学学位论文"
+description = "中山大学学位论文模板 sysu-thesis，支持本科、硕士和博士，可写中文或英文论文。"
+
+[setup]
+notes = "Choose the degree in \\documentclass[fontset=fandol, degree=...]{sysuthesis} of main.tex (bachelor, master or doctor; add degree-type=professional or language=english as needed). The example sets fontset=fandol; remove it to use system fonts. Title, author, speciality, supervisor, department and student ID go in \\sysusetup{...} in sysusetup.tex; chapters, abstract and acknowledgements are in docs/, references in reference.bib (BibTeX)."

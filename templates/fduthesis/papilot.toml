@@ -1,0 +1,26 @@
+id = "fduthesis"
+version = "0.9-a"
+name = "Fudan University Thesis"
+description = "fduthesis, the LaTeX thesis template for Fudan University: bachelor, master and doctoral theses, in Chinese or English."
+category = "thesis"
+tags = ["thesis", "fudan", "ctex", "中文", "复旦"]
+languages = ["zh", "en"]
+license = "LPPL-1.3c"
+license_note = "fudan-emblem*.pdf and fudan-name.pdf are the Fudan University emblem and name, which belong to the university. Upstream states the template is not reviewed or authorized by the university, and its last release (v0.9a) is from 2023."
+main = "main.tex"
+engine = "xelatex"
+organization = "Fudan University"
+
+[upstream]
+url = "https://mirrors.ctan.org/install/macros/latex/contrib/fduthesis.tds.zip"
+homepage = "https://github.com/stone-zeng/fduthesis"
+version = "v0.9a"
+sha256 = "a2fbfc211ec98b6eed95be7b147e13093290bcf73a652dd0a4c7b76cf6f3afd3"
+commit = "d84e0dd7df657d47943e98c98ff843cc1336bc5f"
+
+[zh-CN]
+name = "复旦大学学位论文"
+description = "复旦大学论文模板 fduthesis，支持本科、硕士和博士论文，可写中文或英文论文。"
+
+[setup]
+notes = "Choose the degree in \\documentclass[type=...]{fduthesis} of main.tex (doctor, master or bachelor; use the fduthesis-en class for an English thesis). Title, author, student ID, major, supervisor and keywords go in the info = {...} block of \\fdusetup; references are in main.bib (BibTeX). The class defaults to the free Fandol fonts everywhere; set cjk-font = mac or windows in \\fdusetup style = {...} for system fonts."

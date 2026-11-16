@@ -30,6 +30,13 @@ for (const template of templates) {
   fs.cpSync(path.join(template.dir, 'files'), work, { recursive: true });
   const { main, engine } = template.manifest, folder = path.join(work, path.dirname(main)), started = Date.now();
   process.stdout.write(`tex  ${template.id} (${engine}) … `);
+  // Like Papilot, create build/<dir> for each \include{<dir>/<file>} in the main file:
+  // TeX writes that .aux there, and latexmk misses the error under -file-line-error.
+  const source = fs.readFileSync(path.join(work, main), 'utf8').replace(/(^|[^\\])%.*$/gm, '$1');
+  for (const [, target] of source.matchAll(/^\s*\\include\{([^}]+)\}/gm)) {
+    const dir = path.resolve(folder, 'build', path.dirname(target.trim()));
+    if (!path.relative(path.join(folder, 'build'), dir).startsWith('..')) fs.mkdirSync(dir, { recursive: true });
+  }
   const run = spawnSync('latexmk', [flags[engine], ...OPTIONS, path.basename(main)], { cwd: folder, encoding: 'utf8', timeout: 15 * 60_000, maxBuffer: 64 * 1024 * 1024 });
   const pdf = path.join(folder, 'build', path.basename(main).replace(/\.tex$/, '.pdf'));
   if (run.status !== 0 || !fs.existsSync(pdf)) {
@@ -39,6 +46,10 @@ for (const template of templates) {
     const lines = (fs.existsSync(log) ? fs.readFileSync(log, 'latin1') : (run.stdout || '') + (run.stderr || '') + (run.error?.message || '')).split('\n');
     const first = lines.findIndex(line => /^!|:\d+: /.test(line));
     console.error(lines.slice(first >= 0 ? Math.max(0, first - 2) : -40, first >= 0 ? first + 12 : undefined).join('\n'));
+    // latexmk's own summary names the failing step (BibTeX, Biber, makeindex) the TeX log does not show.
+    const summary = `${run.stdout || ''}\n${run.stderr || ''}`.split('\n').filter(line => /^Latexmk: |error|Error|^\s+\S+: /.test(line)).slice(-25);
+    if (summary.length) console.error('--- latexmk ---\n' + summary.join('\n'));
+    for (const blg of (fs.existsSync(path.join(folder, 'build')) ? fs.readdirSync(path.join(folder, 'build')) : []).filter(file => file.endsWith('.blg'))) console.error(`--- ${blg} ---\n` + fs.readFileSync(path.join(folder, 'build', blg), 'latin1').split('\n').filter(line => /error|ERROR|WARN|I couldn't|I found no/.test(line)).slice(0, 15).join('\n'));
     continue;
   }
   fs.copyFileSync(pdf, path.join(out, 'preview.pdf'));

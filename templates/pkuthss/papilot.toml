@@ -1,0 +1,25 @@
+id = "pkuthss"
+version = "1.9.4"
+name = "Peking University Thesis"
+description = "pkuthss, the long-standing LaTeX template for Peking University dissertations, with biblatex references."
+category = "thesis"
+tags = ["thesis", "peking university", "ctex", "biblatex", "中文", "北大"]
+languages = ["zh"]
+license = "LPPL-1.3c+ AND BSD-3-Clause AND LicenseRef-PublicDomain"
+license_note = "Per README.txt: the class files (pkuthss.cls, *.def, pkulogo, pkuword) are LPPL 1.3 or later; chap/copy.tex and chap/origin.tex are New BSD; the example thesis is public domain. pkulogo and pkuword are the Peking University emblem and name, which belong to the university. Upstream's last release is from 2024."
+main = "thesis.tex"
+engine = "xelatex"
+organization = "Peking University"
+
+[upstream]
+url = "https://github.com/CasperVector/pkuthss/releases/download/v1.9.4/pkuthss-1.9.4.zip"
+homepage = "https://github.com/CasperVector/pkuthss"
+version = "v1.9.4"
+sha256 = "a058599a4b2dcbfa97d54e13977f8c007e9cc6d0e05b359f4ab7474e223627a6"
+
+[zh-CN]
+name = "北京大学学位论文"
+description = "北京大学学位论文模板 pkuthss，使用 biblatex 排版参考文献。"
+
+[setup]
+notes = "Student and thesis details (title, author, student ID, school, major, mentors, keywords, degree type) go in \\pkuthssinfo{...} in thesis.tex; for a master's thesis change cthesisname, ethesisname and thesiscover there. Chapters, abstracts and declarations are in chap/, references in thesis.bib (biblatex with biber). The class files from upstream's tex/ folder sit next to thesis.tex, and upstream's ctexopts.cfg, which forces Windows fonts, is left out so ctex picks each system's fonts."
