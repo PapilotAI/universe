@@ -1,0 +1,23 @@
+id = "usenix"
+version = "2019.3.2"
+name = "USENIX Conference"
+description = "USENIX's generic paper template for Security, OSDI, NSDI and other USENIX conferences."
+category = "conference"
+tags = ["usenix", "security", "osdi", "nsdi", "systems"]
+languages = ["en"]
+license = "LicenseRef-USENIX"
+license_note = "No license stated. USENIX publishes this generic template for papers at its conferences."
+main = "usenix2019_v3.2.tex"
+engine = "pdflatex"
+organization = "USENIX"
+
+[upstream]
+url = "https://files.usenix.org/s3fs-public/usenix2019_v3.2.tex"
+homepage = "https://www.usenix.org/conferences/author-resources/paper-templates"
+version = "generic template usenix2019_v3 (current on USENIX's templates page); USENIX Secu"
+
+[zh-CN]
+description = "USENIX 通用论文模板，适用于 Security、OSDI、NSDI 等会议。"
+
+[setup]
+notes = "The example writes its own bibliography with filecontents; move references to a .bib file as the paper grows. Check each conference's call for papers for page limits."

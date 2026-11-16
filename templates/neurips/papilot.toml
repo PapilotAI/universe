@@ -1,0 +1,28 @@
+id = "neurips"
+version = "2026"
+name = "NeurIPS 2026"
+description = "Official LaTeX style for NeurIPS 2026 submissions, with the paper checklist."
+category = "conference"
+tags = ["machine learning", "neurips"]
+languages = ["en"]
+license = "LicenseRef-NeurIPS"
+license_note = "No license is stated in the kit; the NeurIPS Foundation distributes it for author use. The instructions say not to change any formatting parameters in the style file."
+main = "neurips_2026.tex"
+engine = "pdflatex"
+
+[venue]
+name = "NeurIPS"
+year = 2026
+url = "https://neurips.cc/Conferences/2026/CallForPapers"
+
+[upstream]
+url = "https://media.neurips.cc/Conferences/NeurIPS2026/Formatting_Instructions_For_NeurIPS_2026.zip"
+homepage = "https://neurips.cc/Conferences/2026/CallForPapers"
+version = "2026"
+sha256 = "82473931e3ef710fcd3f4a8cd4119b9de32e56825f90f9e5a6d55f2d01b817d9"
+
+[zh-CN]
+description = "NeurIPS 2026 官方 LaTeX 投稿模板，含论文 checklist。"
+
+[setup]
+notes = "Anonymous submission is the default (\\usepackage{neurips_2026}); [preprint] or [final] switch modes. Keep checklist.tex and do not change the style file."

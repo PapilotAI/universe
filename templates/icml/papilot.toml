@@ -1,0 +1,28 @@
+id = "icml"
+version = "2027"
+name = "ICML 2027"
+description = "Official LaTeX style and example paper for ICML 2027."
+category = "conference"
+tags = ["machine learning", "icml"]
+languages = ["en"]
+license = "LicenseRef-ICML"
+license_note = "icml2027.sty states no license; the bundled .bst and fancyhdr.sty are LPPL, and algorithm.sty / algorithmic.sty carry only a 1994 copyright line. Distributed by ICML for author use."
+main = "example_paper.tex"
+engine = "pdflatex"
+
+[venue]
+name = "ICML"
+year = 2027
+url = "https://icml.cc/Conferences/2027/AuthorInstructions"
+
+[upstream]
+url = "https://media.icml.cc/Conferences/ICML2027/styles/icml2027.zip"
+homepage = "https://icml.cc/Conferences/2027/AuthorInstructions"
+version = "2027"
+sha256 = "52384a2a4f32e562755e44ced55a58f857f8706425f2f04904190f613531801e"
+
+[zh-CN]
+description = "ICML 2027 官方 LaTeX 样式与示例论文。"
+
+[setup]
+notes = "Anonymous submission is the default; \\usepackage[accepted]{icml2027} is the camera-ready mode. Replace the example text and example_paper.bib."

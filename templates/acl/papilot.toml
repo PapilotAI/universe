@@ -1,0 +1,28 @@
+id = "acl"
+version = "2026.6"
+name = "ACL Rolling Review"
+description = "Official ACL style for ARR submissions to ACL, EMNLP, NAACL and other *ACL venues."
+category = "conference"
+tags = ["nlp", "acl", "emnlp", "naacl", "arr"]
+languages = ["en"]
+license = "LicenseRef-ACL"
+license_note = "The official acl-style-files repository has no license; acl_natbib.bst is LPPL. The README and the ARR call say authors may not modify the style files."
+main = "acl_latex.tex"
+engine = "pdflatex"
+
+[venue]
+name = "ACL"
+year = 2026
+url = "https://aclrollingreview.org/cfp"
+
+[upstream]
+url = "https://github.com/acl-org/acl-style-files"
+homepage = "https://aclrollingreview.org/cfp"
+version = "rolling (master as of 2026-06-29)"
+commit = "d5adc823ff0f80f98c80405ca0ab66c68e684409"
+
+[zh-CN]
+description = "ACL 官方样式，用于 ARR 投稿（ACL、EMNLP、NAACL 等）。"
+
+[setup]
+notes = "\\usepackage[review]{acl} is the anonymous review mode; [final] is the camera-ready. Do not modify acl.sty."
