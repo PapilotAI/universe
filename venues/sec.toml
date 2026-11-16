@@ -41,14 +41,13 @@ confidence = "high"
 id = "ndss"
 abbr = "NDSS"
 name = "Network and Distributed System Security Symposium"
-template = "ieee-conference"
+template = "ndss"
 ccf = "A"
 area = "sec"
 publisher = "ISOC"
 year = 2027
 cfp = "https://www.ndss-symposium.org/ndss2027/submissions/templates/"
-confidence = "low"
-note = "NDSS ships an IEEEtran-based kit (bare_conf_NDSS2027.tex); IEEEtran conference is the same base."
+confidence = "high"
 
 [[venues]]
 id = "s-p"
@@ -458,14 +457,13 @@ confidence = "low"
 id = "pets"
 abbr = "PETS"
 name = "Privacy Enhancing Technologies Symposium"
-template = "article"
+template = "popets"
 ccf = "C"
 area = "sec"
 publisher = "Springer"
 year = 2027
 cfp = "https://petsymposium.org/cfp27.php"
-confidence = "low"
-note = "PoPETs ships its own LaTeX template."
+confidence = "high"
 
 [[venues]]
 id = "sac"

@@ -1,0 +1,25 @@
+id = "cogsci"
+version = "2.0"
+name = "CogSci (Cognitive Science Society)"
+description = "The full-paper LaTeX template of the Annual Meeting of the Cognitive Science Society, with APA-style biblatex references."
+category = "conference"
+tags = ["cogsci", "cognitive science", "apa"]
+languages = ["en"]
+license = "LicenseRef-CogSci"
+license_note = "The template repository linked from the CogSci submission page states no license."
+main = "cogsci_full_paper_template.tex"
+engine = "pdflatex"
+organization = "Cognitive Science Society"
+
+[upstream]
+url = "https://github.com/neilbramley/cogscisoc/archive/c13e4c5828c71d36ef3eee3e24ab6e3ba1e3d9a2.tar.gz"
+homepage = "https://github.com/neilbramley/cogscisoc"
+version = "cogsci.sty v2.0 (2025-12-01)"
+commit = "c13e4c5828c71d36ef3eee3e24ab6e3ba1e3d9a2"
+
+[zh-CN]
+name = "CogSci（认知科学学会年会）"
+description = "认知科学学会年会（CogSci）全文 LaTeX 模板，参考文献使用 APA 风格的 biblatex。"
+
+[setup]
+notes = "The template is anonymized for review by default; see the options of the cogsci package at the top of the file for the camera-ready."

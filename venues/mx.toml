@@ -40,14 +40,13 @@ confidence = "high"
 id = "cogsci"
 abbr = "CogSci"
 name = "Annual Meeting of the Cognitive Science Society"
-template = "article"
+template = "cogsci"
 ccf = "B"
 area = "mx"
 publisher = "Cognitive Science Society"
 year = 2026
 cfp = "https://cognitivesciencesociety.org/?p=216392"
-confidence = "low"
-note = "CogSci ships its own two-column template."
+confidence = "medium"
 
 [[venues]]
 id = "emsoft"

@@ -207,12 +207,11 @@ confidence = "low"
 id = "programming"
 abbr = "Programming"
 name = "The Art, Science, and Engineering of Programming (<Programming> conference)"
-template = "article"
+template = "programming"
 area = "pl"
 year = 2027
 cfp = "https://2027.programming-conference.org/track/programming-2027-papers"
-confidence = "low"
-note = "<Programming> papers use the journal’s programming.cls."
+confidence = "high"
 
 [[venues]]
 id = "sefm"

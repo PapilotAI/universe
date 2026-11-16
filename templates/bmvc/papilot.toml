@@ -1,0 +1,29 @@
+id = "bmvc"
+version = "2026"
+name = "BMVC 2026"
+description = "The British Machine Vision Conference author kit (bmvc2k), set up for anonymous review."
+category = "conference"
+tags = ["bmvc", "computer vision", "bmva"]
+languages = ["en"]
+license = "LicenseRef-BMVC"
+license_note = "bmvc2k.cls says 'Copyright 2007 Adrian F. Clark. All rights reserved'; the BMVA distributes the kit to BMVC authors."
+main = "bmvc_review.tex"
+engine = "pdflatex"
+organization = "British Machine Vision Association"
+
+[venue]
+name = "BMVC"
+year = 2026
+url = "https://bmvc2026.bmva.org/"
+
+[upstream]
+url = "https://github.com/lwpyh/BMVCTemplate2026/archive/6c6db49ec43c4ee222513a3568a095179f17c8c6.tar.gz"
+homepage = "https://github.com/lwpyh/BMVCTemplate2026"
+version = "BMVC 2026 author kit"
+commit = "6c6db49ec43c4ee222513a3568a095179f17c8c6"
+
+[zh-CN]
+description = "英国机器视觉会议（BMVC）作者模板 bmvc2k，已设为匿名评审。"
+
+[setup]
+notes = "bmvc_review.tex is the anonymous review version; the kit's bmvc_final.tex adds author names for the camera-ready."

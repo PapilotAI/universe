@@ -309,14 +309,13 @@ confidence = "high"
 id = "bmvc"
 abbr = "BMVC"
 name = "British Machine Vision Conference"
-template = "article"
+template = "bmvc"
 ccf = "C"
 area = "ai"
 publisher = "BMVA"
 year = 2026
 cfp = "https://bmvc2026.bmva.org/authors/author-guidelines/"
-confidence = "low"
-note = "BMVC ships its own author kit."
+confidence = "high"
 
 [[venues]]
 id = "conll"

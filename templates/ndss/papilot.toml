@@ -1,0 +1,28 @@
+id = "ndss"
+version = "2027"
+name = "NDSS 2027"
+description = "The NDSS Symposium 2027 template: IEEEtran in conference mode with NDSS's copyright and layout settings."
+category = "conference"
+tags = ["ndss", "security", "isoc", "ieeetran"]
+languages = ["en"]
+license = "LPPL-1.3c"
+main = "ndss2027.tex"
+engine = "pdflatex"
+organization = "Internet Society"
+
+[venue]
+name = "NDSS"
+year = 2027
+url = "https://www.ndss-symposium.org/ndss2027/submissions/templates/"
+
+[upstream]
+url = "https://www.ndss-symposium.org/wp-content/uploads/bare_conf_NDSS2027.tex"
+homepage = "https://www.ndss-symposium.org/ndss2027/submissions/templates/"
+version = "bare_conf_NDSS2027.tex with NDSS's IEEEtran.cls V1.8b (IEEEtran-4.cls)"
+sha256 = "1f8b1e45b85fec73cbefe645dc578cb006e74f3dadaa86c87be9fbdbbb6ef4b8"
+
+[zh-CN]
+description = "NDSS 2027 模板：IEEEtran 会议模式，带 NDSS 的版权与版式设置。"
+
+[setup]
+notes = "ndss2027.tex is NDSS's bare_conf_NDSS2027.tex renamed. Papers are US letter, two columns; check the call for the page limit of the event you submit to."

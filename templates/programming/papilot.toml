@@ -1,0 +1,25 @@
+id = "programming"
+version = "2026.11"
+name = "‹Programming› journal and conference"
+description = "programming.cls of The Art, Science, and Engineering of Programming, the journal behind the ‹Programming› conference."
+category = "conference"
+tags = ["programming", "art science engineering of programming", "programming languages", "journal-first"]
+languages = ["en"]
+license = "LicenseRef-Programming"
+license_note = "The journal's template repository states no license; the journal publishes it for authors (its template listing gives CC BY 4.0)."
+main = "example-programming.tex"
+engine = "pdflatex"
+organization = "The Art, Science, and Engineering of Programming"
+
+[upstream]
+url = "https://github.com/programming-journal/programming/archive/b4c81c34227cfd379e1adccedc859eee1b09fc36.tar.gz"
+homepage = "https://github.com/programming-journal/programming"
+version = "main (2026-11-06)"
+commit = "b4c81c34227cfd379e1adccedc859eee1b09fc36"
+
+[zh-CN]
+name = "‹Programming› 期刊与会议"
+description = "The Art, Science, and Engineering of Programming 期刊（‹Programming› 会议）的 programming.cls 模板。"
+
+[setup]
+notes = "Use \\documentclass[submission]{programming} for review; choose exactly one perspective (art, sciencetheoretical, scienceempirical or engineering) in \\paperdetails. The bibliography uses biblatex with biber."
