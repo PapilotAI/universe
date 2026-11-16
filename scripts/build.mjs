@@ -54,7 +54,7 @@ for (const template of templates) {
     ...(compiled ? { thumbnail: base + '/thumbnail.png', preview: base + '/preview.pdf', pages: stamp.pages } : {}),
     ...(hasCover ? { cover: base + '/cover.png' } : {}),
     ...(m.setup?.notes ? { setup: m.setup.notes.trim() } : {}),
-    page: `${id}/`,
+    page: `templates/${id}/`,
   });
 }
 
@@ -80,7 +80,7 @@ for (const v of venues) {
   entries.push({
     id: v.id, version: family.version, name: v.year ? `${v.abbr} ${v.year}` : v.abbr, description: v.name, category: 'conference',
     tags: [v.abbr, ...(v.ccf ? [`CCF-${v.ccf}`] : []), v.area, ...(v.topics ?? [])].slice(0, 12),
-    ...shared, venue, template: family.id, ...(setup ? { setup } : {}), page: `${v.id}/`,
+    ...shared, venue, template: family.id, ...(setup ? { setup } : {}), page: `conferences/${v.id}/`,
   });
 }
 
@@ -218,7 +218,7 @@ fs.writeFileSync(path.join(out, 'index.html'), page({
 }));
 
 for (const entry of entries) {
-  const dir = path.join(out, entry.id);
+  const dir = path.join(out, entry.page);
   fs.mkdirSync(dir, { recursive: true });
   const deep = `papilot://new?template=${encodeURIComponent(entry.id)}&version=${encodeURIComponent(entry.version)}`;
   const cover = entry.cover ?? entry.thumbnail, [width, height] = cover ? pngSize(path.join(out, cover)) : [];
@@ -269,8 +269,8 @@ for (const entry of entries) {
 
 fs.writeFileSync(path.join(out, '404.html'), page({ title: 'Not found · Papilot Universe', canonical: '', description: '', body: `<div class="wrap missing"><h1>${label('notFound')}</h1><a class="button" href="${U}">${label('back')}</a></div>` }));
 for (const file of ['universe.css', 'universe.js', 'logo.svg', 'favicon.png']) fs.copyFileSync(path.join(ROOT, 'site', file), path.join(out, 'assets', file));
-// Pages used to live under /universe/t/<id>/.
-fs.writeFileSync(path.join(DIST, '_redirects'), '/universe/t/* /universe/:splat 301\n');
+// Template pages used to live under /universe/t/<id>/.
+fs.writeFileSync(path.join(DIST, '_redirects'), '/universe/t/* /universe/templates/:splat 301\n');
 fs.writeFileSync(path.join(DIST, '_headers'), `/universe/v1/index.json
   Cache-Control: public, max-age=300
   Access-Control-Allow-Origin: *

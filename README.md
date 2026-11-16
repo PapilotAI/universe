@@ -16,7 +16,7 @@ CI compiles every template with TeX Live (free fonts only) and publishes a stati
 
 | Path | Contents |
 | --- | --- |
-| `/universe/` | the gallery, one page per template or venue at `<id>/` |
+| `/universe/` | the gallery; template pages at `templates/<id>/`, conference pages at `conferences/<id>/` |
 | `/universe/v1/index.json` | every template, with its archive URL, size and SHA-256 |
 | `/universe/v1/templates/<id>/<version>.zip` | the files, immutable once published |
 | `/universe/v1/templates/<id>/<version>/` | `thumbnail.png` and `preview.pdf` |
