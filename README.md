@@ -4,6 +4,10 @@ LaTeX templates for starting a new document in [Papilot](https://papilot.ai): of
 
 Browse them at **[papilot.ai/universe](https://papilot.ai/universe/)**, or pick one in Papilot under **New paper…**. Papilot downloads the template, checks its SHA-256, creates the folder with Git history, and opens it with the template's main file and engine already set.
 
+The gallery shares the homepage's navigation, blue planet icon, typography, pale backdrop and light/dark appearance. It shows each template once as a preview card, and category counts reflect those templates. Search by template or conference name to find its underlying template, then narrow the results by document type; all categories remain visible on phones. Searches and categories are kept in the URL for sharing, and **Clear filters** recovers from an empty result. Browsing the template cards and downloading their files also work without JavaScript.
+
+The English gallery places Chinese university thesis templates after the other templates. Chinese browsing retains the thesis-first order. Switching languages updates the order while keeping the current search and category; the template API retains its existing order.
+
 ## How it works
 
 ```
@@ -60,7 +64,7 @@ notes = "Fill in the title and authors in …"
 
 ## Conferences (`venues/*.toml`)
 
-Many conferences share one template: hundreds of ACM venues use `acm-sigconf`, theory venues use `lipics`, and so on. `venues/` lists conferences, each pointing at the template its latest call for papers asks for. The first set covers the CCF 2026 (7th edition) list, which spans computer science, plus programming-language venues outside it (`pl.toml`); venues from other fields go in their own files. The gallery lists venues alphabetically; CCF data is metadata, not an ordering.
+Many conferences share one template: hundreds of ACM venues use `acm-sigconf`, theory venues use `lipics`, and so on. `venues/` lists conferences, each pointing at the template its latest call for papers asks for. The first set covers the CCF 2026 (7th edition) list, which spans computer science, plus programming-language venues outside it (`pl.toml`); venues from other fields go in their own files. Template detail pages link to their related conferences alphabetically; CCF data is metadata, not an ordering.
 
 ```toml
 [[venues]]
@@ -90,6 +94,8 @@ npm run compile [id…]     # PDFs and thumbnails into build/, skipping unchange
 npm run build             # dist/universe/
 npm run serve             # http://127.0.0.1:4410/universe/
 ```
+
+For website changes, run `npx playwright install chromium` once, then `npm run test:site` after building. The browser checks cover English and Chinese, desktop and mobile layouts, themes, search/filter recovery, template links and downloads, reduced motion and browsing without JavaScript. CI runs them against the compiled catalog. Screenshots are saved under `test-results/site/`.
 
 Point a development Papilot at the local site with `PAPILOT_UNIVERSE_URL=http://127.0.0.1:4410/universe/`.
 
