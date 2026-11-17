@@ -110,7 +110,9 @@ const L = {
   empty: ['No templates match.', '没有匹配的模板。'], notFound: ['Page not found', '找不到页面'], back: ['All templates', '全部模板'],
   licenses: ['Templates keep their own licenses', '模板遵循各自的许可'],
   missing: ['Missing a template or a conference?', '没找到需要的模板或会议？'], contribute: ['Add it on GitHub', '在 GitHub 上提交'], contributeShort: ['Contribute', '贡献模板'],
-  conferencesTitle: ['Conferences', '会议'],
+  templatesTitle: ['Templates', '模板'],
+  category: ['Document type', '文档类型'], reset: ['Clear filters', '清除筛选'],
+  demo: ['Try online demo', '体验在线演示'],
   basis: ['Format source', '格式依据'], basis_high: ['The call for papers', '征稿通知原文'], basis_medium: ['A past edition or the publisher', '往届或出版方说明'], basis_low: ['Inferred from the publisher; check the call before submitting', '按出版方惯例推断，投稿前请核对征稿通知'],
   template: ['Template', '模板'], ccf: ['CCF recommended', 'CCF 推荐'], publisher: ['Publisher', '出版方'], cfp: ['Call for papers', '征稿通知'], usedBy: ['Used by', '使用此模板的会议'], privacy: ['Privacy notice', '隐私声明'], blog: ['Blog', '博客'], downloads: ['Download', '下载'],
 };
@@ -130,7 +132,11 @@ const sourceUrl = entry => entry.upstream.homepage ?? entry.venue?.url ?? entry.
 const shortUrl = url => { const parsed = new URL(url); return (parsed.hostname.replace(/^www\./, '') + parsed.pathname).replace(/\/$/, ''); };
 const megabytes = bytes => bytes < 1e6 ? `${Math.max(1, Math.round(bytes / 1e3))} KB` : `${(bytes / 1e6).toFixed(1)} MB`;
 const pngSize = file => { const head = fs.readFileSync(file).subarray(16, 24); return [head.readUInt32BE(0), head.readUInt32BE(4)]; };
+const ariaLabel = (en, zh) => `aria-label="${esc(en)}" data-label-en="${esc(en)}" data-label-zh="${esc(zh)}"`;
 const ICON = {
+  github: '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>',
+  demo: '<svg class="demo-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4Z" fill="currentColor" stroke="none"/></svg>',
+  universe: '<svg class="universe-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><g class="universe-orbit"><g transform="rotate(-25 12 12)"><ellipse cx="12" cy="12" rx="10" ry="4"/><circle class="universe-planet" cx="12" cy="12" r="5.5"/><path d="M2 12a10 4 0 0 0 20 0" stroke-linecap="round"/></g></g><path d="M19 2v3m-1.5-1.5h3" stroke-linecap="round"/></svg>',
   search: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
   download: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>',
   pdf: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
@@ -161,20 +167,22 @@ function page({ title, titleZh = title, description, canonical, body, image, cur
 </head>
 <body>
 <header class="topbar"><div class="wrap topbar-inner">
-  <a class="brand" href="${MAIN}" aria-label="Papilot"><img class="brand-mark" src="${U}assets/logo.svg" alt="" width="26" height="26"><span>Papilot</span></a>
-  <nav class="nav" aria-label="Sections"><a href="${U}" aria-current="${current}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}${link(MAIN + '#download', ...L.downloads)}</nav>
+  <a class="brand" href="${MAIN}" aria-label="Papilot"><img class="brand-mark" src="${U}assets/logo.svg" alt="" width="26" height="26"><span class="brand-name">Papilot</span></a>
+  <nav class="nav" ${ariaLabel("Navigation", "页面导航")}><a class="topbar-universe" href="${U}" aria-current="${current}">${ICON.universe}<span>Universe</span></a>${link(MAIN + 'blog/', ...L.blog)}</nav>
   <div class="topbar-actions">
-    <button class="icon-button theme-button" type="button" id="theme-button" aria-pressed="false" aria-label="Dark mode" title="Dark mode" hidden>${ICON.moon}${ICON.sun}</button>
+    <a class="try-demo topbar-demo" href="${MAIN}demo">${ICON.demo}${label('demo')}</a>
+    <button class="icon-button theme-button" type="button" id="theme-button" aria-pressed="false" ${ariaLabel("Dark mode", "深色模式")} hidden>${ICON.moon}${ICON.sun}</button>
     <div class="lang-menu" hidden>
-      <button class="icon-button" type="button" id="lang-button" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-list" aria-label="Language" title="Language">${ICON.globe}</button>
+      <button class="icon-button" type="button" id="lang-button" aria-haspopup="menu" aria-expanded="false" aria-controls="lang-list" ${ariaLabel("Language", "语言")}>${ICON.globe}</button>
       <div class="lang-list" id="lang-list" role="menu" aria-labelledby="lang-button" hidden><button type="button" role="menuitemradio" data-set-lang="en" aria-checked="false">English${ICON.check}</button><button type="button" role="menuitemradio" data-set-lang="zh-CN" aria-checked="false">简体中文${ICON.check}</button></div>
     </div>
+    <a class="button github-link" href="https://github.com/PapilotAI/papilot" aria-label="GitHub">${ICON.github}<span>GitHub</span></a>
   </div>
 </div></header>
 <main>${body}</main>
 <footer class="footer"><div class="wrap footer-inner">
   <a class="brand" href="${MAIN}"><img class="brand-mark" src="${U}assets/logo.svg" alt="" width="22" height="22">Papilot</a>
-  <nav aria-label="Links"><a href="${U}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}<a href="https://github.com/PapilotAI/papilot">GitHub</a><a href="${REPO}/blob/main/CONTRIBUTING.md" rel="noopener">${label('contributeShort')}</a>${link(MAIN + 'privacy/', ...L.privacy, MAIN + 'privacy/')}</nav>
+  <nav aria-label="Links"><a href="${U}">Universe</a>${link(MAIN + 'blog/', ...L.blog)}${link(MAIN + '#download', ...L.downloads)}<a href="https://github.com/PapilotAI/papilot">GitHub</a><a href="${REPO}/blob/main/CONTRIBUTING.md" rel="noopener">${label('contributeShort')}</a>${link(MAIN + 'privacy/', ...L.privacy, MAIN + 'privacy/')}</nav>
   <p>${label('licenses')} · © 2026 PapilotAI</p>
 </div></footer>
 <script src="${U}assets/universe.js" defer></script>
@@ -183,41 +191,44 @@ function page({ title, titleZh = title, description, canonical, body, image, cur
 `;
 }
 
-// Templates show as sheets; conferences as a list, since hundreds share a few templates.
+// Show each template once; conference names also match their underlying template.
 const kits = entries.filter(entry => !entry.template);
+const chineseOrder = new Map(kits.map((entry, index) => [entry.id, index]));
+// Chinese-language university theses remain available, but do not lead the English gallery.
+const chineseThesis = entry => entry.category === 'thesis' && entry.languages.includes('zh');
+const englishKits = [...kits].sort((a, b) => Number(chineseThesis(a)) - Number(chineseThesis(b)));
 const isVenue = entry => !!(entry.template || entry.venue?.area);
-// Alphabetical: the gallery serves every field, so no ranking list orders it.
-const venueRows = entries.filter(isVenue).sort((a, b) => a.venue.name.localeCompare(b.venue.name, 'en', { sensitivity: 'base' }));
-const familyName = id => byId.get(id)?.name ?? id;
+// Keep the related-conference links on detail pages alphabetical.
+const conferenceEntries = entries.filter(isVenue).sort((a, b) => a.venue.name.localeCompare(b.venue.name, 'en', { sensitivity: 'base' }));
 const usedBy = new Map();
-for (const row of venueRows) { const family = row.template ?? row.id; usedBy.set(family, [...(usedBy.get(family) ?? []), row]); }
-const categories = [...GROUPS, 'other'].filter(key => kits.some(entry => group(entry) === key) || (key === 'conference' && venueRows.length));
-const count = key => key === 'all' ? kits.length + venueRows.filter(row => row.template).length : key === 'conference' ? kits.filter(entry => group(entry) === key && !isVenue(entry)).length + venueRows.length : kits.filter(entry => group(entry) === key).length;
-const card = entry => `<a class="card" href="${U}${entry.page}" data-group="${group(entry)}" data-search="${esc(search(entry))}"${isVenue(entry) ? ' data-venue-kit' : ''}>
-  <div class="sheet">${entry.thumbnail ? `<img src="${U}${entry.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}</div>
-  <div class="card-text"><span class="card-title">${both(entry.name, zh(entry, 'name'))}</span><span class="card-meta">${meta(entry)}</span></div>
-</a>`;
+for (const entry of conferenceEntries) { const family = entry.template ?? entry.id; usedBy.set(family, [...(usedBy.get(family) ?? []), entry]); }
+const categories = [...GROUPS, 'other'].filter(key => kits.some(entry => group(entry) === key));
+const count = key => key === 'all' ? kits.length : kits.filter(entry => group(entry) === key).length;
 const venueSearch = entry => [entry.venue.name, entry.venue.full, entry.description, entry.venue.publisher, entry.template ?? entry.id, `ccf ${entry.venue.ccf ?? ''}`, ...AREAS[entry.venue.area], ...(entry.venue.topics ?? []).flatMap(topic => AREAS[topic])].filter(Boolean).join(' ').toLowerCase();
-const row = entry => `<a class="venue" href="${U}${entry.page}"${entry.template ? ' data-alias' : ''} data-search="${esc(venueSearch(entry))}">
-  <span class="venue-abbr">${esc(entry.venue.name)}</span><span class="venue-name">${esc(entry.venue.full ?? entry.description)}</span><span class="venue-template">${esc(familyName(entry.template ?? entry.id))}</span>
+const cardSearch = entry => [search(entry), ...(usedBy.get(entry.id) ?? []).map(venueSearch)].join(' ');
+const card = (entry, index) => `<a class="card" href="${U}${entry.page}" data-order-en="${index}" data-order-zh="${chineseOrder.get(entry.id)}" data-group="${group(entry)}" data-search="${esc(cardSearch(entry))}">
+  <article><div class="sheet">${entry.thumbnail ? `<img src="${U}${entry.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}</div>
+  <header class="card-text"><h3 class="card-title">${both(entry.name, zh(entry, 'name'))}</h3><p class="card-meta">${meta(entry)}</p></header></article>
 </a>`;
 fs.writeFileSync(path.join(out, 'index.html'), page({
   title: 'Papilot Universe', canonical: '',
   description: 'LaTeX templates for theses and conference papers. Start a new paper from any of them in Papilot.',
   body: `
 <section class="hero"><div class="wrap hero-inner">
-  <h1>Universe</h1>
+  <h1>${ICON.universe}<span>Universe</span></h1>
   <p class="hero-sub">${label('tagline')}</p>
-  <label class="search">${ICON.search}<input type="search" data-search-input autocomplete="off" spellcheck="false" aria-label="${esc(L.search[0])}" placeholder="${esc(L.search[0])}" data-placeholder-en="${esc(L.search[0])}" data-placeholder-zh="${esc(L.search[1])}"><kbd>/</kbd></label>
-  <div class="segmented" role="tablist" aria-label="Category">${['all', ...categories].map((key, index) => `<button type="button" role="tab" data-filter="${key}" aria-selected="${index === 0}">${label(key)}<span class="count">${count(key)}</span></button>`).join('')}</div>
+  <div class="gallery-controls" data-gallery-controls hidden>
+    <label class="search">${ICON.search}<input type="search" data-search-input autocomplete="off" spellcheck="false" ${ariaLabel(...L.search)} placeholder="${esc(L.search[0])}" data-placeholder-en="${esc(L.search[0])}" data-placeholder-zh="${esc(L.search[1])}"><kbd>/</kbd></label>
+    <div class="filters" role="group" ${ariaLabel(...L.category)}>${['all', ...categories].map((key, index) => `<button type="button" data-filter="${key}" aria-pressed="${index === 0}">${label(key)}<span class="count" aria-hidden="true">${count(key)}</span></button>`).join('')}</div>
+  </div>
 </div></section>
 <div class="wrap">
-  <section class="grid" data-grid>${kits.map(card).join('\n')}</section>
-  ${venueRows.length ? `<section class="venues" data-venues>
-    <div class="venues-head"><h2>${label('conferencesTitle')}</h2><span class="count" data-venue-count>${venueRows.length}</span></div>
-    <div class="venue-list" data-venue-list>${venueRows.map(row).join('\n')}</div>
-  </section>` : ''}
-  <p class="empty" data-empty hidden>${label('empty')}</p>
+  <section class="templates" data-templates>
+    <div class="section-head"><h2>${label('templatesTitle')}</h2><span class="count" data-template-count>${kits.length}</span></div>
+    <p class="visually-hidden" data-order-status role="status" data-status-en="Templates reordered for English." data-status-zh="已按中文浏览顺序排列模板。"></p>
+    <div class="grid" data-grid>${englishKits.map(card).join('\n')}</div>
+  </section>
+  <div class="empty" data-empty hidden><p role="status">${label('empty')}</p><button type="button" class="button" data-reset>${label('reset')}</button></div>
   <p class="contribute">${label('missing')} <a href="${REPO}/blob/main/CONTRIBUTING.md" rel="noopener">${label('contribute')} →</a></p>
 </div>`,
 }));
@@ -258,7 +269,7 @@ for (const entry of entries) {
 <div class="wrap">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="${U}">Universe</a><span aria-hidden="true">/</span><span>${heading}</span></nav>
 <article class="detail">
-  <div class="stage">${cover ? `<a ${entry.preview ? `href="${U}${entry.preview}"` : ''} aria-label="${esc(L.preview[0])}"><div class="sheet"><img src="${U}${cover}" alt="" width="${width}" height="${height}"></div></a>` : ''}</div>
+  <div class="stage">${cover ? `<a ${entry.preview ? `href="${U}${entry.preview}"` : ''} ${ariaLabel(...L.preview)}><div class="sheet"><img src="${U}${cover}" alt="" width="${width}" height="${height}"></div></a>` : ''}</div>
   <div class="detail-body">
     <p class="eyebrow">${eyebrow}</p>
     <h1>${heading}</h1>
